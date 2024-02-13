@@ -3901,7 +3901,6 @@ object-fit: cover
 position: absolute;
 
 z-index: 20;
-
 display: flex;
 
 height: 100vh;
@@ -4057,11 +4056,11 @@ position: relative
 }
 
 #sidebar #category .tt_category ul li i {
-position: absolute;
-right: 0px;
+position: relative;
+margin-right: 10px;
 cursor: pointer;
 font-size: 0.75rem;
-line-height: 1.25rem
+line-height: 1.25rem;
 }
 
 #sidebar #category .tt_category .sub_category_list li:first-child {
@@ -4231,7 +4230,15 @@ color: #70b3ff;
 font-weight: 500;
 }
 
-/*ROOT 무지개 효과*/
+/*ROOT 폰트 사이즈 & 무지개 효과*/
+.link_tit{
+font-size: 0.86rem !important;
+}
+
+.link_tit span{
+font-size: 0.86rem !important;
+}
+
 #sidebar #category .tt_category .link_tit{
 -webkit-animation: textAnim 5s ease-out infinite;
 background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -4249,6 +4256,19 @@ background-size: 250% 500%;
 100% {
   background-position: 0 50%;
 }
+}
+
+/*카테고리 목차*/
+.category_list li.category_doc {
+  display: flex;
+  align-items: center;
+  padding-left: 0.3rem;
+  opacity: 0.6 !important;
+  font-size: 0.765625rem;
+  margin-left: 19px !important;
+  margin-right: 15px !important;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
 }
 
 /*카테고리 글 수 css*/
