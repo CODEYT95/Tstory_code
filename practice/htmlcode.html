@@ -593,7 +593,69 @@
               </s_sidebar_element>
               <s_sidebar_element><!-- 카테고리-->
                 <div class="sidebar-element">
-                  <div id="category" x-data="category">[##_category_list_##]</div>
+                  <div id="category" x-data="category"><ul class="tt_category"><li class=""><a href="/category" class="link_tit"> ROOT <span class="c_cnt">(2)</span> </a>
+                    <ul class="category_list"><li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Language" class="link_item"> Language <span class="c_cnt">(1)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Language/C" class="link_sub_item"> C <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Language/JAVA" class="link_sub_item"> JAVA <span class="c_cnt">(1)</span> </a></li>
+                  <li class=""><a href="/category/Language/JavaScript" class="link_sub_item"> JavaScript <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Language/TypeScript" class="link_sub_item"> TypeScript <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Language/Python" class="link_sub_item"> Python <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Language/PHP" class="link_sub_item"> PHP <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Library" class="link_item"> Library <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Library/JQuery" class="link_sub_item"> JQuery <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Style%20Sheet" class="link_item"> Style Sheet <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"> CSS <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"> Bootstrap5 <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Style%20Sheet/%EC%8A%A4%ED%83%80%EC%9D%BC%20%EC%9A%94%EC%86%8C" class="link_sub_item"> 스타일 요소 <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class=""><a href="/category/Node.js" class="link_item"> Node.js <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Spring" class="link_item"> Spring <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%9D%B4%EB%A1%A0" class="link_item"> 데이터베이스 이론 <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/MySQL" class="link_item"> MySQL <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Oracle" class="link_item"> Oracle <span class="c_cnt">(0)</span> </a></li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/OS" class="link_item"> OS <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/OS/Window" class="link_sub_item"> Window <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/OS/Linux" class="link_sub_item"> Linux <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Server" class="link_item"> Server <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Server/Apache" class="link_sub_item"> Apache <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"> Tomcat <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class=""><a href="/category/GIT" class="link_item"> GIT <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/AWS" class="link_item"> AWS <span class="c_cnt">(0)</span> </a></li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/IDE" class="link_item"> IDE <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"> Eclipse <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"> Inteli J <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"> VS Code <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class=""><a href="/category/Tool" class="link_item"> Tool <span class="c_cnt">(0)</span> </a></li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Test" class="link_item"> Test <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Test/Programmers" class="link_sub_item"> Programmers <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Test/%EB%B0%B1%EC%A4%80" class="link_sub_item"> 백준 <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/Error" class="link_item"> Error <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/Error/Java%EC%97%90%EB%9F%AC" class="link_sub_item"> Java에러 <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Error/JS%EC%97%90%EB%9F%AC" class="link_sub_item"> JS에러 <span class="c_cnt">(0)</span> </a></li>
+                  <li class=""><a href="/category/Error/Git%EC%97%90%EB%9F%AC" class="link_sub_item"> Git에러 <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  <li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="/category/ETC" class="link_item"> ETC <span class="c_cnt">(0)</span> </a>
+                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="/category/ETC/%EC%9D%BC%EC%83%81" class="link_sub_item"> 일상 <span class="c_cnt">(0)</span> </a></li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </div>
                 </div>
               </s_sidebar_element>
 
