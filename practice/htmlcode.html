@@ -604,9 +604,11 @@
                                 <span>Programming</span>
                               </li>
                               <li class="" x-data="{ open: false }">
-                                <i class="fab fa-codepen"></i>
-                                <a href="/category/Language" class="link_item"> Language <span class="c_cnt">2</span> </a>
-                                <i class="fal fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                <a href="/category/Language" class="link_item toggleDropdown" x-on:click="open = !open">
+                                  <i class="fab fa-codepen"></i>
+                                  Language <span class="c_cnt">2</span>
+                                  <i class="fal fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                </a>
                                 <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
                                   <li class="">
                                     <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain"></i>C <span class="c_cnt">0</span> </a>
@@ -885,6 +887,13 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
         </div>
       </div>
     </s_t3>
+  
+  <!-- 카테고리 링크 이동 방지 -->
+  <script>
+    document.querySelector('.toggleDropdown').addEventListener('click', function(event) {
+        event.preventDefault(); 
+    });
+  </script>
   </body>
 
 </html>
