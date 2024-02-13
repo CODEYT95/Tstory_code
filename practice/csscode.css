@@ -4069,15 +4069,15 @@ margin-top: 1rem
 
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
 margin-right: 0.25rem;
-font-size: 0.75rem;
+font-size: 0.9rem;
 line-height: 1rem;
 --tw-text-opacity: 1;
 color: rgb(153 153 161 / var(--tw-text-opacity));
-font-weight: 700;
+font-weight: 100;
 --tw-content: '\f105';
 content: var(--tw-content);
 display: inline-block;
-font-family: 'Font Awesome 6 Free';
+font-family: 'Font Awesome 5 Pro';
 font-style: normal;
 line-height: 1
 }
@@ -4262,13 +4262,10 @@ background-size: 250% 500%;
 .category_list li.category_doc {
   display: flex;
   align-items: center;
-  padding-left: 0.3rem;
   opacity: 0.6 !important;
   font-size: 0.765625rem;
-  margin-left: 19px !important;
   margin-right: 15px !important;
-  margin-top: 20px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 0px !important;
 }
 
 /*카테고리 글 수 css*/
@@ -4281,4 +4278,8 @@ background-size: 250% 500%;
   bottom: 1px !important;
   position: relative;
   font-size: 10px !important;
+}
+
+.fa-chevron-right:before {
+  content: "\f138" !important;
 }
