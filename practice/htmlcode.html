@@ -774,9 +774,12 @@
                                   <i class="far fa-ellipsis-h"></i>
                                   <span>Dev Kit</span>
                                 </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  <a href="/category/IDE" class="link_item toggleDropdown"> IDE <span class="c_cnt">0</span> </a>
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                                  <a href="/category/IDE" class="link_item toggleDropdown"> 
+                                    <i class="fal fa-window category-icon"></i>
+                                    IDE <span class="c_cnt">0</span> 
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
                                   <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
                                     <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"> Eclipse <span class="c_cnt">0</span> </a></li>
                                     <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"> InteliJ <span class="c_cnt">0</span> </a></li>
