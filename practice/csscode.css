@@ -2140,6 +2140,7 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 
 .xl\:left-0 {
   left: 0px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 2%);
 }
 
 .xl\:w-c {
@@ -4100,7 +4101,7 @@ width: 16rem;
 
 padding-left: 1.25rem;
 
-padding-right: 1.25rem
+padding-right: 1.6rem
 }
 
 #sidebar .sidebar-element h2 {
