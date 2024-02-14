@@ -809,8 +809,11 @@
                                   </ul>
                                 </li>
                                 <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  <a href="/category/Error" class="link_item toggleDropdown"> Error <span class="c_cnt">0</span> </a>
+                                  <a href="/category/Error" class="link_item toggleDropdown"> 
+                                    <i class="fal fa-exclamation-triangle"></i>
+                                    Error <span class="c_cnt">0</span> 
+                                    <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
                                   <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
                                     <li class=""><a href="/category/Error/Java에러" class="link_sub_item"> Java에러 <span class="c_cnt">0</span> </a></li>
                                     <li class=""><a href="/category/Error/JS에러" class="link_sub_item"> JS에러 <span class="c_cnt">0</span> </a></li>
