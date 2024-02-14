@@ -742,15 +742,22 @@
                                       <li class=""><a href="/category/OS/Linux" class="link_sub_item"> Linux <span class="c_cnt">0</span> </a></li>
                                     </ul>
                                 </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  <a href="/category/Server" class="link_item toggleDropdown"> Server <span class="c_cnt">0</span> </a>
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                                  <a href="/category/Server" class="link_item toggleDropdown"> 
+                                    <i class="fal fa-server category-icon"></i>
+                                    Server <span class="c_cnt">0</span> 
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
                                   <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
                                     <li class=""><a href="/category/Server/Apache" class="link_sub_item"> Apache <span class="c_cnt">0</span> </a></li>
                                     <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"> Tomcat <span class="c_cnt">0</span> </a></li>
                                   </ul>
                                 </li>
-                                <li class="cat-sub-menu"><a href="/category/GIT" class="link_item"> GIT <span class="c_cnt">0</span> </a></li>
+                                <li class="cat-sub-menu"><a href="/category/GIT" class="link_item">
+                                  <i class="devicon devicon-git-plain"></i>
+                                   GIT <span class="c_cnt">0</span> 
+                                  </a>
+                                </li>
                                 
                                 <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
                                   <i class="far fa-ellipsis-h"></i>
