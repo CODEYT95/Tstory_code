@@ -808,11 +808,11 @@
                                     <li class=""><a href="/category/Test/백준" class="link_sub_item"> 백준 <span class="c_cnt">0</span> </a></li>
                                   </ul>
                                 </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
                                   <a href="/category/Error" class="link_item toggleDropdown"> 
                                     <i class="fal fa-exclamation-triangle"></i>
                                     Error <span class="c_cnt">0</span> 
-                                    <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
                                   </a>
                                   <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
                                     <li class=""><a href="/category/Error/Java에러" class="link_sub_item"> Java에러 <span class="c_cnt">0</span> </a></li>
