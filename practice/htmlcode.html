@@ -542,7 +542,7 @@
           </s_paging>
         </main>
         <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'>
-          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box">
+          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
             <s_sidebar>
               <s_sidebar_element><!-- 프로필-->
                 <div class="sidebar-element">
@@ -585,188 +585,226 @@
                   </div>
                 </div>
               </s_sidebar_element>
-              <s_sidebar_element><!-- 검색-->
+
+              <!-- 검색
+              <s_sidebar_element>
                 <div class="sidebar-element">
                   <s_search>
                     <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
                   </s_search>
                 </div>
               </s_sidebar_element>
+              -->
+              <s_sidebar_element>
+                <div class="division-line"></div>
+              </s_sidebar_element>
+
               <s_sidebar_element><!-- 카테고리-->
-                <div class="sidebar-element">
+                <div class="sidebar-element __sidebar-category">
                   <div id="category"><!-- 원본 코드 : x-data="category" -->
-                    <ul class="tt_category">
-                        <li class="">
-                            <a href="/category" class="link_tit"> ROOT <span class="c_cnt">(3)</span> </a>
-                            <ul class="category_list">
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>Programming</span>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <a href="/category/Language" class="link_item toggleDropdown" x-on:click="open = !open">
-                                  <i class="fab fa-codepen"></i>
-                                  Language <span class="c_cnt">2</span>
-                                  <i class="fal fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class="">
-                                    <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain"></i>C <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Language/JAVA" class="link_sub_item"><i class="devicon-java-plain"></i>JAVA <span class="c_cnt">1</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Language/JavaScript" class="link_sub_item"><i class="devicon-javascript-plain"></i>JavaScript <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Language/TypeScript" class="link_sub_item"><i class="devicon-typescript-plain"></i>TypeScript <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Language/Python" class="link_sub_item"><i class="devicon-python-plain"></i>Python <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Language/PHP" class="link_sub_item"><i class="devicon-php-plain"></i>PHP <span class="c_cnt">0</span> </a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="far fa-books"></i>
-                                <a href="/category/Library" class="link_item"> Library <span class="c_cnt">0</span> </a>
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/Library/JQuery" class="link_sub_item"> JQuery <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="far fa-code"></i>
-                                <a href="/category/Mark Up" class="link_item"> Mark Up <span class="c_cnt">0</span> </a>
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class="">
-                                    <a href="/category/Mark%20UP/HTML" class="link_sub_item"> <i class="fab fa-html5"></i>HTML <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Mark%20UP/MarkDown" class="link_sub_item"> MarkDown <span class="c_cnt">0</span> </a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="far fa-palette"></i>
-                                <a href="/category/Style%20Sheet" class="link_item"> Style Sheet <span class="c_cnt">0</span> </a>
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"> CSS <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"> Bootstrap5 <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Style%20Sheet/%EC%8A%A4%ED%83%80%EC%9D%BC%20%EC%9A%94%EC%86%8C" class="link_sub_item"> 스타일 요소 <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
-
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>Framework</span>
-                              </li>
-                              <li class="">
-                                <a href="/category/Node.js" class="link_item"> Node.js <span class="c_cnt">0</span> </a>
-                              </li>
-                              <li class="">
-                                <a href="/category/Spring" class="link_item"> Spring <span class="c_cnt">0</span> </a>
-                              </li>
-
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>DATA</span>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <a href="/category/DBMS" class="link_item"> DBMS <span class="c_cnt">0</span> </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class="">
-                                    <a href="/category/데이터베이스%20이론" class="link_item"> 데이터베이스 이론 <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/MySQL" class="link_item"> MySQL <span class="c_cnt">0</span> </a>
-                                  </li>
-                                  <li class="">
-                                    <a href="/category/Oracle" class="link_item"> Oracle <span class="c_cnt">0</span> </a>
-                                  </li>
-                                </ul>
-                              </li>
-                                
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>DevOps</span>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  <a href="/category/OS" class="link_item"> OS <span class="c_cnt">0</span> </a>
+                    <nav id="sidemenu" class="category">
+                      <ul class="tt_category">
+                          <li class="">
+                              <a href="/category" class="link_tit"> ROOT <span class="c_cnt">(3)</span> </a>
+                              <ul class="category_list">
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>Programming</span>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <a href="/category/Language" class="link_item toggleDropdown" x-on:click="open = !open">
+                                    <i class="fab fa-codepen category-icon"></i>
+                                    Language <span class="c_cnt">2</span>
+                                    <i class="fal fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
                                   <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/OS/Window" class="link_sub_item"> Window <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/OS/Linux" class="link_sub_item"> Linux <span class="c_cnt">0</span> </a></li>
+                                    <li class="">
+                                      <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain"></i>C <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Language/JAVA" class="link_sub_item"><i class="devicon-java-plain"></i>JAVA <span class="c_cnt">1</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Language/JavaScript" class="link_sub_item"><i class="devicon-javascript-plain"></i>JavaScript <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Language/TypeScript" class="link_sub_item"><i class="devicon-typescript-plain"></i>TypeScript <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Language/Python" class="link_sub_item"><i class="devicon-python-plain"></i>Python <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Language/PHP" class="link_sub_item"><i class="devicon-php-plain"></i>PHP <span class="c_cnt">0</span> </a>
+                                    </li>
                                   </ul>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <a href="/category/Server" class="link_item"> Server <span class="c_cnt">0</span> </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/Server/Apache" class="link_sub_item"> Apache <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"> Tomcat <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
-                              <li class=""><a href="/category/GIT" class="link_item"> GIT <span class="c_cnt">0</span> </a></li>
-                              
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>Cloud</span>
-                              </li>
-                              <li class=""><a href="/category/AWS" class="link_item"> AWS <span class="c_cnt">0</span> </a></li>
-                              
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>Dev Kit</span>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <a href="/category/IDE" class="link_item"> IDE <span class="c_cnt">0</span> </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"> Eclipse <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"> InteliJ <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"> VS Code <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
-                              <li class=""><a href="/category/Tool" class="link_item"> Tool <span class="c_cnt">0</span> </a></li>
-                              
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>Test</span>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <a href="/category/Test" class="link_item"> Test <span class="c_cnt">0</span> </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/Test/Programmers" class="link_sub_item"> Programmers <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Test/백준" class="link_sub_item"> 백준 <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
-                              <li class="" x-data="{ open: false }">
-                                <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
-                                <a href="/category/Error" class="link_item"> Error <span class="c_cnt">0</span> </a>
-                                <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                  <li class=""><a href="/category/Error/Java에러" class="link_sub_item"> Java에러 <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Error/JS에러" class="link_sub_item"> JS에러 <span class="c_cnt">0</span> </a></li>
-                                  <li class=""><a href="/category/Error/Git에러" class="link_sub_item"> Git에러 <span class="c_cnt">0</span> </a></li>
-                                </ul>
-                              </li>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <a href="/category/Library" class="link_item toggleDropdown" x-on:click="open = !open">
+                                    <i class="far fa-books category-icon"></i> 
+                                    Library <span class="c_cnt">0</span>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/Library/JQuery" class="link_sub_item"><i class="devicon-jquery-plain"></i>JQuery <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <a href="/category/Mark Up" class="link_item toggleDropdown" x-on:click="open = ! open"> 
+                                    <i class="far fa-code category-icon"></i>
+                                    Mark Up <span class="c_cnt">0</span>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class="">
+                                      <a href="/category/Mark%20UP/HTML" class="link_sub_item"> <i class="fab fa-html5"></i>HTML <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Mark%20UP/MarkDown" class="link_sub_item"><i class="devicon-markdown-original"></i>MarkDown <span class="c_cnt">0</span> </a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <a href="/category/Style%20Sheet" class="link_item toggleDropdown" x-on:click="open = ! open"> 
+                                    <i class="far fa-palette category-icon"></i>
+                                    Style Sheet <span class="c_cnt">0</span>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"><i class="devicon-css3-plain"></i>CSS <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"><i class="devicon-bootstrap-plain"></i>Bootstrap5 <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Style%20Sheet/스타일%20요소" class="link_sub_item"><i class="fad fa-brush"></i>스타일 요소 <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
 
-                              <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                <i class="far fa-ellipsis-h"></i>
-                                <span>ETC</span>
-                              </li>
-                              <li class=""><a href="/category/ETC" class="link_item"> ETC <span class="c_cnt">0</span> </a></li>
-                              <li class=""><a href="/category/일상" class="link_item"> 일상 <span class="c_cnt">0</span> </a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>Framework</span>
+                                </li>
+                                <li class="cat-sub-menu">
+                                  <a href="/category/Node.js" class="link_item">
+                                    <i class="devicon devicon-nodejs-plain category-icon"></i>Node.js <span class="c_cnt">0</span> 
+                                  </a>
+                                </li>
+                                <li class="cat-sub-menu">
+                                  <a href="/category/Spring" class="link_item"><i class="devicon devicon-spring-original category-icon"></i>Spring <span class="c_cnt">0</span> </a>
+                                </li>
+
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>DATA</span>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                                  <a href="/category/DBMS" class="link_item toggleDropdown">
+                                    <i class="fal fa-database category-icon"></i>
+                                     DBMS <span class="c_cnt">0</span>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class="">
+                                      <a href="/category/데이터베이스%20이론" class="link_item"> 데이터베이스 이론 <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/MySQL" class="link_item"> MySQL <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/Oracle" class="link_item"> Oracle <span class="c_cnt">0</span> </a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                                  <a href="/category/FILES" class="link_item toggleDropdown">
+                                    <i class="fal fa-file-code category-icon"></i>
+                                     FILES <span class="c_cnt">0</span>
+                                    <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class="">
+                                      <a href="/category/JSON" class="link_item"> JSON <span class="c_cnt">0</span> </a>
+                                    </li>
+                                    <li class="">
+                                      <a href="/category/XML" class="link_item"> XML <span class="c_cnt">0</span> </a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                  
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>DevOps</span>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                                    <a href="/category/OS" class="link_item toggleDropdown">
+                                      <i class="far fa-computer-classic category-icon"></i> 
+                                      OS <span class="c_cnt">0</span> 
+                                      <i class="fas fa-angle-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                                    </a>
+                                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                      <li class=""><a href="/category/OS/Window" class="link_sub_item"> Window <span class="c_cnt">0</span> </a></li>
+                                      <li class=""><a href="/category/OS/Linux" class="link_sub_item"> Linux <span class="c_cnt">0</span> </a></li>
+                                    </ul>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  <a href="/category/Server" class="link_item toggleDropdown"> Server <span class="c_cnt">0</span> </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/Server/Apache" class="link_sub_item"> Apache <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"> Tomcat <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu"><a href="/category/GIT" class="link_item"> GIT <span class="c_cnt">0</span> </a></li>
+                                
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>Cloud</span>
+                                </li>
+                                <li class="cat-sub-menu"><a href="/category/AWS" class="link_item"> AWS <span class="c_cnt">0</span> </a></li>
+                                
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>Dev Kit</span>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  <a href="/category/IDE" class="link_item toggleDropdown"> IDE <span class="c_cnt">0</span> </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"> Eclipse <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"> InteliJ <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"> VS Code <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu"><a href="/category/Tool" class="link_item"> Tool <span class="c_cnt">0</span> </a></li>
+                                
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>Test</span>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  <a href="/category/Test" class="link_item toggleDropdown"> Test <span class="c_cnt">0</span> </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/Test/Programmers" class="link_sub_item"> Programmers <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Test/백준" class="link_sub_item"> 백준 <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
+                                <li class="cat-sub-menu" x-data="{ open: false }">
+                                  <i class="fas fa-angle-right" x-on:click="open = ! open" :class="{ 'rotate-90 duration-200': open }"></i>
+                                  <a href="/category/Error" class="link_item toggleDropdown"> Error <span class="c_cnt">0</span> </a>
+                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                                    <li class=""><a href="/category/Error/Java에러" class="link_sub_item"> Java에러 <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Error/JS에러" class="link_sub_item"> JS에러 <span class="c_cnt">0</span> </a></li>
+                                    <li class=""><a href="/category/Error/Git에러" class="link_sub_item"> Git에러 <span class="c_cnt">0</span> </a></li>
+                                  </ul>
+                                </li>
+
+                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                                  <i class="far fa-ellipsis-h"></i>
+                                  <span>ETC</span>
+                                </li>
+                                <li class="cat-sub-menu"><a href="/category/ETC" class="link_item"> ETC <span class="c_cnt">0</span> </a></li>
+                                <li class="cat-sub-menu"><a href="/category/일상" class="link_item"> 일상 <span class="c_cnt">0</span> </a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                    </nav>  
                   </div>
                 </div>
               </s_sidebar_element>
@@ -883,18 +921,22 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
           <div class="w-9 h-9"><button class="subscription flex justify-center items-center w-9 h-9 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" x-data="{ subscribed: T.config.SUBSCRIPTION.isConnected }" x-show='T.config.ROLE !== "owner" && /^(.*tistory\.com)$/.test(location.hostname)' :data-blog-id="T.config.BLOG.id" :data-url="TistoryBlog.tistoryUrl" @click="subscribed = ! subscribed"><span class="text-hidden">구독하기</span><i class="fa-star text-sm" :class='subscribed ? "fa-solid" : "fa-regular"'></i></button></div>
         </div>
         <div class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
-          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
+          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="far fa-moon"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fas fa-chevron-double-up"></i></a></div>
         </div>
       </div>
     </s_t3>
   
-  <!-- 카테고리 링크 이동 방지 -->
-  <script>
-    document.querySelector('.toggleDropdown').addEventListener('click', function(event) {
-        event.preventDefault(); 
-    });
-  </script>
-    
+    <!-- 카테고리명 클릭시 이동 방지 -->
+    <script>
+        // JavaScript 또는 프레임워크에서 해당 이벤트 핸들러를 정의
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.toggleDropdown').forEach(function (element) {
+                element.addEventListener('click', function (event) {
+                    event.preventDefault(); // 기본 동작 중지
+                });
+            });
+        });
+    </script>
   </body>
 
 </html>
