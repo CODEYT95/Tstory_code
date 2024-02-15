@@ -8,21 +8,21 @@
 
 /* 폰트 어썸을 이용한 폰트 바꾸기 */
 @font-face {
-  font-family: 'SCoreDream';
+  font-family: 'TheJamsil';
   font-weight: 400;
   font-style: normal;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamRegular.eot');
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamRegular.eot?#iefix') format('embedded-opentype'),
-      url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamRegular.woff2') format('woff2'),
-      url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamRegular.woff') format('woff'),
-      url('https://cdn.jsdelivr.net/gh/webfontworld/score/SCoreDreamRegular.ttf') format("truetype");
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.ttf') format("truetype");
   font-display: swap;
 }
-
+/* 
 *{
-font-family: 'SCoreDream';
+font-family: 'TheJamsil';
 }
-
+*/
 *,
 ::before,
 ::after {
@@ -2153,7 +2153,7 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 }
 
 .xl\:pl-64 {
-  padding-left: 16rem;
+  padding-left: 15.5rem; /* 원본 16 */
 }
 }
 
@@ -4056,6 +4056,7 @@ position: relative;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
+color: rgb(0 0 0 / 72%);
 }
 
 #sidebar #category .tt_category ul li i {
@@ -4136,8 +4137,8 @@ color: rgb(153 153 161 / var(--tw-text-opacity))
 #sidebar .sidebar-element a:not(.link_tit) {
 
 --tw-text-opacity: 1;
-
-color: rgb(153 153 161 / var(--tw-text-opacity))
+color: rgb(0 0 0 / 72%);
+/*color: rgb(153 153 161 / var(--tw-text-opacity))*/
 }
 
 #sidebar .sidebar-element a:not(.link_tit):hover {
@@ -4299,7 +4300,8 @@ display: flex;
 align-items: center;
 padding-left: 0.3rem;
 opacity: 0.6 !important;
-font-size: 0.765625rem;
+font-size: 0.8rem;
+font-weight: 500;
 margin-left: 19px !important;
 margin-right: 15px !important;
 margin-top: 20px !important;
@@ -4344,7 +4346,8 @@ overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
 padding: 10px 10px !important;
-font-size: 0.85rem;
+font-size: 0.95rem;
+font-weight: 500;
 text-decoration: none;
 position: relative;
 pointer-events: initial !important;
@@ -4367,9 +4370,16 @@ font-size: medium;
 
 .fa-chevron-right{
 transition-duration: 0.2s;
-  font-size: 0.6rem !important;
-  position: absolute !important;
-  right: 0;
-  line-height: 3.4em !important;
-  margin-right: 20px !important;
+font-size: 0.6rem !important;
+position: absolute !important;
+right: 0;
+line-height: 3.4em !important;
+margin-right: 20px !important;
+color: ;
+}
+
+/*카테고리 hover 효과*/
+.tt_category .category_list li .link_item:hover {
+background-color: rgb(214 231 255 / 34%);
+color: #3291ff !important;
 }
