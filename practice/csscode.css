@@ -1574,7 +1574,7 @@ line-height: 1;
 }
 
 .fa-chevron-right {
-font-weight: 400;
+font-weight: 100;
 --tw-content: '\f105';
 content: var(--tw-content);
 display: inline-block;
@@ -4375,7 +4375,7 @@ position: absolute !important;
 right: 0;
 line-height: 3.4em !important;
 margin-right: 20px !important;
-color: ;
+color: #66aeff !important;
 }
 
 /*카테고리 hover 효과*/
