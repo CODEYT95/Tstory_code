@@ -4368,6 +4368,10 @@ border-radius: 15px;
 font-size: medium;
 }
 
+.link_item:hover i:not(.fa-chevron-right) {
+  color: #3291ff !important;
+}
+
 .fa-chevron-right{
 transition-duration: 0.2s;
 font-size: 0.6rem !important;
@@ -4380,6 +4384,11 @@ color: #66aeff !important;
 
 /*카테고리 hover 효과*/
 .tt_category .category_list li .link_item:hover {
+background-color: rgb(214 231 255 / 34%);
+color: #3291ff !important;
+}
+
+.tt_category .category_list .sm-open .link_item {
 background-color: rgb(214 231 255 / 34%);
 color: #3291ff !important;
 }
