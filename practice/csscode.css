@@ -4372,6 +4372,10 @@ font-size: medium;
   color: #3291ff !important;
 }
 
+.tt_category .category_list .sm-open .link_item i:not(.fa-chevron-right)::before{
+color: #3291ff !important;
+}
+
 .fa-chevron-right{
 transition-duration: 0.2s;
 font-size: 0.6rem !important;
@@ -4391,4 +4395,16 @@ color: #3291ff !important;
 .tt_category .category_list .sm-open .link_item {
 background-color: rgb(214 231 255 / 34%);
 color: #3291ff !important;
+}
+
+.link-both-underline::after{
+position: absolute;
+bottom: 0;
+right: 0;
+left: 0;
+transform: translate3d(-102%,0,0);
+content: '';
+display: block;
+height: 1px;
+background-color: currentColor;
 }
