@@ -612,7 +612,7 @@
                                   <span>Programming</span>
                                 </li>
                                 <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <a href="/category/Language" class="link_item toggleDropdown" x-on:click="open = !open">
+                                  <a href="/category/Language" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
                                     <i class="fab fa-codepen category-icon"></i>
                                     Language <span class="c_cnt">2</span>
                                     <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
@@ -962,16 +962,22 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       </div>
     </s_t3>
   
-    <!-- 카테고리명 클릭시 이동 방지 -->
+      <!-- 카테고리명 클릭시 이동 방지 -->
     <script>
-        // JavaScript 또는 프레임워크에서 해당 이벤트 핸들러를 정의
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.toggleDropdown').forEach(function (element) {
-                element.addEventListener('click', function (event) {
-                    event.preventDefault(); // 기본 동작 중지
-                });
-            });
-        });
+      document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('.toggleDropdown').forEach(function (element) {
+              element.addEventListener('click', function (event) {
+                  event.preventDefault();
+
+                  var parentLi = element.closest('.cat-sub-menu');
+
+                  if (parentLi) {
+                      // sm-open 클래스를 토글하여 추가 또는 제거
+                      parentLi.classList.toggle('sm-open');
+                  }
+              });
+          });
+      });
     </script>
   </body>
 
