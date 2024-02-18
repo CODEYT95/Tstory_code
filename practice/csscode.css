@@ -4086,7 +4086,13 @@ content: var(--tw-content);
 display: inline-block;
 font-family: 'Font Awesome 5 Pro';
 font-style: normal;
-line-height: 1
+line-height: 1;
+color: var(--h-color-blur);
+font-weight: 200;
+margin-right: 12px;
+font-size: 0.72rem;
+font-family: 'Font Awesome 5 Pro';
+content: '\f105';
 }
 
 #sidebar #blogmenu ul {
