@@ -4075,7 +4075,6 @@ margin-top: 1rem
 */
 
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
-line-height: 1rem;
 --tw-text-opacity: 1;
 font-weight: 100;
 --tw-content: '\f105';
