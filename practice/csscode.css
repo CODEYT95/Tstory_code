@@ -4460,6 +4460,10 @@ animation: underline-both 1s ease;
 /* 서브 카테고리 */
 #sidebar #category .tt_category .sub_category_list li{
   padding: 9px 0px 9px 17px !important;
+  border-radius: 0.5rem;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  transition: all 0.3s ease 0s;
 }
 
   
