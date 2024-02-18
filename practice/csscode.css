@@ -4456,6 +4456,10 @@ animation: underline-both 1s ease;
       transform: rotate(0deg);
   }
 }
+
+/* 서브 카테고리 */
 #sidebar #category .tt_category .sub_category_list li{
-padding: 9px 0px 9px 17px !important;
+  padding: 9px 0px 9px 17px !important;
 }
+
+  
