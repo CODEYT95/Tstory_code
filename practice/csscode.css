@@ -122,6 +122,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
 a {
 color: inherit;
 text-decoration: inherit;
+transition: all .3s ease-in-out;
 }
 
 /*
@@ -4067,9 +4068,11 @@ font-size: 0.75rem;
 line-height: 1.25rem;
 }
 
+/*
 #sidebar #category .tt_category .sub_category_list li:first-child {
 margin-top: 1rem
 }
+*/
 
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
 margin-right: 0.25rem;
@@ -4397,14 +4400,62 @@ background-color: rgb(214 231 255 / 34%);
 color: #3291ff !important;
 }
 
-.link-both-underline::after{
+.link-both-underline::after {
 position: absolute;
 bottom: 0;
 right: 0;
 left: 0;
-transform: translate3d(-102%,0,0);
+transform: translate3d(-101%,0,0);
 content: '';
 display: block;
 height: 1px;
-background-color: currentColor;
+background-color: #3291ff;
+}
+
+.link-both-underline:hover::after {
+/* -webkit-animation: underline-both 1s ease; */
+animation: underline-both 1s ease;
+}
+
+@keyframes underline-both {
+  to {
+    transform: translate3d(101%,0,0)
+  }
+}
+
+.tt_category .category_list li .link_item:hover i:not(.fa-chevron-down)::before{
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+@keyframes swing {
+  0% {
+      transform: rotate(0deg);
+  }
+  10% {
+      transform: rotate(10deg);
+  }
+  30% {
+      transform: rotate(0deg);
+  }
+  40% {
+      transform: rotate(-10deg);
+  }
+  50% {
+      transform: rotate(0deg);
+  }
+  60% {
+      transform: rotate(5deg);
+  }
+  70% {
+      transform: rotate(0deg);
+  }
+  80% {
+      transform: rotate(-5deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+#sidebar #category .tt_category .sub_category_list li{
+padding: 9px 0px 9px 17px !important;
 }
