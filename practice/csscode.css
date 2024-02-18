@@ -4470,3 +4470,8 @@ animation: underline-both 1s ease;
   border-radius: 0.5rem;
   margin: 0px 9px !important;
 }
+
+#sidemenu .sub_category_list i{
+  font-size: 0.95rem !important;
+  width: 15px;
+}
