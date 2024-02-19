@@ -4067,7 +4067,6 @@ cursor: pointer;
 font-size: 0.75rem;
 line-height: 1.25rem;
 text-align: center;
-border-radius: 4px;
 vertical-align: middle;
 }
 
@@ -4339,6 +4338,11 @@ line-height: 1;
 content: "\f105";
 font-weight: 100;
 }
+
+.fa{
+  font-weight: 900;
+}
+
 /*카테고리 서브 메뉴*/
 .cat-sub-menu{
 padding-top: 0px !important;
