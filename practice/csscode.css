@@ -4034,9 +4034,9 @@ line-height: 1rem
 margin-bottom: 4px;
 margin-left: 23px !important;
 display: inline-block;
-font-size: 0.875rem;
+font-size: 1rem !important;
 line-height: 1.25rem;
-font-weight: 700;
+font-weight: 800;
 --tw-text-opacity: 1;
 color: rgb(0 0 0 / var(--tw-text-opacity))
 }
@@ -4075,7 +4075,7 @@ vertical-align: middle;
 margin-top: 1rem
 }
 */
-
+/*
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
 --tw-text-opacity: 1;
 --tw-content: '\f105';
@@ -4089,6 +4089,16 @@ margin-right: 12px;
 font-size: 0.72rem;
 font-family: 'Font Awesome 5 Pro';
 content: '\f105';
+}
+*/
+
+#sidebar #category .tt_category .category_list li .sub_category_list li::before {
+  color: var(--h-color-blur);
+  font-weight: 200;
+  margin-right: 12px;
+  font-size: 0.72rem;
+  font-family: 'Font Awesome 5 Pro';
+  content: '\f105';
 }
 
 #sidebar #blogmenu ul {
@@ -4482,3 +4492,5 @@ animation: underline-both 1s ease;
   font-size: 0.95rem !important;
   width: 15px;
 }
+
+/*서브 카테고리 아이콘 위치*/
