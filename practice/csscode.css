@@ -4078,13 +4078,13 @@ margin-top: 1rem
 
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
 --tw-text-opacity: 1;
-font-weight: 100;
 --tw-content: '\f105';
 display: inline-block;
 font-style: normal;
 line-height: 1;
 color: var(--h-color-blur);
 font-weight: 200;
+vertical-align: middle;
 margin-right: 12px;
 font-size: 0.72rem;
 font-family: 'Font Awesome 5 Pro';
