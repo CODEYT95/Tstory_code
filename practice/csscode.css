@@ -4159,8 +4159,8 @@ color: rgb(0 0 0 / 72%);
 #sidebar .sidebar-element a:not(.link_tit):hover {
 
 --tw-text-opacity: 1;
-
-color: rgb(30 31 33 / var(--tw-text-opacity))
+/*color: #3291ff;
+color: rgb(30 31 33 / var(--tw-text-opacity))*/
 }
 
 .dark #sidebar .sidebar-element a:not(.link_tit):hover {
@@ -4496,6 +4496,10 @@ animation: underline-both 1s ease;
 #sidebar #category .tt_category .sub_category_list li:hover i{
   color: #3291ff !important;
   animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+#sidebar #category .tt_category .sub_category_list li:hover a{
+  color: #3291ff;
 }
 
 #sidebar #category .tt_category .sub_category_list li a:hover i::before{
