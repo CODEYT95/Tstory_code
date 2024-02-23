@@ -4493,6 +4493,17 @@ animation: underline-both 1s ease;
   transition: all 0.3s ease 0s;
 }
 
+#sidebar #category .tt_category .sub_category_list span{
+  border: 1px #56a1f6cc solid;
+  border-radius: 8px;
+  padding: 1px 4px;
+  margin-left: 4px;
+  color: #56a1f6cc !important;
+  bottom: 1px !important;
+  position: relative;
+  font-size: 10px !important;
+}
+
 #sidebar #category .tt_category .sub_category_list li:hover i{
   color: #3291ff !important;
   animation: swing ease-in-out 0.5s 1 alternate;
@@ -4515,5 +4526,6 @@ animation: underline-both 1s ease;
   font-size: 0.95rem !important;
   width: 15px;
 }
+
 
 /*서브 카테고리 아이콘 위치*/
