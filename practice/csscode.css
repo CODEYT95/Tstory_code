@@ -4323,6 +4323,7 @@ margin-top: 20px !important;
 margin-bottom: 10px !important;
 }
 
+
 /*카테고리 글 수 css*/
 #sidebar #category .tt_category .link_item .c_cnt {
 border: 1px #56a1f6cc solid;
@@ -4373,6 +4374,11 @@ position: relative;
 pointer-events: initial !important;
 }
 
+#sidebar #category .tt_category .sub_category_list li .link_sub_item{
+  width: 90%;
+  display: inline-block;
+}
+
 /*카테고리 아이콘 css*/
 .category-icon{
 text-align: center;
@@ -4407,8 +4413,7 @@ color: #66aeff !important;
 }
 
 /*카테고리 hover 효과*/
-#sidebar #category .tt_category ul li:hover i,
-#sidebar #category .tt_category ul li a:hover i::before{
+#sidebar .link_item:hover i:not(.fa-chevron-right){
   animation: swing ease-in-out 0.4s 1 alternate;
 } 
 
@@ -4488,7 +4493,6 @@ animation: underline-both 1s ease;
   transition: all 0.3s ease 0s;
 }
 
-#sidebar #category .tt_category .sub_category_list li:hover a,
 #sidebar #category .tt_category .sub_category_list li:hover i{
   color: #3291ff !important;
   animation: swing ease-in-out 0.5s 1 alternate;
