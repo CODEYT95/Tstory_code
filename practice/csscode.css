@@ -4407,6 +4407,11 @@ color: #66aeff !important;
 }
 
 /*카테고리 hover 효과*/
+#sidebar #category .tt_category ul li:hover i,
+#sidebar #category .tt_category ul li a:hover i::before{
+  animation: swing ease-in-out 0.4s 1 alternate;
+} 
+
 .tt_category .category_list li .link_item:hover {
 background-color: rgb(214 231 255 / 34%);
 color: #3291ff !important;
