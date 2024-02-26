@@ -1,1014 +1,4595 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" id="hELLO" x-data="{ dark: TTDARK, loading: true }" x-init="setTimeout(() => loading = false, 100)" lang="ko">
+/*
+! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
+*/
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>[##_page_title_##] — [##_title_##]</title>
-    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
-    <link rel="stylesheet" :href='"//cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" />
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link rel="stylesheet" :href='"//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css"'>
-    <link rel="stylesheet" :href="`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`">
-    <style>
-      :root {
-        --h-width: [##_var_width_##]px;
-      }
-    </style>
-    <script>
-      window.skinOptions = {
-        sidebar: '[##_var_sidebar_##]',
-        foldableCategory: '[##_var_foldable-category_##]',
-        foldableReply: '[##_var_foldable-reply_##]',
-        width: '[##_var_width_##]',
-        toc: '[##_var_toc_##]',
-        scrollspy: '[##_var_scrollspy_##]',
-        hljs: '[##_var_hljs_##]',
-        hljsDark: '[##_var_hljs-dark_##]'
-      }
-    </script>
-    <script>
-      if (!('TTDARK' in localStorage)) {
-        localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
-      }
+/* 폰트 어썸을 이용한 폰트 바꾸기 */
+@font-face {
+  font-family: 'TheJamsil';
+  font-weight: 400;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.ttf') format("truetype");
+  font-display: swap;
+}
+/* 
+*{
+font-family: 'TheJamsil';
+}
+*/
+*,
+::before,
+::after {
+box-sizing: border-box;
+/* 1 */
+border-width: 0;
+/* 2 */
+border-style: solid;
+/* 2 */
+border-color: currentColor;
+/* 2 */
+}
 
-      window.TTDARK = localStorage.TTDARK === 'Y'
+::before,
+::after {
+--tw-content: '';
+}
 
-      document.documentElement.classList.toggle('dark', TTDARK)
-    </script>
-    <script defer src="./images/vendor.2ed71520030bce91499d.js"></script>
-    <script defer src="./images/app.2ed71520030bce91499d.js"></script>
-    
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./images/script.zlRw1O4MUO2N5jT7r7Nt.js"></script>
-  </head>
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+*/
 
-  <body class="min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200" id="[##_body_id_##]">
-    <div class="w-screen h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-h-100 dark:bg-h-800" id="loader" x-show="loading" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-      <div class="rounded-full w-14 h-14 my-14 mx-auto text-base relative border-2 border-solid border-h-500/20 border-l-h-500 dark:border-h-100/20 dark:border-l-h-100 animate-loading"></div>
-    </div>
-    <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
-      <div class="w-screen">
-        <div class="progress-bar w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
-      </div>
-    </div>
-    <s_t3>
-      <div class="pl-0 break-all <s_if_var_sidebar>xl:pl-64</s_if_var_sidebar>" x-data="{ sidebar: false }">
-        <main class="pb-14 lg:pb-18 relative" id="main">
-          <s_cover_group>
-            <div class="flex flex-col">
-              <s_cover_rep>
-                <s_cover name="list">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
-                    <div class="list">
-                      <s_cover_item>
-                        <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
-                          <s_cover_item_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_cover_item_simple_date_##]</time><a class="text-sm text-h-400" href="[##_cover_item_category_url_##]">· [##_cover_item_category_##]</a></div>
-                              <div class="summary relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_article_info>
-                          <s_cover_item_not_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="summary">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_not_article_info>
-                        </div>
-                      </s_cover_item>
-                    </div>
-                  </section>
-                </s_cover>
-                <s_cover name="grid">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="grid">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
-                    <div class="list">
-                      <s_cover_item>
-                        <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
-                          <s_cover_item_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_cover_item_simple_date_##]</time><a class="text-sm text-h-400" href="[##_cover_item_category_url_##]">· [##_cover_item_category_##]</a></div>
-                              <div class="summary relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_article_info>
-                          <s_cover_item_not_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="summary">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_not_article_info>
-                        </div>
-                      </s_cover_item>
-                    </div>
-                  </section>
-                </s_cover>
-                <s_cover name="zigzag">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="zigzag">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
-                    <div class="list">
-                      <s_cover_item>
-                        <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
-                          <s_cover_item_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_cover_item_simple_date_##]</time><a class="text-sm text-h-400" href="[##_cover_item_category_url_##]">· [##_cover_item_category_##]</a></div>
-                              <div class="summary relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_article_info>
-                          <s_cover_item_not_article_info>
-                            <div class="description flex flex-col">
-                              <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                              <div class="summary">[##_cover_item_summary_##]</div>
-                            </div>
-                          </s_cover_item_not_article_info>
-                        </div>
-                      </s_cover_item>
-                    </div>
-                  </section>
-                </s_cover>
-                <s_cover name="slideshow">
-                  <section class="flex flex-col items-center gap-y-10" data-mode="slideshow">
-                    <div class="swiper w-full h-screen">
-                      <div class="list swiper-wrapper">
-                        <s_cover_item>
-                          <div class="post swiper-slide">
-                            <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
-                            <s_cover_item_article_info>
-                              <div class="description flex flex-col">
-                                <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                                <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_cover_item_simple_date_##]</time><a class="text-sm text-h-400" href="[##_cover_item_category_url_##]">· [##_cover_item_category_##]</a></div>
-                                <div class="summary relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400">[##_cover_item_summary_##]</div>
-                              </div>
-                            </s_cover_item_article_info>
-                            <s_cover_item_not_article_info>
-                              <div class="description flex flex-col">
-                                <div class="title"><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></div>
-                                <div class="summary">[##_cover_item_summary_##]</div>
-                              </div>
-                            </s_cover_item_not_article_info>
-                          </div>
-                        </s_cover_item>
-                      </div>
-                      <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div>
-                    </div>
-                  </section>
-                </s_cover>
-              </s_cover_rep>
-            </div>
-          </s_cover_group>
-          <s_guest>
-            <div class="w-full px-4 mt-20 lg:mt-40 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" id="guestbook">
-              <s_guest_input_form>
-                <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
-                  <div class="box-border flex flex-col justify-between h-full gap-y-3"><label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" x-data="{ disabled: /^(?!.*tistory\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }" :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."' :disabled="disabled" name="[##_guest_textarea_body_##]"></textarea>
-                    <div class="flex items-end justify-end">
-                      <s_guest_member>
-                        <s_guest_form>
-                          <div class="flex gap-x-2 mr-auto">
-                            <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="name">이름</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="name" autocomplete="username" name="[##_guest_input_name_##]" value="[##_guest_name_##]"></div>
-                            <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="password">암호</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="password" autocomplete="current-password" type="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]"></div>
-                          </div>
-                        </s_guest_form>
-                      </s_guest_member>
-                      <div class="flex items-end gap-x-4" x-data="{ secret: false }"><input class="hidden" id="secret" type="checkbox" name="[##_guest_input_is_secret_##]"><label id="secret-label" for="secret" @click="secret = ! secret"><span class="text-hidden">비밀글</span><i class="fa-solid" :class='{ "fa-lock": secret, "fa-unlock": ! secret }'></i></label><a href="#" onclick="[##_guest_onclick_submit_##]"><span class="text-hidden">댓글쓰기</span><i class="fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200"></i></a></div>
-                    </div>
-                  </div>
-                </div>
-              </s_guest_input_form>
-              <s_guest_container>
-                <div id="comments">
-                  <ol class="flex gap-y-5 mt-9 flex-col">
-                    <s_guest_rep>
-                      <li class="flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5" x-data="{ open: ! skinOptions.foldableReply, children: [] }" id="[##_guest_rep_id_##]" :class='{ "[&>div]:before:hidden": children.length === 0 }'>
-                        <div class="[##_guest_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400">
-                          <div>
-                            <div class="flex items-center gap-x-4"><img class="lazyload rounded-full" alt="" data-src="[##_guest_rep_logo_##]" data-sizes="auto" width="48" height="48">
-                              <div>
-                                <div class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden">[##_guest_rep_name_##]</div><time class="text-h-400 text-xs">[##_guest_rep_date_##]</time>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300">[##_guest_rep_desc_##]</div>
-                          <div class="pl-16 flex gap-x-1 text-h-400 text-xs"><a href="#" onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a><a href="#" onclick="[##_guest_rep_onclick_reply_##]">댓글쓰기</a><template x-if="skinOptions.foldableReply && children.length > 0"><a class="more" href="#" @click.prevent="open = ! open" x-html="`댓글보기(${children.length})`"></a></template></div>
-                        </div>
-                        <s_guest_reply_container>
-                          <ol class="flex flex-col gap-y-5" x-show="open" x-init='children = $el.querySelectorAll("li")'>
-                            <s_guest_reply_rep>
-                              <li class="[&:last-child>div]:before:hidden" id="[##_guest_rep_id_##]">
-                                <div class="[##_guest_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400">
-                                  <div>
-                                    <div class="flex items-center gap-x-4"><img class="lazyload rounded-full" alt="" data-src="[##_guest_rep_logo_##]" data-sizes="auto" width="48" height="48">
-                                      <div>
-                                        <div class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden">[##_guest_rep_name_##]</div><time class="text-h-400 text-xs">[##_guest_rep_date_##]</time>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300">[##_guest_rep_desc_##]</div>
-                                  <div class="pl-16 flex gap-x-1 text-h-400 text-xs"><a href="#" onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a></div>
-                                </div>
-                              </li>
-                            </s_guest_reply_rep>
-                          </ol>
-                        </s_guest_reply_container>
-                      </li>
-                    </s_guest_rep>
-                  </ol>
-                </div>
-              </s_guest_container>
-            </div>
-          </s_guest>
-          <s_article_rep>
-            <s_permalink_article_rep>
-              <div id="permalink">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
-                  <s_article_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
-                  </s_article_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-3 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
-                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-1 text-sm"><time>[##_article_rep_date_##]</time><a href="[##_article_rep_category_link_##]">· [##_article_rep_category_##]</a><span class="admin flex gap-x-1">
-                        <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
-                      </span></div>
-                  </div>
-                </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
-                  <article class="relative" id="content" x-ref="content">
-                    <div x-data="content">
-                      <s_if_var_toc><template x-if="$data.headings.length > 0">
-                          <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
-                            <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
-                                <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
-                                    <div class="text-overflow-hidden" x-text="heading.text"></div><i class="fas fa-arrow-right scale-75"></i>
-                                  </a></li>
-                              </template></ol>
-                          </div>
-                        </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
-                          <div>[##_article_rep_desc_##]</div>
-                        </template></div>
-                      <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
-                            <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </template></s_if_var_scrollspy>
-                    </div>
-                  </article>
-                  <div x-data="{ shown: false }" x-intersect.once="shown = true">
-                    <footer x-show="shown">
-                      <s_article_related>
-                        <div class="rounded-md p-5 mt-4 mb-2 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200">
-                          <div class="font-bold flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span>'[##_article_rep_category_##]' 카테고리의 다른 글</span><i class="fas fa-bars"></i></div>
-                          <ul class="flex flex-col gap-y-2">
-                            <s_article_related_rep>
-                              <li><a class="flex items-center justify-between text-sm" href="[##_article_related_rep_link_##]">
-                                  <div class="text-overflow-hidden">[##_article_related_rep_title_##]</div><i class="fas fa-arrow-right scale-75"></i>
-                                </a></li>
-                            </s_article_related_rep>
-                          </ul>
-                        </div>
-                      </s_article_related>
-                      <s_tag_label>
-                        <div class="flex flex-wrap gap-x-1 text-[0]" id="tags">[##_tag_label_rep_##]</div>
-                      </s_tag_label>
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
-                        <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
-                          <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
-                        </div>
-                      </div>
-                    </footer>
-                  </div>
-                </div>
-                <div class="px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" x-data="{ shown: false }" x-intersect.once="shown = true">
-                  <s_rp>
-                    <div x-show="shown">
-                      <s_rp_input_form>
-                        <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
-                          <div class="box-border flex flex-col justify-between h-full gap-y-3"><label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" x-data="{ disabled: /^(?!.*tistory\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }" :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."' :disabled="disabled" name="[##_rp_input_comment_##]"></textarea>
-                            <div class="flex items-end justify-end">
-                              <s_rp_member>
-                                <s_rp_guest>
-                                  <div class="flex gap-x-2 mr-auto">
-                                    <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="name">이름</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="name" autocomplete="username" name="[##_rp_input_name_##]" value="[##_guest_name_##]"></div>
-                                    <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="password">암호</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="password" autocomplete="current-password" type="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_guest_password_##]"></div>
-                                  </div>
-                                </s_rp_guest>
-                              </s_rp_member>
-                              <div class="flex items-end gap-x-4" x-data="{ secret: false }"><input class="hidden" id="secret" type="checkbox" name="[##_rp_input_is_secret_##]"><label id="secret-label" for="secret" @click="secret = ! secret"><span class="text-hidden">비밀글</span><i class="fa-solid" :class='{ "fa-lock": secret, "fa-unlock": ! secret }'></i></label><a href="#" onclick="[##_rp_onclick_submit_##]"><span class="text-hidden">댓글쓰기</span><i class="fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200"></i></a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </s_rp_input_form>
-                      <s_rp_container>
-                        <div id="comments">
-                          <ol class="flex gap-y-5 mt-9 flex-col-reverse">
-                            <s_rp_rep>
-                              <li class="flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5" x-data="{ open: ! skinOptions.foldableReply, children: [] }" id="[##_rp_rep_id_##]" :class='{ "[&>div]:before:hidden": children.length === 0 }'>
-                                <div class="[##_rp_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400">
-                                  <div>
-                                    <div class="flex items-center gap-x-4"><img class="lazyload rounded-full" alt="" data-src="[##_rp_rep_logo_##]" data-sizes="auto" width="48" height="48">
-                                      <div>
-                                        <div class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden">[##_rp_rep_name_##]</div><time class="text-h-400 text-xs">[##_rp_rep_date_##]</time>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300">[##_rp_rep_desc_##]</div>
-                                  <div class="pl-16 flex gap-x-1 text-h-400 text-xs"><a href="#" onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a><a href="#" onclick="[##_rp_rep_onclick_reply_##]">댓글쓰기</a><template x-if="skinOptions.foldableReply && children.length > 0"><a class="more" href="#" @click.prevent="open = ! open" x-html="`댓글보기(${children.length})`"></a></template></div>
-                                </div>
-                                <s_rp2_container>
-                                  <ol class="flex flex-col gap-y-5" x-show="open" x-init='children = $el.querySelectorAll("li")'>
-                                    <s_rp2_rep>
-                                      <li class="[&:last-child>div]:before:hidden" id="[##_rp_rep_id_##]">
-                                        <div class="[##_rp_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400">
-                                          <div>
-                                            <div class="flex items-center gap-x-4"><img class="lazyload rounded-full" alt="" data-src="[##_rp_rep_logo_##]" data-sizes="auto" width="48" height="48">
-                                              <div>
-                                                <div class="text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden">[##_rp_rep_name_##]</div><time class="text-h-400 text-xs">[##_rp_rep_date_##]</time>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="pl-16 leading-7 text-sm text-h-500 dark:text-h-300">[##_rp_rep_desc_##]</div>
-                                          <div class="pl-16 flex gap-x-1 text-h-400 text-xs"><a href="#" onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a></div>
-                                        </div>
-                                      </li>
-                                    </s_rp2_rep>
-                                  </ol>
-                                </s_rp2_container>
-                              </li>
-                            </s_rp_rep>
-                          </ol>
-                        </div>
-                      </s_rp_container>
-                    </div>
-                  </s_rp>
-                </div>
-              </div>
-            </s_permalink_article_rep>
-            <s_page_rep>
-              <div id="page">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
-                  <s_article_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
-                  </s_article_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-3 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
-                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-1 text-sm"><time>[##_article_rep_date_##]</time></div>
-                  </div>
-                </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
-                  <article class="relative" id="content" x-ref="content">
-                    <div x-data="content">
-                      <s_if_var_toc><template x-if="$data.headings.length > 0">
-                          <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
-                            <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
-                                <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
-                                    <div class="text-overflow-hidden" x-text="heading.text"></div><i class="fas fa-arrow-right scale-75"></i>
-                                  </a></li>
-                              </template></ol>
-                          </div>
-                        </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
-                          <div>[##_article_rep_desc_##]</div>
-                        </template></div>
-                      <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
-                            <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </template></s_if_var_scrollspy>
-                    </div>
-                  </article>
-                  <div x-data="{ shown: false }" x-intersect.once="shown = true">
-                    <footer x-show="shown">
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
-                        <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
-                          <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
-                        </div>
-                      </div>
-                    </footer>
-                  </div>
-                </div>
-              </div>
-            </s_page_rep>
-            <s_article_protected>
-              <div id="protected">
-                <s_permalink_article_rep>
-                  <div class="py-20 flex flex-col justify-center items-center">
-                    <header class="flex flex-col items-center gap-y-2 mx-4 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
-                      <h1 class="text-center font-bold text-2xl text-h-800 dark:text-h-200 lg:text-3xl">[##_article_rep_title_##]</h1>
-                      <div><time class="text-h-400 text-sm">[##_article_rep_date_##]</time></div>
-                    </header>
-                    <div class="flex flex-col items-center gap-y-4 px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
-                      <p class="text-center leading-7 mt-8 text-h-800 dark:text-h-200">보호되어 있는 글입니다.<br>내용을 보시려면 비밀번호를 입력하세요.</p><input class="inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-300 text-h-400 dark:bg-h-700 dark:text-h-200" type="password" maxlength="16" id="[##_article_password_##]" name="[##_article_password_##]" onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" placeholder="비밀번호">
-                    </div>
-                  </div>
-                </s_permalink_article_rep>
-              </div>
-            </s_article_protected>
-          </s_article_rep>
-          <s_notice_rep>
-            <s_index_article_rep>
-              <div class="mt-4 px-4 first:mt-20 lg:first:mt-40 lg:mt-0 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list">
-                <div class="post">
-                  <s_notice_rep_thumbnail><a class="thumbnail" href="[##_notice_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_notice_rep_thumbnail_url_##]" data-sizes="auto" alt=""></a></s_notice_rep_thumbnail>
-                  <div class="description flex flex-col">
-                    <div class="title"><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></div>
-                    <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_notice_rep_date_##]</time></div>
-                    <div class="summary relative overflow-hidden text-h-400 leading-7 text-sm">[##_notice_rep_summary_##]</div>
-                  </div>
-                </div>
-              </div>
-            </s_index_article_rep>
-            <s_permalink_article_rep>
-              <div id="permalink">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
-                  <s_notice_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_notice_rep_thumbnail_url_##]" alt=""></div>
-                  </s_notice_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-3 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
-                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_notice_rep_title_##]</h1>
-                    <div class="flex gap-x-1 text-sm"><time>[##_notice_rep_date_##]</time><a class="/notice">· 공지사항</a></div>
-                  </div>
-                </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
-                  <article class="relative" id="content" x-ref="content">
-                    <div x-data="content">
-                      <s_if_var_toc><template x-if="$data.headings.length > 0">
-                          <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
-                            <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
-                                <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
-                                    <div class="text-overflow-hidden" x-text="heading.text"></div><i class="fas fa-arrow-right scale-75"></i>
-                                  </a></li>
-                              </template></ol>
-                          </div>
-                        </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
-                          <div>[##_notice_rep_desc_##]</div>
-                        </template></div>
-                      <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
-                            <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </template></s_if_var_scrollspy>
-                    </div>
-                  </article>
-                  <div x-data="{ shown: false }" x-intersect.once="shown = true">
-                    <footer x-show="shown">
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
-                        <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
-                          <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
-                        </div>
-                      </div>
-                    </footer>
-                  </div>
-                </div>
-              </div>
-            </s_permalink_article_rep>
-          </s_notice_rep>
-          <s_tag>
-            <div class="w-full px-4 mt-20 lg:mt-40 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
-              <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-                <s_tag_rep>
-                  <li class="px-4 py-5 text-overflow-hidden text-center rounded-md duration-200 w-full bg-h-200 text-h-500 hover:bg-h-600 hover:text-h-200 dark:text-h-400 dark:bg-h-700 dark:hover:bg-h-600"><a class="[##_tag_class_##]" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
-                </s_tag_rep>
-              </ul>
-            </div>
-          </s_tag>
-          <s_list>
-            <section data-mode="[##_list_style_##]">
-              <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
-                <s_list_image>
-                  <div class='thumbnail absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_list_image_##]" alt=""></div>
-                </s_list_image>
-                <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0">
-                  <h1 class="font-semibold text-2xl lg:text-3xl">[##_list_conform_##]</h1><span class="mt-3 empty:mt-0">[##_list_description_##]</span>
-                </div>
-              </header>
-              <div class="list px-4 lg:px-0 lg:w-idx lg:mx-auto" x-ref="list">
-                <s_list_rep>
-                  <div class="post">
-                    <s_list_rep_thumbnail><a class="thumbnail" href="[##_list_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_list_rep_thumbnail_##]" data-sizes="auto" alt=""></a></s_list_rep_thumbnail>
-                    <div class="description flex flex-col">
-                      <div class="title"><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_list_rep_link_##]">[##_list_rep_title_##]</a></div>
-                      <div class="metainfo flex gap-x-1 text-sm"><time class="text-h-400">[##_list_rep_regdate_##]</time><a class="text-h-400" href="[##_list_rep_category_link_##]">· [##_list_rep_category_##]</a></div>
-                      <div class="summary relative overflow-hidden text-h-400 leading-7 text-sm">[##_list_rep_summary_##]</div>
-                    </div>
-                  </div>
-                </s_list_rep>
-              </div>
-            </section>
-          </s_list>
-          <s_paging>
-            <ul class="flex justify-center items-center mt-8 lg:mt-20" id="paging">
-              <li><a class="[##_no_more_prev_##]" [##_prev_page_##]=""><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i></a></li>
-              <s_paging_rep>
-                <li><a [##_paging_rep_link_##]="">[##_paging_rep_link_num_##]</a></li>
-              </s_paging_rep>
-              <li><a class="[##_no_more_next_##]" [##_next_page_##]=""><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></a></li>
-            </ul>
-          </s_paging>
-        </main>
-        <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'>
-          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
-            <s_sidebar>
-              <s_sidebar_element><!-- 프로필-->
-                <div class="sidebar-element">
-                  <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
-                    <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
-                    
-                    <!-- 닉네임 
-                    <div class="text-h-400 text-sm">[##_blogger_##]</div>
-                    -->
+html {
+line-height: 1.5;
+/* 1 */
+-webkit-text-size-adjust: 100%;
+/* 2 */
+-moz-tab-size: 4;
+/* 3 */
+-o-tab-size: 4;
+tab-size: 4;
+/* 3 */
+font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* 4 */
+font-feature-settings: normal;
+/* 5 */
+--h-color: rgba(0, 0, 0, 1);
+--h-color-blur: rgba(0, 0, 0, 0.7);
+--h-color-blurrier: rgba(0, 0, 0, 0.5);
+--h-color-blurriest: rgba(0, 0, 0, 0.1);
+--h-color-background-level-1: #fff;
+--h-color-background-level-2: #f8f8f8;
+--h-color-background-level-3: #e9e9e9;
+--h-color-background-level-4: rgba(255, 255, 255, 0.9);
+--h-button-color: #000;
+--h-button-background: #fff;
+--h-button-color-hover: #fff;
+--h-button-color-hover-background: #000;
+--hero-wave-color1: rgba(255, 255, 255, 0.1);
+--hero-wave-color2: rgba(255, 255, 255, 0.2);
+--hero-wave-color3: rgba(255, 255, 255, 1);
+--mobile-width: 550px;
+--line-height-em: 2.0em;
+}
 
-                  </div>
-                </div>
-              </s_sidebar_element>
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
 
-              <!-- 방문자 수
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div class="overflow-hidden flex justify-between" id="counter">
-                    <div>
-                      <div class="text-left">
-                        <div class="title">전체</div>
-                        <div class="count">[##_count_total_##]</div>
-                      </div>
-                    </div>
-                    <div class="flex gap-x-2 text-right">
-                      <div>
-                        <div class="title">오늘</div>
-                        <div class="count">[##_count_today_##]</div>
-                      </div>
-                      <div>
-                        <div class="title">어제</div>
-                        <div class="count">[##_count_yesterday_##]</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+body {
+margin: 0;
+/* 1 */
+line-height: inherit;
+/* 2 */
+}
 
-              <!-- 블로그 메뉴(원본)
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div id="blogmenu">
-                    <h2>블로그 메뉴</h2>[##_blog_menu_##]
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
-              <s_sidebar_element>
-                <div class="select-menu-container">
-                  <ul>
-                    <li class="t_menu_home first"><a href="https://codeb.tistory.com/"><i class="fad fa-home-lg-alt" style="--fa-primary-color: #5f75c9;--fa-secondary-color: #3b3b3b;"></i><p>홈</p></a></li>
-                    <li class="t_menu_tag"><a href="/tag"><i class="fad fa-search" style="--fa-primary-color: #4f4f4f; --fa-secondary-color: #507ace;"></i><p>검색</p></a></li>
-                    <li class="t_menu_guestbook last"><a href="/guestbook"><i class="fad fa-user-edit" style="--fa-primary-color: #77abd7;--fa-secondary-color: #000000;margin-left: 3px;"></i><p>방명록</p></a></li>
-                  </ul>
-                </div>
-              </s_sidebar_element>
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
 
-              <!-- 검색
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <s_search>
-                    <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
-                  </s_search>
-                </div>
-              </s_sidebar_element>
-              -->
-              <s_sidebar_element>
-                <div class="division-line"></div>
-              </s_sidebar_element>
+hr {
+height: 0;
+/* 1 */
+color: inherit;
+/* 2 */
+border-top-width: 1px;
+/* 3 */
+}
 
-              <s_sidebar_element><!-- 카테고리-->
-                <div class="sidebar-element __sidebar-category">
-                  <div id="category"><!-- 원본 코드 : x-data="category" -->
-                    <nav id="sidemenu" class="category">
-                      <ul class="tt_category">
-                          <li class="">
-                              <a href="/category" class="link_tit"> ROOT <span class="c_cnt">(3)</span> </a>
-                              <ul class="category_list">
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>Programming</span>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <a href="/category/Language" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
-                                    <i class="fab fa-codepen category-icon"></i>
-                                    Language <span class="c_cnt">2</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class="">
-                                      <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain" style="vertical-align:text-top"></i>C <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Language/JAVA" class="link_sub_item"><i class="fa devicon-java-plain" style="vertical-align:text-top"></i>JAVA <span class="c_cnt">1</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Language/JavaScript" class="link_sub_item"><i class="fas devicon-javascript-plain" style="vertical-align:text-top"></i>JavaScript <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Language/TypeScript" class="link_sub_item"><i class="fas devicon-typescript-plain" style="vertical-align:text-top"></i>TypeScript <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Language/Python" class="link_sub_item"><i class="fas devicon-python-plain" style="vertical-align:text-top"></i>Python <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Language/PHP" class="link_sub_item"><i class="fab fa-php" style="vertical-align:bottom"></i>PHP <span class="c_cnt">0</span> </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <a href="/category/Library" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
-                                    <i class="far fa-books category-icon"></i> 
-                                    Library <span class="c_cnt">0</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/Library/JQuery" class="link_sub_item"><i class="fas devicon-jquery-plain" style="vertical-align:bottom"></i>JQuery <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <a href="/category/Mark Up" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open"> 
-                                    <i class="far fa-code category-icon"></i>
-                                    Mark Up <span class="c_cnt">0</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class="">
-                                      <a href="/category/Mark%20UP/HTML" class="link_sub_item"> <i class="fab fa-html5" style="vertical-align:bottom"></i>HTML <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/Mark%20UP/MarkDown" class="link_sub_item"> <i class="fas devicon-markdown-original" style="vertical-align:text-top"></i>MarkDown <span class="c_cnt">0</span> </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }">
-                                  <a href="/category/Style%20Sheet" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open"> 
-                                    <i class="far fa-palette category-icon"></i>
-                                    Style Sheet <span class="c_cnt">0</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"><i class="fas devicon-css3-plain" style="vertical-align:bottom"></i>CSS <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"><i class="fas devicon-bootstrap-plain" style="vertical-align:bottom"></i>Bootstrap5 <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/Style%20Sheet/스타일%20요소" class="link_sub_item"><i class="fad fa-brush" style="vertical-align:bottom"></i>스타일 요소 <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
 
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>Framework</span>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/Node.js" class="link_item link-both-underline">
-                                    <i class="devicon devicon-nodejs-plain category-icon"></i>Node.js <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/Spring" class="link_item link-both-underline"><i class="devicon devicon-spring-original category-icon"></i>Spring <span class="c_cnt">0</span> </a>
-                                </li>
+abbr:where([title]) {
+-webkit-text-decoration: underline dotted;
+text-decoration: underline dotted;
+}
 
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>DATA</span>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/DBMS" class="link_item link-both-underline toggleDropdown">
-                                    <i class="far fa-database category-icon"></i>
-                                     DBMS <span class="c_cnt">0</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class="">
-                                      <a href="/category/DBMS/데이터베이스%20이론" class="link_sub_item"><i class="fad fa-database" style="vertical-align:text-bottom"></i>데이터베이스 이론 <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/DBMS/MySQL" class="link_sub_item"><i class="fas devicon-mysql-original" style="vertical-align:bottom"></i>MySQL <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/DBMS/Oracle" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 24 24">
-                                        <path fill="currentColor" fill-rule="evenodd" d="M7.957359,18.9123664 C4.11670252,18.9123664 1,15.803458 1,11.9617373 C1,8.12000773 4.11670252,5 7.957359,5 L16.0437948,5 C19.8855156,5 23,8.12000773 23,11.9617373 C23,15.803458 19.8855156,18.9123664 16.0437948,18.9123664 L7.957359,18.9123664 L7.957359,18.9123664 Z M15.8639176,16.4585488 C18.352201,16.4585488 20.3674397,14.448858 20.3674397,11.9617373 C20.3674397,9.47460595 18.352201,7.45381934 15.8639176,7.45381934 L8.1360824,7.45381934 C5.64895285,7.45381934 3.63255855,9.47460595 3.63255855,11.9617373 C3.63255855,14.448858 5.64895285,16.4585488 8.1360824,16.4585488 L15.8639176,16.4585488 L15.8639176,16.4585488 Z"/>
-                                      </svg></i>Oracle <span class="c_cnt">0</span> </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/FILES" class="link_item link-both-underline toggleDropdown">
-                                    <i class="far fa-file-code category-icon"></i>
-                                     FILES <span class="c_cnt">0</span>
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class="">
-                                      <a href="/category/FILES/JSON" class="link_sub_item"><i class="fas devicon-json-plain" style="vertical-align:bottom"></i>JSON <span class="c_cnt">0</span> </a>
-                                    </li>
-                                    <li class="">
-                                      <a href="/category/FILES/XML" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1.1em" height="1.1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="mdi:xml"><path d="M12.89 3l1.96.4L11.11 21l-1.96-.4L12.89 3m6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83L19.59 12M1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83L1.58 12z" fill="currentColor"></path></svg></i>XML <span class="c_cnt">0</span> </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                                  
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>DevOps</span>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                    <a href="/category/OS" class="link_item link-both-underline toggleDropdown">
-                                      <i class="far fa-computer-classic category-icon"></i> 
-                                      OS <span class="c_cnt">0</span> 
-                                      <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                    </a>
-                                    <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                      <li class=""><a href="/category/OS/Window" class="link_sub_item"><i class="fas devicon-windows11-original" style="vertical-align:bottom"></i>Window <span class="c_cnt">0</span> </a></li>
-                                      <li class=""><a href="/category/OS/Linux" class="link_sub_item"><i class="fas devicon-linux-plain" style="vertical-align:bottom"></i>Linux <span class="c_cnt">0</span> </a></li>
-                                    </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/Server" class="link_item link-both-underline toggleDropdown"> 
-                                    <i class="far fa-server category-icon"></i>
-                                    Server <span class="c_cnt">0</span> 
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/Server/Apache" class="link_sub_item"><i class="fas devicon-apache-plain" style="vertical-align:middle"></i>Apache <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"><i class="fa devicon-tomcat-line" style="vertical-align:text-top"></i>Tomcat <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu"><a href="/category/GIT" class="link_item link-both-underline">
-                                  <i class="devicon devicon-git-plain category-icon"></i>
-                                   GIT <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                                
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>Cloud</span>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/AWS" class="link_item link-both-underline">
-                                    <i class="fab fa-aws category-icon"></i> 
-                                    AWS <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                                
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>Dev Kit</span>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/IDE" class="link_item link-both-underline toggleDropdown"> 
-                                    <i class="far fa-window category-icon"></i>
-                                    IDE <span class="c_cnt">0</span> 
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 240" preserveAspectRatio="xMinYMin meet"><defs><linearGradient x1="50%" y1="1089.396%" x2="50%" y2="-159.5%" id="a"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="896.537%" x2="49.999%" y2="-352.359%" id="b"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="215.17%" x2="49.999%" y2="-166.715%" id="c"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="86.31%"/></linearGradient></defs><path d="M70.382 153.049H31.26c5.18 17.768 14.792 33.693 28.864 47.768 22.434 22.436 49.41 33.64 80.956 33.64 6.306 0 12.416-.47 18.35-1.365 23.761-3.587 44.565-14.33 62.39-32.275 14.162-14.07 23.842-30 29.062-47.768H70.382zM48.81 99.915H28.373a119.493 119.493 0 0 0-1.488 13.775h228.399c-.233-4.7-.743-9.285-1.497-13.775M26.885 126.482c.231 4.703.738 9.287 1.488 13.775h225.418a118.86 118.86 0 0 0 1.5-13.775M250.887 87.12c-5.215-17.817-14.897-33.817-29.067-47.99-17.778-17.777-38.522-28.443-62.207-32.031a123.318 123.318 0 0 0-18.532-1.386c-31.546 0-58.524 11.143-80.956 33.418C46.048 53.303 36.43 69.303 31.254 87.12" fill="currentColor"/><path d="M20.093 120.09C20.093 59.753 65.407 9.621 124.357.803c-1.462-.053-2.932-.112-4.409-.112C53.796.692.164 54.15.164 120.09c0 65.943 53.63 119.397 119.784 119.397 1.482 0 2.951-.056 4.419-.11-58.96-8.817-104.274-58.95-104.274-119.287z" fill="currentColor"/><g><path d="M155.728 14.226A77.824 77.824 0 0 0 153.364.451H2.642A77.753 77.753 0 0 0 .276 14.226h155.452z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M155.728 27.02H.278a77.611 77.611 0 0 0 2.364 13.776h150.724a77.821 77.821 0 0 0 2.362-13.776z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M78.003 98.636c31.3 0 58.282-18.441 70.706-45.048H7.297c12.425 26.607 39.405 45.048 70.706 45.048z" fill="currentColor" transform="translate(63.083 99.461)"/></g><g fill="#FFF"><path d="M51.84 126.482h203.29c.108-2.035.168-4.084.168-6.147 0-2.232-.081-4.444-.208-6.647H26.885c-.126 2.2-.208 4.415-.208 6.647 0 2.063.06 4.112.168 6.147H51.84zM69.924 87.12H31.252c-1.271 4.166-2.091 8.44-2.879 12.795H253.065a113.52 113.52 0 0 0-3.075-12.795M238.373 140.255H28.371c.766 4.352 1.638 8.623 2.888 12.794H250.738a113.252 113.252 0 0 0 3.023-12.794h-15.388z"/></g></svg></i> Eclipse <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 900.000000 900.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"><path d="M750 4500 l0 -3750 3750 0 3750 0 0 3750 0 3750 -3750 0 -3750 0 0 -3750z m2630 2555 l0 -305 -235 0 -235 0 0 -1007 0 -1008 232 0 233 0 0 -305 0 -305 -798 -3 -797 -2 2 307 3 308 233 0 232 0 0 1008 0 1007 -235 0 -235 0 0 305 0 305 800 0 800 0 0 -305z m2617 -857 l-3 -1163 -27 -124 c-52 -236 -137 -408 -267 -540 -192 -196 -455 -290 -816 -291 -354 -1 -637 115 -893 367 l-104 102 28 33 c15 18 113 131 217 250 l189 217 67 -68 c123 -123 229 -193 346 -226 91 -26 253 -18 328 17 107 49 180 150 216 296 14 59 16 196 19 1180 l4 1112 350 0 350 0 -4 -1162z m-1687 -4183 l0 -235 -1405 0 -1405 0 0 235 0 235 1405 0 1405 0 0 -235z"/></g></svg></i>InteliJ <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"><i class="fas devicon-vscode-plain" style="vertical-align:middle"></i>VS Code <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/Tool" class="link_item link-both-underline"> 
-                                    <i class="far fa-tools category-icon"></i>
-                                    Tool <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                                
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>TEST</span>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/코딩%20테스트" class="link_item link-both-underline toggleDropdown">
-                                    <i class="far fa-keyboard category-icon"></i>
-                                    코딩 테스트 <span class="c_cnt">0</span> 
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i> 
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/코딩%20테스트/Programmers" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1em" height="1em" viewBox="0 0 320.000000 320.000000" preserveAspectRatio="xMidYMid meet">
+/*
+Remove the default font size and weight for headings.
+*/
 
-                                      <g transform="translate(0.000000,320.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                      <path d="M300 3166 c-116 -33 -211 -113 -263 -224 l-32 -67 -3 -1260 c-2 -940 0 -1274 9 -1315 25 -116 105 -222 207 -274 l51 -26 1331 0 1331 0 51 26 c72 36 143 112 181 192 l32 67 3 1260 c2 940 0 1274 -9 1315 -26 124 -109 227 -227 283 l-67 32 -1275 2 c-1000 1 -1285 -1 -1320 -11z m720 -653 c36 -13 83 -34 105 -47 22 -13 78 -43 125 -67 47 -23 166 -87 265 -142 204 -113 362 -193 418 -213 l37 -13 83 75 c101 92 180 134 252 134 52 0 80 -14 196 -95 l42 -30 316 -4 316 -3 -327 -83 c-187 -47 -345 -93 -370 -107 -61 -33 -99 -97 -149 -245 -69 -211 -141 -336 -258 -454 -108 -108 -192 -157 -475 -280 -55 -23 -139 -68 -187 -100 -103 -68 -274 -229 -372 -352 -38 -48 -71 -86 -73 -84 -7 6 48 192 83 282 50 128 179 392 252 515 45 74 60 109 54 119 -5 8 -74 31 -154 52 -160 41 -304 93 -388 141 -98 56 -171 136 -171 186 0 10 -19 32 -45 50 -67 47 -70 103 -7 136 38 19 153 44 245 52 67 6 77 9 71 23 -36 81 -54 153 -54 224 0 50 -7 98 -19 135 -28 81 -35 151 -19 182 30 56 85 59 208 13z"/>
-                                      </g>
-                                      </svg></i> Programmers <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/코딩%20테스트/백준" class="link_sub_item"><i class="fas" style="vertical-align:text-bottom"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 2000.000000 2000.000000" preserveAspectRatio="xMidYMid meet">
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-size: inherit;
+font-weight: inherit;
+}
 
-                                      <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                      <path d="M4069 16478 c0 -2 -780 -2912 -1733 -6468 l-1732 -6465 460 -3 c252 -1 461 -1 463 1 2 2 210 775 462 1718 1407 5252 2990 11168 2996 11192 l7 27 -461 0 c-254 0 -461 -1 -462 -2z"/>
-                                      <path d="M7807 12593 c-1323 -1358 -2406 -2472 -2407 -2476 -1 -5 1095 -1133 2435 -2508 l2437 -2499 644 0 c354 0 644 2 644 5 0 2 -1100 1133 -2445 2512 -1345 1379 -2445 2510 -2445 2513 0 4 3196 3287 4462 4583 l330 337 -624 0 -625 0 -2406 -2467z"/>
-                                      <path d="M13627 14743 c1756 -1799 4483 -4599 4483 -4603 0 -3 -1099 -1132 -2442 -2509 -1344 -1378 -2444 -2508 -2446 -2513 -2 -4 286 -8 641 -8 l644 0 2435 2498 c1340 1373 2436 2502 2436 2507 0 6 -1082 1120 -2406 2478 l-2406 2467 -624 0 -624 0 309 -317z"/>
-                                      </g>
-                                      </svg></i>백준 <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
-                                <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                                  <a href="/category/Error" class="link_item link-both-underline toggleDropdown"> 
-                                    <i class="far fa-exclamation-triangle category-icon"></i>
-                                    Error <span class="c_cnt">0</span> 
-                                    <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                                  </a>
-                                  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                                    <li class=""><a href="/category/Error/Java에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Java에러 <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/Error/JS에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>JS에러 <span class="c_cnt">0</span> </a></li>
-                                    <li class=""><a href="/category/Error/Git에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Git에러 <span class="c_cnt">0</span> </a></li>
-                                  </ul>
-                                </li>
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
 
-                                <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                                  <i class="far fa-ellipsis-h"></i>
-                                  <span>ETC</span>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/ETC" class="link_item link-both-underline"> 
-                                  <i class="fal fa-ellipsis-h-alt category-icon"></i>
-                                  ETC <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                                <li class="cat-sub-menu">
-                                  <a href="/category/일상" class="link_item link-both-underline"> 
-                                  <i class="far fa-user-astronaut category-icon"></i>
-                                  일상 <span class="c_cnt">0</span> 
-                                  </a>
-                                </li>
-                              </ul>
-                          </li>
-                      </ul>
-                    </nav>  
-                  </div>
-                </div>
-              </s_sidebar_element>
+a {
+color: inherit;
+text-decoration: inherit;
+transition: all .3s ease-in-out;
+}
 
-              <!-- 공지사항
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div>
-                    <h2><a class="link_tit" href="/notice">공지사항</a></h2>
-                    <s_rct_notice>
-                      <ul class="flex flex-col gap-y-4 text-sm">
-                        <s_rct_notice_rep>
-                          <li><i class="fa-regular fa-bell text-h-400 mr-2"></i><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></li>
-                        </s_rct_notice_rep>
-                      </ul>
-                    </s_rct_notice>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+/*
+Add the correct font weight in Edge and Safari.
+*/
 
-              <!-- 인기 글
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div>
-                    <h2>인기 글</h2>
-                    <ul class="flex flex-col gap-y-4 text-sm">
-                      <s_rctps_popular_rep>
-                        <li class="flex justify-between">
-                          <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
-                            <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
-                          </div>
-                          <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
-                        </li>
-                      </s_rctps_popular_rep>
-                    </ul>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+b,
+strong {
+font-weight: bolder;
+}
 
-              <!-- 태그 
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div>
-                    <h2><a class="link_tit" href="/tag">태그</a></h2>
-                    <ul class="flex flex-col gap-y-4 text-sm">
-                      <s_random_tags>
-                        <li><i class="fa fa-tag mr-2"></i><a class="[##_tag_class_##]" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
-                      </s_random_tags>
-                    </ul>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
 
-              <!-- 최근 댓글
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div>
-                    <h2>최근 댓글</h2>
-                    <ul class="flex flex-col gap-y-4">
-                      <s_rctrp_rep>
-                        <li class="text-h-400">
-                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a></div>
-                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
-                            <div>[##_rctrp_rep_name_##]</div>
-                            <div>· [##_rctrp_rep_time_##]</div>
-                          </div>
-                        </li>
-                      </s_rctrp_rep>
-                    </ul>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+code,
+kbd,
+samp,
+pre {
+font-family: D2Coding, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+/* 1 */
+font-size: 1em;
+/* 2 */
+}
 
-              <!-- 최근 글
-              <s_sidebar_element>
-                <div class="sidebar-element">
-                  <div>
-                    <h2>최근 글</h2>
-                    <ul class="flex flex-col gap-y-4 text-sm">
-                      <s_rctps_rep>
-                        <li class="flex justify-between">
-                          <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
-                            <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
-                          </div>
-                          <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
-                        </li>
-                      </s_rctps_rep>
-                    </ul>
-                  </div>
-                </div>
-              </s_sidebar_element>
-              -->
+/*
+Add the correct font size in all browsers.
+*/
 
-            </s_sidebar>
-            <div class="sidebar-element">
-              <div class="text-h-400" id="copyright">
-                <div class="flex justify-between"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
-hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="https://github.com/pronist">정상우</a>.</small><small>v4.2.2</small></div>
-              </div>
-            </div>
-          </div><template x-teleport="body">
-            <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
-          </template>
-        </aside>
-        <div class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-          <div class="w-9 h-9"><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
-          <div class="max-w-[calc(80vw-152px)] h-5">
-            <div class="m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200">[##_page_title_##]</div>
-          </div>
-          <div class="w-9 h-9"><button class="subscription flex justify-center items-center w-9 h-9 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" x-data="{ subscribed: T.config.SUBSCRIPTION.isConnected }" x-show='T.config.ROLE !== "owner" && /^(.*tistory\.com)$/.test(location.hostname)' :data-blog-id="T.config.BLOG.id" :data-url="TistoryBlog.tistoryUrl" @click="subscribed = ! subscribed"><span class="text-hidden">구독하기</span><i class="fa-star text-sm" :class='subscribed ? "fa-solid" : "fa-regular"'></i></button></div>
-        </div>
-        <div class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
-          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="far fa-moon"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fas fa-chevron-double-up"></i></a></div>
-        </div>
-      </div>
-    </s_t3>
+small {
+font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+
+sub {
+bottom: -0.25em;
+}
+
+sup {
+top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+text-indent: 0;
+/* 1 */
+border-color: inherit;
+/* 2 */
+border-collapse: collapse;
+/* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+font-family: inherit;
+/* 1 */
+font-size: 100%;
+/* 1 */
+font-weight: inherit;
+/* 1 */
+line-height: inherit;
+/* 1 */
+color: inherit;
+/* 1 */
+margin: 0;
+/* 2 */
+padding: 0;
+/* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+-webkit-appearance: button;
+/* 1 */
+background-color: transparent;
+/* 2 */
+background-image: none;
+/* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+-webkit-appearance: textfield;
+/* 1 */
+outline-offset: -2px;
+/* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+-webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+-webkit-appearance: button;
+/* 1 */
+font: inherit;
+/* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+margin: 0;
+}
+
+fieldset {
+margin: 0;
+padding: 0;
+}
+
+legend {
+padding: 0;
+}
+
+ol,
+ul,
+menu {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+opacity: 1;
+/* 1 */
+color: #9ca3af;
+/* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+opacity: 1;
+/* 1 */
+color: #9ca3af;
+/* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+ This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+display: block;
+/* 1 */
+vertical-align: middle;
+/* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+max-width: 100%;
+height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+display: none;
+}
+
+*,
+::before,
+::after {
+--tw-border-spacing-x: 0;
+--tw-border-spacing-y: 0;
+--tw-translate-x: 0;
+--tw-translate-y: 0;
+--tw-rotate: 0;
+--tw-skew-x: 0;
+--tw-skew-y: 0;
+--tw-scale-x: 1;
+--tw-scale-y: 1;
+--tw-pan-x: ;
+--tw-pan-y: ;
+--tw-pinch-zoom: ;
+--tw-scroll-snap-strictness: proximity;
+--tw-ordinal: ;
+--tw-slashed-zero: ;
+--tw-numeric-figure: ;
+--tw-numeric-spacing: ;
+--tw-numeric-fraction: ;
+--tw-ring-inset: ;
+--tw-ring-offset-width: 0px;
+--tw-ring-offset-color: #fff;
+--tw-ring-color: rgb(59 130 246 / 0.5);
+--tw-ring-offset-shadow: 0 0 #0000;
+--tw-ring-shadow: 0 0 #0000;
+--tw-shadow: 0 0 #0000;
+--tw-shadow-colored: 0 0 #0000;
+--tw-blur: ;
+--tw-brightness: ;
+--tw-contrast: ;
+--tw-grayscale: ;
+--tw-hue-rotate: ;
+--tw-invert: ;
+--tw-saturate: ;
+--tw-sepia: ;
+--tw-drop-shadow: ;
+--tw-backdrop-blur: ;
+--tw-backdrop-brightness: ;
+--tw-backdrop-contrast: ;
+--tw-backdrop-grayscale: ;
+--tw-backdrop-hue-rotate: ;
+--tw-backdrop-invert: ;
+--tw-backdrop-opacity: ;
+--tw-backdrop-saturate: ;
+--tw-backdrop-sepia: ;
+}
+
+::backdrop {
+--tw-border-spacing-x: 0;
+--tw-border-spacing-y: 0;
+--tw-translate-x: 0;
+--tw-translate-y: 0;
+--tw-rotate: 0;
+--tw-skew-x: 0;
+--tw-skew-y: 0;
+--tw-scale-x: 1;
+--tw-scale-y: 1;
+--tw-pan-x: ;
+--tw-pan-y: ;
+--tw-pinch-zoom: ;
+--tw-scroll-snap-strictness: proximity;
+--tw-ordinal: ;
+--tw-slashed-zero: ;
+--tw-numeric-figure: ;
+--tw-numeric-spacing: ;
+--tw-numeric-fraction: ;
+--tw-ring-inset: ;
+--tw-ring-offset-width: 0px;
+--tw-ring-offset-color: #fff;
+--tw-ring-color: rgb(59 130 246 / 0.5);
+--tw-ring-offset-shadow: 0 0 #0000;
+--tw-ring-shadow: 0 0 #0000;
+--tw-shadow: 0 0 #0000;
+--tw-shadow-colored: 0 0 #0000;
+--tw-blur: ;
+--tw-brightness: ;
+--tw-contrast: ;
+--tw-grayscale: ;
+--tw-hue-rotate: ;
+--tw-invert: ;
+--tw-saturate: ;
+--tw-sepia: ;
+--tw-drop-shadow: ;
+--tw-backdrop-blur: ;
+--tw-backdrop-brightness: ;
+--tw-backdrop-contrast: ;
+--tw-backdrop-grayscale: ;
+--tw-backdrop-hue-rotate: ;
+--tw-backdrop-invert: ;
+--tw-backdrop-opacity: ;
+--tw-backdrop-saturate: ;
+--tw-backdrop-sepia: ;
+}
+
+.fixed {
+position: fixed;
+}
+
+.absolute {
+position: absolute;
+}
+
+.relative {
+position: relative;
+}
+
+.bottom-3 {
+bottom: 0.75rem;
+}
+
+.top-0 {
+top: 0px;
+}
+
+.left-0 {
+left: 0px;
+}
+
+.-left-\[calc\(theme\(width\.s\)\)\] {
+left: calc(calc(16rem) * -1);
+}
+
+.right-0 {
+right: 0px;
+}
+
+.top-\[calc\(theme\(spacing\.14\)\+theme\(spacing\.1\)\)\] {
+top: calc(3.5rem + 0.25rem);
+}
+
+.top-\[calc\(100\%\+theme\(spacing\.6\)\)\] {
+top: calc(100% + 1.5rem);
+}
+
+.left-\[calc\(100\%\/2\)\] {
+left: calc(100% / 2);
+}
+
+.-top-\[1px\] {
+top: -1px;
+}
+
+.top-4 {
+top: 1rem;
+}
+
+.top-20 {
+top: 5rem;
+}
+
+.top-2 {
+top: 0.5rem;
+}
+
+.right-4 {
+right: 1rem;
+}
+
+.z-30 {
+z-index: 30;
+}
+
+.z-50 {
+z-index: 50;
+}
+
+.z-40 {
+z-index: 40;
+}
+
+.z-0 {
+z-index: 0;
+}
+
+.z-20 {
+z-index: 20;
+}
+
+.z-10 {
+z-index: 10;
+}
+
+.-z-\[1\] {
+z-index: -1;
+}
+
+.m-0 {
+margin: 0px;
+}
+
+.my-14 {
+margin-top: 3.5rem;
+margin-bottom: 3.5rem;
+}
+
+.mx-auto {
+margin-left: auto;
+margin-right: auto;
+}
+
+.my-10 {
+margin-top: 2.5rem;
+margin-bottom: 2.5rem;
+}
+
+.mx-4 {
+margin-left: 1rem;
+margin-right: 1rem;
+}
+
+.mx-1 {
+margin-left: 0.25rem;
+margin-right: 0.25rem;
+}
+
+.my-4 {
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.my-5 {
+margin-top: 1.25rem;
+margin-bottom: 1.25rem;
+}
+
+.my-0 {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.mb-5 {
+margin-bottom: 1.25rem;
+}
+
+.mt-20 {
+margin-top: 5rem;
+}
+
+.mb-10 {
+margin-bottom: 2.5rem;
+}
+
+.mt-3 {
+margin-top: 0.75rem;
+}
+
+.mt-1 {
+margin-top: 0.25rem;
+}
+
+.mt-4 {
+margin-top: 1rem;
+}
+
+.mt-8 {
+margin-top: 2rem;
+}
+
+.mb-6 {
+margin-bottom: 1.5rem;
+}
+
+.mr-1 {
+margin-right: 0.25rem;
+}
+
+.mr-2 {
+margin-right: 0.5rem;
+}
+
+.ml-3 {
+margin-left: 0.75rem;
+}
+
+.mr-auto {
+margin-right: auto;
+}
+
+.mt-9 {
+margin-top: 2.25rem;
+}
+
+.mr-1\.5 {
+margin-right: 0.375rem;
+}
+
+.ml-2 {
+margin-left: 0.5rem;
+}
+
+.mb-8 {
+margin-bottom: 2rem;
+}
+
+.mb-4 {
+margin-bottom: 1rem;
+}
+
+.mt-6 {
+margin-top: 1.5rem;
+}
+
+.mb-2 {
+margin-bottom: 0.5rem;
+}
+
+.box-border {
+box-sizing: border-box;
+}
+
+.block {
+display: block;
+}
+
+.inline-block {
+display: inline-block;
+}
+
+.flex {
+display: flex;
+}
+
+.table {
+display: table;
+}
+
+.grid {
+display: grid;
+}
+
+.hidden {
+display: none;
+}
+
+.h-10 {
+height: 2.5rem;
+}
+
+.h-screen {
+height: 100vh;
+}
+
+.h-14 {
+height: 3.5rem;
+}
+
+.h-0\.5 {
+height: 0.125rem;
+}
+
+.h-0 {
+height: 0px;
+}
+
+.h-full {
+height: 100%;
+}
+
+.h-9 {
+height: 2.25rem;
+}
+
+.h-5 {
+height: 1.25rem;
+}
+
+.h-64 {
+height: 16rem;
+}
+
+.h-12 {
+height: 3rem;
+}
+
+.h-8 {
+height: 2rem;
+}
+
+.h-11 {
+height: 2.75rem;
+}
+
+.h-32 {
+height: 8rem;
+}
+
+.h-auto {
+height: auto;
+}
+
+.h-20 {
+height: 5rem;
+}
+
+.max-h-full {
+max-height: 100%;
+}
+
+.max-h-\[calc\(100vh-theme\(spacing\.20\)-theme\(spacing\.10\)-theme\(spacing\.3\)-2rem\)\] {
+max-height: calc(100vh - 5rem - 2.5rem - 0.75rem - 2rem);
+}
+
+.max-h-\[inherit\] {
+max-height: inherit;
+}
+
+.min-h-0 {
+min-height: 0px;
+}
+
+.w-full {
+width: 100%;
+}
+
+.w-10 {
+width: 2.5rem;
+}
+
+.w-screen {
+width: 100vw;
+}
+
+.w-14 {
+width: 3.5rem;
+}
+
+.w-0 {
+width: 0px;
+}
+
+.w-s {
+width: 250px;
+}
+
+.w-\[calc\(theme\(width\.s\)\+theme\(spacing\.8\)\)\] {
+width: calc(16rem + 2rem);
+}
+
+.w-64 {
+width: 16rem;
+}
+
+.w-9 {
+width: 2.25rem;
+}
+
+.w-0\.5 {
+width: 0.125rem;
+}
+
+.w-8 {
+width: 2rem;
+}
+
+.w-16 {
+width: 4rem;
+}
+
+.w-48 {
+width: 12rem;
+}
+
+.w-\[calc\(100\%\+theme\(spacing\.10\)\)\] {
+width: calc(100% + 2.5rem);
+}
+
+.w-auto {
+width: auto;
+}
+
+.w-56 {
+width: 14rem;
+}
+
+.w-\[calc\(theme\(spacing\.56\)\+theme\(spacing\.5\)\)\] {
+width: calc(14rem + 1.25rem);
+}
+
+.w-20 {
+width: 5rem;
+}
+
+.max-w-\[calc\(80vw-152px\)\] {
+max-width: calc(80vw - 152px);
+}
+
+.max-w-full {
+max-width: 100%;
+}
+
+.rotate-90 {
+--tw-rotate: 90deg;
+transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-75 {
+--tw-scale-x: .75;
+--tw-scale-y: .75;
+transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.transform {
+transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes loading {
+
+0% {
+  transform: rotate(0deg);
+}
+
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.animate-loading {
+animation: loading 1s linear infinite;
+}
+
+.cursor-pointer {
+cursor: pointer;
+}
+
+.resize-none {
+resize: none;
+}
+
+.list-inside {
+list-style-position: inside;
+}
+
+.grid-cols-1 {
+grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.flex-col {
+flex-direction: column;
+}
+
+.flex-col-reverse {
+flex-direction: column-reverse;
+}
+
+.flex-wrap {
+flex-wrap: wrap;
+}
+
+.items-end {
+align-items: flex-end;
+}
+
+.items-center {
+align-items: center;
+}
+
+.justify-end {
+justify-content: flex-end;
+}
+
+.justify-center {
+justify-content: center;
+}
+
+.justify-between {
+justify-content: space-between;
+}
+
+.gap-6 {
+gap: 1.5rem;
+}
+
+.gap-3 {
+gap: 0.75rem;
+}
+
+.gap-x-3 {
+-moz-column-gap: 0.75rem;
+column-gap: 0.75rem;
+}
+
+.gap-y-6 {
+row-gap: 1.5rem;
+}
+
+.gap-x-1 {
+-moz-column-gap: 0.25rem;
+column-gap: 0.25rem;
+}
+
+.gap-y-10 {
+row-gap: 2.5rem;
+}
+
+.gap-y-4 {
+row-gap: 1rem;
+}
+
+.gap-y-2 {
+row-gap: 0.5rem;
+}
+
+.gap-y-24 {
+row-gap: 6rem;
+}
+
+.gap-x-2 {
+-moz-column-gap: 0.5rem;
+column-gap: 0.5rem;
+}
+
+.gap-y-3 {
+row-gap: 0.75rem;
+}
+
+.gap-x-4 {
+-moz-column-gap: 1rem;
+column-gap: 1rem;
+}
+
+.gap-y-5 {
+row-gap: 1.25rem;
+}
+
+.gap-y-1 {
+row-gap: 0.25rem;
+}
+
+.gap-x-5 {
+-moz-column-gap: 1.25rem;
+column-gap: 1.25rem;
+}
+
+.overflow-hidden {
+overflow: hidden;
+}
+
+.overflow-x-hidden {
+overflow-x: hidden;
+}
+
+.overflow-y-scroll {
+overflow-y: scroll;
+}
+
+.scroll-smooth {
+scroll-behavior: smooth;
+}
+
+.whitespace-normal {
+white-space: normal;
+}
+
+.break-all {
+word-break: break-all;
+}
+
+.rounded-full {
+border-radius: 9999px;
+}
+
+.rounded {
+border-radius: 0.25rem;
+}
+
+.rounded-md {
+border-radius: 0.375rem;
+}
+
+.rounded-lg {
+border-radius: 0.5rem;
+}
+
+.rounded-xl {
+border-radius: 0.75rem;
+}
+
+.border-2 {
+border-width: 2px;
+}
+
+.border-0 {
+border-width: 0px;
+}
+
+.border-b {
+border-bottom-width: 1px;
+}
+
+.border-r-0 {
+border-right-width: 0px;
+}
+
+.border-l-2 {
+border-left-width: 2px;
+}
+
+.border-t {
+border-top-width: 1px;
+}
+
+.border-solid {
+border-style: solid;
+}
+
+.border-dashed {
+border-style: dashed;
+}
+
+.border-dotted {
+border-style: dotted;
+}
+
+.border-none {
+border-style: none;
+}
+
+.border-h-500\/20 {
+border-color: rgb(102 102 110 / 0.2);
+}
+
+.border-h-400 {
+--tw-border-opacity: 1;
+border-color: rgb(153 153 161 / var(--tw-border-opacity));
+}
+
+.border-h-300 {
+--tw-border-opacity: 1;
+border-color: rgb(230 230 233 / var(--tw-border-opacity));
+}
+
+.border-l-h-500 {
+--tw-border-opacity: 1;
+border-left-color: rgb(102 102 110 / var(--tw-border-opacity));
+}
+
+.border-b-h-200 {
+--tw-border-opacity: 1;
+border-bottom-color: rgb(244 244 246 / var(--tw-border-opacity));
+}
+
+.bg-h-100 {
+--tw-bg-opacity: 1;
+background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-h-200 {
+--tw-bg-opacity: 1;
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-h-900 {
+--tw-bg-opacity: 1;
+background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-h-800 {
+--tw-bg-opacity: 1;
+background-color: rgb(30 31 33 / var(--tw-bg-opacity));
+}
+
+.bg-h-900\/50 {
+background-color: rgb(0 0 0 / 0.5);
+}
+
+.bg-h-100\/50 {
+background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-h-300 {
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+}
+
+.bg-h-600 {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+}
+
+.bg-h-700 {
+--tw-bg-opacity: 1;
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+background-color: transparent;
+}
+
+.object-cover {
+-o-object-fit: cover;
+object-fit: cover;
+}
+
+.p-0 {
+padding: 0px;
+}
+
+.p-10 {
+padding: 2.5rem;
+}
+
+.p-5 {
+padding: 1.25rem;
+}
+
+.px-4 {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+
+.py-6 {
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
+}
+
+.py-5 {
+padding-top: 1.25rem;
+padding-bottom: 1.25rem;
+}
+
+.py-3 {
+padding-top: 0.75rem;
+padding-bottom: 0.75rem;
+}
+
+.py-20 {
+padding-top: 5rem;
+padding-bottom: 5rem;
+}
+
+.px-3 {
+padding-left: 0.75rem;
+padding-right: 0.75rem;
+}
+
+.px-2 {
+padding-left: 0.5rem;
+padding-right: 0.5rem;
+}
+
+.py-0\.5 {
+padding-top: 0.125rem;
+padding-bottom: 0.125rem;
+}
+
+.py-0 {
+padding-top: 0px;
+padding-bottom: 0px;
+}
+
+.py-4 {
+padding-top: 1rem;
+padding-bottom: 1rem;
+}
+
+.py-2 {
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+}
+
+.py-8 {
+padding-top: 2rem;
+padding-bottom: 2rem;
+}
+
+.pl-0 {
+padding-left: 0px;
+}
+
+.pb-14 {
+padding-bottom: 3.5rem;
+}
+
+.pt-4 {
+padding-top: 1rem;
+}
+
+.pb-1 {
+padding-bottom: 0.25rem;
+}
+
+.pr-5 {
+padding-right: 1.25rem;
+}
+
+.pl-16 {
+padding-left: 4rem;
+}
+
+.pb-5 {
+padding-bottom: 1.25rem;
+}
+
+.pt-7 {
+padding-top: 1.75rem;
+}
+
+.pl-3 {
+padding-left: 0.75rem;
+}
+
+.pr-1 {
+padding-right: 0.25rem;
+}
+
+.pt-9 {
+padding-top: 2.25rem;
+}
+
+.pl-4 {
+padding-left: 1rem;
+}
+
+.pb-2 {
+padding-bottom: 0.5rem;
+}
+
+.text-left {
+text-align: left;
+}
+
+.text-center {
+text-align: center;
+}
+
+.text-right {
+text-align: right;
+}
+
+.font-sans {
+font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-\[initial\] {
+font-family: initial;
+}
+
+.text-sm {
+font-size: 0.875rem;
+line-height: 1.25rem;
+}
+
+.text-base {
+font-size: 1rem;
+line-height: 1.5rem;
+}
+
+.text-3xl {
+font-size: 1.875rem;
+line-height: 2.25rem;
+}
+
+.text-2xl {
+font-size: 1.5rem;
+line-height: 2rem;
+}
+
+.text-xl {
+font-size: 1.25rem;
+line-height: 1.75rem;
+}
+
+.text-xs {
+font-size: 0.75rem;
+line-height: 1rem;
+}
+
+.text-lg {
+font-size: 1.125rem;
+line-height: 1.75rem;
+}
+
+.text-\[0\] {
+font-size: 0;
+}
+
+.font-bold {
+font-weight: 700;
+}
+
+.font-semibold {
+font-weight: 600;
+}
+
+.font-medium {
+font-weight: 500;
+}
+
+.font-normal {
+font-weight: 400;
+}
+
+.leading-7 {
+line-height: 1.75rem;
+}
+
+.leading-8 {
+line-height: 2rem;
+}
+
+.leading-none {
+line-height: 1;
+}
+
+.leading-loose {
+line-height: 2;
+}
+
+.text-h-900 {
+--tw-text-opacity: 1;
+color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-h-500 {
+--tw-text-opacity: 1;
+color: rgb(102 102 110 / var(--tw-text-opacity));
+}
+
+.text-h-800 {
+--tw-text-opacity: 1;
+color: rgb(30 31 33 / var(--tw-text-opacity));
+}
+
+.text-h-400 {
+--tw-text-opacity: 1;
+color: rgb(153 153 161 / var(--tw-text-opacity));
+}
+
+.text-h-600 {
+--tw-text-opacity: 1;
+color: rgb(53 54 56 / var(--tw-text-opacity));
+}
+
+.text-h-200 {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+.text-h-orange {
+--tw-text-opacity: 1;
+color: rgb(255 85 68 / var(--tw-text-opacity));
+}
+
+.opacity-0 {
+opacity: 0;
+}
+
+.opacity-100 {
+opacity: 1;
+}
+
+.shadow-none {
+--tw-shadow: 0 0 #0000;
+--tw-shadow-colored: 0 0 #0000;
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+outline: 2px solid transparent;
+outline-offset: 2px;
+}
+
+.outline-0 {
+outline-width: 0px;
+}
+
+.backdrop-blur {
+--tw-backdrop-blur: blur(8px);
+-webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.transition {
+transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+}
+
+.transition-\[left\] {
+transition-property: left;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+}
+
+.duration-300 {
+transition-duration: 300ms;
+}
+
+.duration-200 {
+transition-duration: 200ms;
+}
+
+.ease-out {
+transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ease-in {
+transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ease-linear {
+transition-timing-function: linear;
+}
+
+.content-\[\'\'\] {
+--tw-content: '';
+content: var(--tw-content);
+}
+
+.content-\[\'\\f0ab\'\] {
+--tw-content: '\f0ab';
+content: var(--tw-content);
+}
+
+.text-hidden {
+position: absolute !important;
+margin: -1px !important;
+height: 1px !important;
+width: 1px !important;
+overflow: hidden !important;
+}
+
+.text-overflow-hidden {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.font-awesome {
+display: inline-block;
+font-family: 'Font Awesome 5 pro';
+font-style: normal;
+line-height: 1;
+}
+
+.fa-chevron-right {
+font-weight: 100;
+--tw-content: '\f105';
+content: var(--tw-content);
+display: inline-block;
+font-family: 'Font Awesome 5 pro';
+font-style: normal;
+line-height: 1;
+}
+
+.fa-tag {
+font-weight: 700;
+--tw-content: '\f02b';
+content: var(--tw-content);
+display: inline-block;
+font-family: 'Font Awesome 5 pro';
+font-style: normal;
+line-height: 1;
+}
+
+.fa-star {
+--tw-content: '\f005';
+content: var(--tw-content);
+display: inline-block;
+font-family: 'Font Awesome 5 pro';
+font-style: normal;
+line-height: 1;
+}
+
+.menu_toolbar {
+display: none;
+}
+
+a,
+button {
+pointer-events: auto !important;
+}
+
+/* https://github.com/aFarkas/lazysizes#css-api */
+@keyframes pulse {
+
+50% {
+  opacity: .5;
+}
+}
+
+.lazyload,
+.lazyloading {
+animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+}
+
+.dark .lazyload,
+.dark .lazyloading {
+--tw-bg-opacity: 1;
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+}
+
+.lazyloaded {
+animation: none;
+--tw-bg-opacity: 1;
+background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.lazyload:not([src]) {
+visibility: hidden;
+}
+
+/* https://swiperjs.com/demos#navigation */
+.swiper-button-next,
+.swiper-button-prev {
+--swiper-navigation-size: 1.5rem;
+--swiper-navigation-color: rgba(255, 255, 255, .6);
+}
+
+@media not all and (min-width: 1100px) {
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+}
+
+.before\:absolute::before {
+content: var(--tw-content);
+position: absolute;
+}
+
+.before\:right-0::before {
+content: var(--tw-content);
+right: 0px;
+}
+
+.before\:top-0::before {
+content: var(--tw-content);
+top: 0px;
+}
+
+.before\:left-\[calc\(theme\(spacing\.12\)\/2\)\]::before {
+content: var(--tw-content);
+left: calc(3rem / 2);
+}
+
+.before\:top-16::before {
+content: var(--tw-content);
+top: 4rem;
+}
+
+.before\:z-10::before {
+content: var(--tw-content);
+z-index: 10;
+}
+
+.before\:h-64::before {
+content: var(--tw-content);
+height: 16rem;
+}
+
+.before\:h-screen::before {
+content: var(--tw-content);
+height: 100vh;
+}
+
+.before\:h-\[calc\(100\%-65px\)\]::before {
+content: var(--tw-content);
+height: calc(100% - 65px);
+}
+
+.before\:w-full::before {
+content: var(--tw-content);
+width: 100%;
+}
+
+.before\:w-\[1px\]::before {
+content: var(--tw-content);
+width: 1px;
+}
+
+.before\:bg-h-900\/50::before {
+content: var(--tw-content);
+background-color: rgb(0 0 0 / 0.5);
+}
+
+.before\:bg-h-900\/20::before {
+content: var(--tw-content);
+background-color: rgb(0 0 0 / 0.2);
+}
+
+.before\:bg-h-300::before {
+content: var(--tw-content);
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+}
+
+.before\:text-h-500::before {
+content: var(--tw-content);
+--tw-text-opacity: 1;
+color: rgb(102 102 110 / var(--tw-text-opacity));
+}
+
+.before\:backdrop-blur::before {
+content: var(--tw-content);
+--tw-backdrop-blur: blur(8px);
+-webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.before\:content-\[\"\"\]::before {
+--tw-content: "";
+content: var(--tw-content);
+}
+
+.before\:content-\[\'\'\]::before {
+--tw-content: '';
+content: var(--tw-content);
+}
+
+.first\:mt-20:first-child {
+margin-top: 5rem;
+}
+
+.empty\:my-10:empty {
+margin-top: 2.5rem;
+margin-bottom: 2.5rem;
+}
+
+.empty\:mt-0:empty {
+margin-top: 0px;
+}
+
+.hover\:bg-h-300:hover {
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-h-600:hover {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+}
+
+.hover\:text-h-800:hover {
+--tw-text-opacity: 1;
+color: rgb(30 31 33 / var(--tw-text-opacity));
+}
+
+.hover\:text-h-200:hover {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+.hover\:text-h-600:hover {
+--tw-text-opacity: 1;
+color: rgb(53 54 56 / var(--tw-text-opacity));
+}
+
+.dark .dark\:border-h-100\/20 {
+border-color: rgb(255 255 255 / 0.2);
+}
+
+.dark .dark\:border-h-400 {
+--tw-border-opacity: 1;
+border-color: rgb(153 153 161 / var(--tw-border-opacity));
+}
+
+.dark .dark\:border-h-200 {
+--tw-border-opacity: 1;
+border-color: rgb(244 244 246 / var(--tw-border-opacity));
+}
+
+.dark .dark\:border-l-h-100 {
+--tw-border-opacity: 1;
+border-left-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.dark .dark\:border-b-h-700 {
+--tw-border-opacity: 1;
+border-bottom-color: rgb(41 42 45 / var(--tw-border-opacity));
+}
+
+.dark .dark\:bg-h-800 {
+--tw-bg-opacity: 1;
+background-color: rgb(30 31 33 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-h-700 {
+--tw-bg-opacity: 1;
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-h-200 {
+--tw-bg-opacity: 1;
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:bg-h-800\/80 {
+background-color: rgb(30 31 33 / 0.8);
+}
+
+.dark .dark\:bg-h-600 {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:text-h-200 {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-h-400 {
+--tw-text-opacity: 1;
+color: rgb(153 153 161 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-h-300 {
+--tw-text-opacity: 1;
+color: rgb(230 230 233 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-h-blue {
+--tw-text-opacity: 1;
+color: rgb(93 176 215 / var(--tw-text-opacity));
+}
+
+.dark .dark\:invert {
+--tw-invert: invert(100%);
+filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.dark .dark\:before\:bg-h-400::before {
+content: var(--tw-content);
+--tw-bg-opacity: 1;
+background-color: rgb(153 153 161 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:before\:text-h-200::before {
+content: var(--tw-content);
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+.dark .dark\:hover\:bg-h-600:hover {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:hover\:text-h-200:hover {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 1820px) {
+
+.max-2xl\:fixed {
+  position: fixed;
+}
+
+.max-2xl\:right-4 {
+  right: 1rem;
+}
+
+.max-2xl\:-right-60 {
+  right: -15rem;
+}
+
+.max-2xl\:top-20 {
+  top: 5rem;
+}
+
+.max-2xl\:z-40 {
+  z-index: 40;
+}
+
+.max-2xl\:rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.max-2xl\:bg-h-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+}
+
+.max-2xl\:p-6 {
+  padding: 1.5rem;
+}
+
+.max-2xl\:pt-8 {
+  padding-top: 2rem;
+}
+
+.max-2xl\:pr-14 {
+  padding-right: 3.5rem;
+}
+
+.max-2xl\:transition-\[right\] {
+  transition-property: right;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.max-2xl\:duration-200 {
+  transition-duration: 200ms;
+}
+
+.dark .max-2xl\:dark\:bg-h-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+}
+}
+
+@media not all and (min-width: 1100px) {
+
+.max-lg\:w-full {
+  width: 100%;
+}
+}
+
+@media (min-width: 640px) {
+
+.sm\:h-72 {
+  height: 18rem;
+}
+
+.sm\:h-64 {
+  height: 16rem;
+}
+
+.sm\:w-64 {
+  width: 16rem;
+}
+
+.sm\:grow {
+  flex-grow: 1;
+}
+
+.sm\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sm\:flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.sm\:items-center {
+  align-items: center;
+}
+
+.sm\:justify-end {
+  justify-content: flex-end;
+}
+
+.sm\:gap-x-6 {
+  -moz-column-gap: 1.5rem;
+  column-gap: 1.5rem;
+}
+
+.sm\:border-t {
+  border-top-width: 1px;
+}
+
+.sm\:border-solid {
+  border-style: solid;
+}
+
+.sm\:border-h-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(230 230 233 / var(--tw-border-opacity));
+}
+}
+
+@media (min-width: 768px) {
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.md\:grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.md\:gap-8 {
+  gap: 2rem;
+}
+}
+
+@media (min-width: 1100px) {
+
+.lg\:top-\[calc\(100\%\+theme\(spacing\.6\)\)\] {
+  top: calc(100% + 1.5rem);
+}
+
+.lg\:left-\[calc\(theme\(\'screens\.lg\'\)\/2\)\] {
+  left: calc(1100px / 2);
+}
+
+.lg\:mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lg\:my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.lg\:mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.lg\:mt-40 {
+  margin-top: 10rem;
+}
+
+.lg\:mb-16 {
+  margin-bottom: 4rem;
+}
+
+.lg\:mt-0 {
+  margin-top: 0px;
+}
+
+.lg\:mt-20 {
+  margin-top: 5rem;
+}
+
+.lg\:h-16 {
+  height: 4rem;
+}
+
+.lg\:h-\[calc\(theme\(spacing\.72\)\+theme\(spacing\.7\)\)\] {
+  height: calc(18rem + 1.75rem);
+}
+
+.lg\:h-48 {
+  height: 12rem;
+}
+
+.lg\:w-idx {
+  width: 1100px;
+}
+
+.lg\:w-pem {
+  width: var(--h-width);
+}
+
+.lg\:w-\[calc\(theme\(spacing\.96\)\+theme\(spacing\.20\)\+theme\(spacing\.3\)\)\] {
+  width: calc(24rem + 5rem + 0.75rem);
+}
+
+.lg\:w-32 {
+  width: 8rem;
+}
+
+.lg\:max-w-screen-lg {
+  max-width: 1100px;
+}
+
+.lg\:-translate-y-6 {
+  --tw-translate-y: -1.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.lg\:grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lg\:grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.lg\:p-16 {
+  padding: 4rem;
+}
+
+.lg\:px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.lg\:text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.lg\:text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.lg\:first\:mt-40:first-child {
+  margin-top: 10rem;
+}
+}
+
+@media (min-width: 1400px) {
+
+.xl\:invisible {
+  visibility: hidden;
+}
+
+.xl\:bottom-4 {
+  bottom: 1rem;
+}
+
+.xl\:left-0 {
+  left: 0px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 2%);
+}
+
+.xl\:w-c {
+  width: calc(100% - 16rem);
+}
+
+.xl\:px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.xl\:pl-64 {
+  padding-left: 15.5rem; /* 원본 16 */
+}
+}
+
+@media (min-width: 1820px) {
+
+.\32xl\:absolute {
+  position: absolute;
+}
+
+.\32xl\:sticky {
+  position: sticky;
+}
+
+.\32xl\:top-0 {
+  top: 0px;
+}
+
+.\32xl\:top-20 {
+  top: 5rem;
+}
+
+.\32xl\:ml-\[calc\(\(\(1100px\+theme\(width\.pem\)\)\/2\)\+theme\(spacing\.5\)\)\] {
+  margin-left: calc(((1100px + var(--h-width)) / 2) + 1.25rem);
+}
+
+.\32xl\:block {
+  display: block;
+}
+
+.\32xl\:hidden {
+  display: none;
+}
+
+.\32xl\:h-full {
+  height: 100%;
+}
+
+.\32xl\:px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+}
+
+.\[\&\+\.description\]\:text-h-200+.description {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity));
+}
+
+.\[\&_img\]\:hidden img {
+display: none;
+}
+
+.\[\&\>div\]\:before\:hidden>div::before {
+content: var(--tw-content);
+display: none;
+}
+
+.\[\&\:last-child\>div\]\:before\:hidden:last-child>div::before {
+content: var(--tw-content);
+display: none;
+}
+
+#comments .tt_more_preview_comments_wrap {
+
+margin-top: 1rem;
+
+margin-bottom: 1rem;
+
+border-radius: 0.75rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+padding-top: 0.75rem;
+
+padding-bottom: 0.75rem;
+
+padding-left: 1rem;
+
+padding-right: 1rem;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity));
+
+transition-duration: 200ms
+}
+
+#comments .tt_more_preview_comments_wrap:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(53 54 56 / var(--tw-bg-opacity))
+}
+
+#comments .tt_more_preview_comments_wrap::after {
+
+margin-left: 0.5rem;
+
+font-weight: 700;
+
+--tw-content: '\f0ab';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#comments .tt-txt-mention {
+
+display: none
+}
+
+#comments .tistoryProfileLayerTrigger {
+
+display: none
+}
+
+#content .container_postbtn .btn_subscription {
+
+margin-left: 0.5rem;
+
+margin-right: 0px;
+
+border-width: 0px
+}
+
+#content .container_postbtn .btn_subscription .txt_state {
+
+position: absolute !important;
+
+margin: -1px !important;
+
+height: 1px !important;
+
+width: 1px !important;
+
+overflow: hidden !important
+}
+
+#content .container_postbtn .btn_subscription .txt_tool_id,
+#content .container_postbtn .btn_subscription .ico_check_type1 {
+
+display: none
+}
+
+#content .container_postbtn .btn_subscription::before {
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+font-weight: 700;
+
+--tw-content: '\f005';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .contents_style {
+
+padding: 0px;
+
+text-align: left;
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style a {
+
+--tw-text-opacity: 1;
+
+color: rgb(255 85 68 / var(--tw-text-opacity));
+
+text-decoration-thickness: 0px
+}
+
+.dark #content .contents_style a {
+
+--tw-text-opacity: 1;
+
+color: rgb(93 176 215 / var(--tw-text-opacity))
+}
+
+#content .contents_style h2,
+#content .contents_style h3,
+#content .contents_style h4 {
+
+margin-top: 1.25rem;
+
+margin-bottom: 1.25rem;
+
+scroll-margin-top: 5rem;
+
+font-weight: 500
+}
+
+#content .contents_style h2 a,
+#content .contents_style h3 a,
+#content .contents_style h4 a {
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style h2 a,
+.dark #content .contents_style h3 a,
+.dark #content .contents_style h4 a {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style h2 {
+
+font-size: 1.25rem;
+
+line-height: 1.75rem
+}
+
+@media (min-width: 1100px) {
+
+#content .contents_style h2 {
+
+  font-size: 1.5rem;
+
+  line-height: 2rem
+}
+}
+
+#content .contents_style h3 {
+
+font-size: 1.125rem;
+
+line-height: 1.75rem
+}
+
+@media (min-width: 1100px) {
+
+#content .contents_style h3 {
+
+  font-size: 1.25rem;
+
+  line-height: 1.75rem
+}
+}
+
+#content .contents_style h4 {
+
+font-size: 1rem;
+
+line-height: 1.5rem
+}
+
+@media (min-width: 1100px) {
+
+#content .contents_style h4 {
+
+  font-size: 1.125rem;
+
+  line-height: 1.75rem
+}
+}
+
+#content .contents_style ol[data-ke-list-type],
+#content .contents_style ul[data-ke-list-type] {
+
+margin-top: 1.25rem;
+
+margin-bottom: 1.25rem;
+
+display: flex;
+
+list-style-position: inside;
+
+flex-direction: column;
+
+row-gap: 0.25rem
+}
+
+#content .contents_style ol[data-ke-list-type] ol[data-ke-list-type],
+#content .contents_style ol[data-ke-list-type] ul[data-ke-list-type],
+#content .contents_style ul[data-ke-list-type] ol[data-ke-list-type],
+#content .contents_style ul[data-ke-list-type] ul[data-ke-list-type] {
+
+margin-top: 0px;
+
+margin-bottom: 0px;
+
+margin-left: 1.5rem
+}
+
+#content .contents_style p,
+#content .contents_style ol[data-ke-list-type],
+#content .contents_style ul[data-ke-list-type],
+#content .contents_style table[data-ke-align],
+#content .contents_style blockquote[data-ke-style=style2],
+#content .contents_style blockquote[data-ke-style=style3] {
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style p,
+.dark #content .contents_style ol[data-ke-list-type],
+.dark #content .contents_style ul[data-ke-list-type],
+.dark #content .contents_style table[data-ke-align],
+.dark #content .contents_style blockquote[data-ke-style=style2],
+.dark #content .contents_style blockquote[data-ke-style=style3] {
+
+--tw-text-opacity: 1;
+
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+#content .contents_style p b,
+#content .contents_style p strong,
+#content .contents_style ol[data-ke-list-type] b,
+#content .contents_style ol[data-ke-list-type] strong,
+#content .contents_style ul[data-ke-list-type] b,
+#content .contents_style ul[data-ke-list-type] strong,
+#content .contents_style table[data-ke-align] b,
+#content .contents_style table[data-ke-align] strong,
+#content .contents_style blockquote[data-ke-style=style2] b,
+#content .contents_style blockquote[data-ke-style=style2] strong,
+#content .contents_style blockquote[data-ke-style=style3] b,
+#content .contents_style blockquote[data-ke-style=style3] strong {
+
+font-weight: 700
+}
+
+#content .contents_style p a,
+#content .contents_style ol[data-ke-list-type] a,
+#content .contents_style ul[data-ke-list-type] a,
+#content .contents_style table[data-ke-align] a,
+#content .contents_style blockquote[data-ke-style=style2] a,
+#content .contents_style blockquote[data-ke-style=style3] a {
+
+display: inline-block;
+
+--tw-text-opacity: 1;
+
+color: rgb(255 85 68 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style p a,
+.dark #content .contents_style ol[data-ke-list-type] a,
+.dark #content .contents_style ul[data-ke-list-type] a,
+.dark #content .contents_style table[data-ke-align] a,
+.dark #content .contents_style blockquote[data-ke-style=style2] a,
+.dark #content .contents_style blockquote[data-ke-style=style3] a {
+
+--tw-text-opacity: 1;
+
+color: rgb(93 176 215 / var(--tw-text-opacity))
+}
+
+#content .contents_style p code,
+#content .contents_style ol[data-ke-list-type] code,
+#content .contents_style ul[data-ke-list-type] code,
+#content .contents_style table[data-ke-align] code,
+#content .contents_style blockquote[data-ke-style=style2] code,
+#content .contents_style blockquote[data-ke-style=style3] code {
+
+position: relative;
+
+top: -1px;
+
+white-space: normal;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+padding-left: 0.5rem;
+
+padding-right: 0.5rem;
+
+padding-top: 0.125rem;
+
+padding-bottom: 0.125rem;
+
+font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style p code,
+.dark #content .contents_style ol[data-ke-list-type] code,
+.dark #content .contents_style ul[data-ke-list-type] code,
+.dark #content .contents_style table[data-ke-align] code,
+.dark #content .contents_style blockquote[data-ke-style=style2] code,
+.dark #content .contents_style blockquote[data-ke-style=style3] code {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+#content .contents_style figure,
+#content .contents_style pre,
+#content .contents_style table[data-ke-align],
+#content .contents_style [data-ke-type=moreLess] {
+
+margin-top: 1.25rem;
+
+margin-bottom: 1.25rem
+}
+
+.dark #content .contents_style hr {
+
+--tw-brightness: brightness(0);
+
+--tw-invert: invert(100%);
+
+filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+}
+
+#content .contents_style table[data-ke-align] td,
+#content .contents_style table[data-ke-align] th {
+
+box-sizing: border-box;
+
+border-width: 0px;
+
+border-bottom-width: 1px;
+
+border-style: solid;
+
+--tw-border-opacity: 1;
+
+border-color: rgb(153 153 161 / var(--tw-border-opacity));
+
+background-color: transparent;
+
+padding-left: 0.75rem;
+
+padding-right: 0.75rem;
+
+padding-top: 1rem;
+
+padding-bottom: 1rem;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style table[data-ke-align] td,
+.dark #content .contents_style table[data-ke-align] th {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style figure figcaption {
+
+text-align: center;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+@media not all and (min-width: 1100px) {
+
+#content .contents_style figure.imageblock.alignCenter,
+#content .contents_style figure.imagegridblock {
+
+  width: 100% !important
+}
+}
+
+#content .contents_style figure.imageblock span,
+#content .contents_style figure.imageblock a,
+#content .contents_style figure.imagegridblock span,
+#content .contents_style figure.imagegridblock a {
+
+position: relative;
+
+display: block;
+
+height: auto;
+
+max-height: 100%;
+
+width: auto;
+
+max-width: 100%
+}
+
+#content .contents_style figure.imageblock span::after,
+#content .contents_style figure.imageblock a::after,
+#content .contents_style figure.imagegridblock span::after,
+#content .contents_style figure.imagegridblock a::after {
+
+display: block;
+
+height: 0px;
+
+width: 100%;
+
+--tw-content: '';
+
+content: var(--tw-content)
+}
+
+#content .contents_style figure.imageblock span img,
+#content .contents_style figure.imageblock a img,
+#content .contents_style figure.imagegridblock span img,
+#content .contents_style figure.imagegridblock a img {
+
+position: absolute;
+
+top: 0px;
+
+left: 0px;
+
+display: block;
+
+height: 100%;
+
+width: 100%
+}
+
+#content .contents_style figure.imageslideblock .image-container {
+
+height: auto !important;
+
+max-height: 100% !important;
+
+min-height: 0px !important;
+
+width: auto !important;
+
+max-width: 100% !important
+}
+
+#content .contents_style figure.imageslideblock .image-container::after {
+
+display: block;
+
+height: 0px;
+
+width: 100%;
+
+--tw-content: '';
+
+content: var(--tw-content)
+}
+
+#content .contents_style figure.imageslideblock .image-container .selected {
+
+position: absolute;
+
+top: 0px;
+
+left: 0px;
+
+display: flex;
+
+height: 100%;
+
+max-height: 100%;
+
+width: 100%;
+
+max-width: 100%;
+
+align-items: center;
+
+justify-content: center
+}
+
+#content .contents_style figure.imageslideblock .image-container .selected img {
+
+display: block;
+
+height: auto;
+
+width: auto
+}
+
+#content .contents_style figure[data-ke-type=opengraph] a {
+
+border-width: 0px
+}
+
+#content .contents_style figure[data-ke-type=opengraph] a .og-image {
+
+overflow: hidden;
+
+border-right-width: 0px
+}
+
+#content .contents_style figure[data-ke-type=opengraph] .og-text {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity))
+}
+
+.dark #content .contents_style figure[data-ke-type=opengraph] .og-text {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#content .contents_style figure[data-ke-type=opengraph] .og-text .og-title,
+#content .contents_style figure[data-ke-type=opengraph] .og-text .og-desc,
+#content .contents_style figure[data-ke-type=opengraph] .og-text .og-host {
+
+font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+--tw-text-opacity: 1;
+
+color: rgb(102 102 110 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-title,
+.dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-desc,
+.dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-host {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style figure[data-ke-type=opengraph] .og-text .og-title {
+
+font-weight: 700;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+#content .contents_style figure.fileblock {
+
+border-width: 0px;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity))
+}
+
+.dark #content .contents_style figure.fileblock {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#content .contents_style figure.fileblock .filename {
+
+margin-top: 0.75rem
+}
+
+#content .contents_style figure.fileblock .filename .name {
+
+height: auto
+}
+
+.dark #content .contents_style figure.fileblock .filename,
+.dark #content .contents_style figure.fileblock .size {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style figure.fileblock .image,
+.dark #content .contents_style figure.fileblock a::after {
+
+--tw-brightness: brightness(0);
+
+--tw-invert: invert(100%);
+
+filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+}
+
+#content .contents_style [data-ke-type=moreLess] {
+
+position: relative
+}
+
+#content .contents_style [data-ke-type=moreLess]::before {
+
+position: absolute;
+
+top: 1rem;
+
+right: 0px;
+
+z-index: -1;
+
+height: 0px;
+
+width: 100%;
+
+border-bottom-width: 1px;
+
+border-style: dashed;
+
+--tw-border-opacity: 1;
+
+border-color: rgb(153 153 161 / var(--tw-border-opacity));
+
+--tw-content: '';
+
+content: var(--tw-content)
+}
+
+#content .contents_style [data-ke-type=moreLess].open .btn-toggle-moreless::before {
+
+font-weight: 700;
+
+--tw-content: '\f0ab';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .contents_style [data-ke-type=moreLess] .btn-toggle-moreless {
+
+display: inline-block;
+
+border-radius: 0.375rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+padding-left: 0.75rem;
+
+padding-right: 0.75rem;
+
+padding-top: 0.5rem;
+
+padding-bottom: 0.5rem;
+
+font-size: 0.75rem;
+
+line-height: 1rem;
+
+font-weight: 700;
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style [data-ke-type=moreLess] .btn-toggle-moreless::before {
+
+margin-right: 0.375rem;
+
+font-weight: 700;
+
+--tw-content: '\f0a9';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .contents_style [data-ke-type=moreLess] .moreless-content {
+
+margin-top: 1.5rem
+}
+
+#content .contents_style blockquote[data-ke-style] {
+
+margin-top: 1rem;
+
+margin-bottom: 1rem;
+
+font-family: initial;
+
+font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style blockquote[data-ke-style] {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style blockquote[data-ke-style][data-ke-style=style1] {
+
+padding-top: 1.75rem;
+
+font-size: 1.25rem;
+
+line-height: 1.75rem;
+
+font-weight: 500;
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style blockquote[data-ke-style][data-ke-style=style1] {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .contents_style blockquote[data-ke-style][data-ke-style=style2] {
+
+border-left-width: 2px;
+
+border-style: solid;
+
+--tw-border-opacity: 1;
+
+border-color: rgb(230 230 233 / var(--tw-border-opacity));
+
+padding-left: 0.75rem;
+
+padding-right: 0.25rem;
+
+text-align: left;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style blockquote[data-ke-style][data-ke-style=style2] {
+
+--tw-border-opacity: 1;
+
+border-color: rgb(153 153 161 / var(--tw-border-opacity))
+}
+
+#content .contents_style blockquote[data-ke-style][data-ke-style=style3] {
+
+border-width: 0px;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+line-height: 2;
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+.dark #content .contents_style blockquote[data-ke-style][data-ke-style=style3] {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+#content .contents_style pre code {
+
+padding-left: 1rem;
+
+padding-right: 1rem;
+
+line-height: 1.5
+}
+
+#content .contents_style pre code.hljs {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity))
+}
+
+.dark #content .contents_style pre code.hljs {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#content .container_postbtn {
+
+padding: 0px;
+
+padding-top: 2.25rem;
+
+--tw-text-opacity: 1;
+
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #content .container_postbtn {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button,
+#content .container_postbtn .btn_subscription {
+
+display: inline-block;
+
+height: 2.25rem;
+
+width: 2.25rem;
+
+cursor: pointer;
+
+border-radius: 0.375rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+padding: 0px;
+
+font-size: 0;
+
+line-height: 1;
+
+--tw-shadow: 0 0 #0000;
+
+--tw-shadow-colored: 0 0 #0000;
+
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
+outline-width: 0px;
+
+transition-duration: 200ms
+}
+
+#content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button::before,
+#content .container_postbtn .btn_subscription::before {
+
+content: var(--tw-content);
+
+--tw-text-opacity: 1;
+
+color: rgb(102 102 110 / var(--tw-text-opacity))
+}
+
+#content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button:hover,
+#content .container_postbtn .btn_subscription:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(230 230 233 / var(--tw-bg-opacity))
+}
+
+.dark #content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button,
+.dark #content .container_postbtn .btn_subscription {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+.dark #content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button::before,
+.dark #content .container_postbtn .btn_subscription::before {
+
+content: var(--tw-content);
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+.dark #content .container_postbtn .postbtn_like>.wrap_btn:not([id^=reaction-])>button:hover,
+.dark #content .container_postbtn .btn_subscription:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(53 54 56 / var(--tw-bg-opacity))
+}
+
+#content .container_postbtn .postbtn_like {
+
+display: flex;
+
+-moz-column-gap: 0.5rem;
+
+column-gap: 0.5rem;
+
+border-width: 0px;
+
+padding: 0px
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn {
+
+display: inline-block;
+
+border-width: 0px
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn button::before,
+#content .container_postbtn .postbtn_like .wrap_btn button[data-entry-id]::before,
+#content .container_postbtn .postbtn_like .wrap_btn .uoc-count::before {
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+font-weight: 700
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn .ico_like,
+#content .container_postbtn .postbtn_like .wrap_btn .ico_share,
+#content .container_postbtn .postbtn_like .wrap_btn .ico_statistics,
+#content .container_postbtn .postbtn_like .wrap_btn .ico_etc {
+
+background-image: none;
+
+position: absolute !important;
+
+margin: -1px !important;
+
+height: 1px !important;
+
+width: 1px !important;
+
+overflow: hidden !important
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button {
+
+height: 2.25rem;
+
+width: 4rem;
+
+border-radius: 0.375rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(53 54 56 / var(--tw-bg-opacity))
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button .uoc-icon {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button .uoc-count {
+
+font-weight: 700;
+
+line-height: 1
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button .uoc-count::before {
+
+margin-right: 0.375rem;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+font-weight: 700;
+
+--tw-content: '\f004';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn.wrap_btn_share .btn_share::before {
+
+font-weight: 700;
+
+--tw-content: '\f1e0';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn button[data-entry-id]::before {
+
+font-weight: 700;
+
+--tw-content: '\f200';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn.wrap_btn_etc .btn_etc1::before {
+
+font-weight: 700;
+
+--tw-content: '\f0ad';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#content .container_postbtn .postbtn_like .wrap_btn.wrap_btn_etc .btn_etc2::before {
+
+font-weight: 700;
+
+--tw-content: '\f141';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+#tistoryCclLayer {
+
+border-radius: 0.375rem;
+
+border-width: 0px;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity));
+
+--tw-shadow: 0 0 #0000;
+
+--tw-shadow-colored: 0 0 #0000;
+
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+.dark #tistoryCclLayer {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+#tistoryCclLayer span {
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+#tistoryCclLayer .ico_arrbt {
+
+display: none
+}
+
+#tistorySnsLayer,
+#tistoryEtcLayer {
+
+border-radius: 0.375rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+--tw-shadow: 0 0 #0000;
+
+--tw-shadow-colored: 0 0 #0000;
+
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+.dark #tistorySnsLayer,
+.dark #tistoryEtcLayer {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#tistorySnsLayer .btn_mark,
+#tistoryEtcLayer .btn_mark {
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+.dark #tistorySnsLayer .btn_mark,
+.dark #tistoryEtcLayer .btn_mark {
+
+--tw-text-opacity: 1;
+
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+#tistorySnsLayer .btn_mark:hover,
+#tistoryEtcLayer .btn_mark:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(230 230 233 / var(--tw-bg-opacity))
+}
+
+.dark #tistorySnsLayer .btn_mark:hover,
+.dark #tistoryEtcLayer .btn_mark:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#tistorySnsLayer .ico_arrbt,
+#tistoryEtcLayer .ico_arrbt {
+
+display: none
+}
+
+#tistorySnsLayer .bundle_post a,
+#tistoryEtcLayer .bundle_post a {
+
+--tw-text-opacity: 1;
+
+color: rgb(153 153 161 / var(--tw-text-opacity));
+
+text-decoration-line: none
+}
+
+.dark #tistorySnsLayer .bundle_post a,
+.dark #tistoryEtcLayer .bundle_post a {
+
+--tw-text-opacity: 1;
+
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+.another_category {
+display: none
+}
+
+#tags a {
+
+margin-top: 0.75rem;
+
+border-radius: 0.375rem;
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+
+padding-top: 0.5rem;
+
+padding-bottom: 0.5rem;
+
+padding-left: 1rem;
+
+padding-right: 1rem;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+--tw-text-opacity: 1;
+
+color: rgb(102 102 110 / var(--tw-text-opacity))
+}
+
+.dark #tags a {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#tags a:hover {
+
+--tw-bg-opacity: 1;
+
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#tags a:first-of-type::before {
+
+margin-right: 0.5rem;
+
+font-weight: 700;
+
+--tw-content: '\f02b';
+
+content: var(--tw-content);
+
+display: inline-block;
+
+font-family: 'Font Awesome 5 pro';
+
+font-style: normal;
+
+line-height: 1
+}
+
+div[data-tistory-react-app="Namecard"] {
+display: none
+}
+
+[data-mode=list] .list {
+display: flex;
+flex-direction: column;
+row-gap: 1.5rem
+}
+
+@media (min-width: 640px) {
+[data-mode=list] .list {
+  row-gap: 0px
+}
+}
+
+[data-mode=list] .post {
+display: flex;
+flex-direction: column;
+row-gap: 1rem
+}
+
+@media (min-width: 640px) {
+[data-mode=list] .post {
+  height: 18rem;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  -moz-column-gap: 1.5rem;
+  column-gap: 1.5rem;
+  border-top-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(230 230 233 / var(--tw-border-opacity))
+}
+
+.dark [data-mode=list] .post {
+  --tw-border-opacity: 1;
+  border-color: rgb(153 153 161 / var(--tw-border-opacity))
+}
+}
+
+[data-mode=list] .post .thumbnail img {
+width: 100%;
+max-width: none
+}
+
+@media (min-width: 640px) {
+[data-mode=list] .post .thumbnail img {
+  height: 16rem;
+  width: 16rem
+}
+}
+
+[data-mode=list] .post .description {
+row-gap: 0.5rem
+}
+
+@media (min-width: 640px) {
+[data-mode=list] .post .description {
+  flex-grow: 1
+}
+}
+
+[data-mode=list] .post .description .title {
+font-size: 1.25rem;
+line-height: 1.75rem;
+font-weight: 700
+}
+
+@media (min-width: 1100px) {
+[data-mode=list] .post .description .title {
+  font-size: 1.5rem;
+  line-height: 2rem
+}
+}
+
+[data-mode=list] .post .description .summary {
+margin-top: 0.25rem;
+max-height: 5rem
+}
+
+[data-mode=list] .post .description .summary::after {
+top: calc(3.5rem + 0.25rem)
+}
+
+[data-mode=grid] .list {
+display: grid;
+grid-template-columns: repeat(1, minmax(0, 1fr));
+gap: 1.5rem
+}
+
+@media (min-width: 768px) {
+[data-mode=grid] .list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem
+}
+}
+
+@media (min-width: 1100px) {
+[data-mode=grid] .list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem
+}
+}
+
+[data-mode=grid] .post {
+display: flex;
+flex-direction: column;
+row-gap: 1rem
+}
+
+[data-mode=grid] .post .thumbnail img {
+height: 16rem;
+width: 100%
+}
+
+[data-mode=grid] .post .description {
+row-gap: 0.5rem
+}
+
+[data-mode=grid] .post .description .title {
+font-size: 1.25rem;
+line-height: 1.75rem;
+font-weight: 700
+}
+
+[data-mode=grid] .post .description .summary {
+margin-top: 0.25rem;
+max-height: 3.5rem
+}
+
+[data-mode=grid] .post .description .summary::after {
+top: 1.75rem
+}
+
+[data-mode=zigzag] .list {
+display: flex;
+flex-direction: column;
+row-gap: 6rem
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .list {
+  row-gap: 7rem
+}
+}
+
+[data-mode=zigzag] .post {
+position: relative;
+display: flex;
+flex-direction: column;
+row-gap: 1rem
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post {
+  flex-direction: row
+}
+}
+
+[data-mode=zigzag] .post:last-child::before {
+display: none
+}
+
+[data-mode=zigzag] .post::before {
+position: absolute;
+top: calc(100% + 1.5rem);
+left: calc(100% / 2);
+height: 3rem;
+width: 0.125rem;
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+--tw-content: '';
+content: var(--tw-content)
+}
+
+.dark [data-mode=zigzag] .post::before {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity))
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post::before {
+  top: calc(100% + 1.5rem);
+  left: calc(1100px / 2);
+  height: 4rem
+}
+}
+
+[data-mode=zigzag] .post .thumbnail img {
+position: relative;
+z-index: 10;
+width: 100%;
+-o-object-fit: cover;
+object-fit: cover
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post .thumbnail img {
+  height: calc(18rem + 1.75rem);
+  width: calc(24rem + 5rem + 0.75rem);
+  max-width: none
+}
+}
+
+[data-mode=zigzag] .post .description {
+justify-content: center;
+row-gap: 0.5rem;
+--tw-bg-opacity: 1;
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+padding: 2.5rem
+}
+
+.dark [data-mode=zigzag] .post .description {
+--tw-bg-opacity: 1;
+background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post .description {
+  padding: 4rem
+}
+}
+
+[data-mode=zigzag] .post .description .title {
+font-size: 1.25rem;
+line-height: 1.75rem;
+font-weight: 700
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post .description .title {
+  font-size: 1.5rem;
+  line-height: 2rem
+}
+}
+
+[data-mode=zigzag] .post .description .summary {
+margin-top: 0.25rem;
+max-height: 5rem
+}
+
+[data-mode=zigzag] .post .description .summary::after {
+top: calc(3.5rem + 0.25rem)
+}
+
+@media (min-width: 1100px) {
+[data-mode=zigzag] .post:nth-child(2n+1) img {
+  --tw-translate-y: -1.5rem;
+  --tw-translate-x: 1.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+[data-mode=zigzag] .post:nth-child(2n) {
+  flex-direction: row-reverse
+}
+
+[data-mode=zigzag] .post:nth-child(2n) img {
+  --tw-translate-y: -1.5rem;
+  --tw-translate-x: -1.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+}
+
+[data-mode=slideshow] .post {
+
+display: flex;
+
+align-items: center;
+
+justify-content: center
+}
+
+[data-mode=slideshow] .post::before {
+
+position: absolute;
+
+right: 0px;
+
+top: 0px;
+
+z-index: 10;
+
+height: 100vh;
+
+width: 100%;
+
+content: var(--tw-content);
+
+background-color: rgb(0 0 0 / 0.2)
+}
+
+[data-mode=slideshow] .post .thumbnail img {
+
+height: 100vh;
+
+width: 100vw;
+
+-o-object-fit: cover;
+
+object-fit: cover
+}
+
+[data-mode=slideshow] .post .description {
+
+position: absolute;
+
+z-index: 20;
+display: flex;
+
+height: 100vh;
+
+width: 100vw;
+
+flex-direction: column;
+
+align-items: center;
+
+justify-content: center;
+
+row-gap: 0.5rem;
+
+text-align: center
+}
+
+[data-mode=slideshow] .post .description .title {
+
+padding-left: 1rem;
+
+padding-right: 1rem
+}
+
+[data-mode=slideshow] .post .description .title a {
+
+font-size: 1.875rem;
+
+line-height: 2.25rem;
+
+font-weight: 700;
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+[data-mode=slideshow] .post .description .metainfo a,
+[data-mode=slideshow] .post .description .metainfo time {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+[data-mode=slideshow] .post .description .summary {
+
+display: none
+}
+
+#paging a {
+display: inline-block
+}
+
+#paging span {
+font-size: 0.875rem;
+line-height: 1.25rem
+}
+
+#paging i,
+#paging span {
+margin-left: 0.25rem;
+margin-right: 0.25rem;
+height: 2rem;
+width: 2rem;
+text-align: center;
+font-size: 1rem;
+line-height: 2rem;
+--tw-text-opacity: 1;
+color: rgb(30 31 33 / var(--tw-text-opacity))
+}
+
+.dark #paging i,
+.dark #paging span {
+--tw-text-opacity: 1;
+color: rgb(230 230 233 / var(--tw-text-opacity))
+}
+
+#paging span:not(.selected) {
+display: none
+}
+
+@media (min-width: 1100px) {
+#paging span:not(.selected) {
+  display: inline-block
+}
+}
+
+#paging .selected {
+display: inline-block;
+border-radius: 9999px;
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity));
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#sidebar #counter .title {
+font-size: 0.75rem;
+line-height: 1rem;
+--tw-text-opacity: 1;
+color: rgb(153 153 161 / var(--tw-text-opacity))
+}
+
+#sidebar #counter .count {
+--tw-text-opacity: 1;
+color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
+.dark #sidebar #counter .count {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#sidebar #category .tt_category .link_tit img,
+#sidebar #category .tt_category .link_item img,
+#sidebar #category .tt_category .link_sub_item img {
+display: none
+}
+
+#sidebar #category .tt_category .link_tit .c_cnt,
+#sidebar #category .tt_category .link_item .c_cnt,
+#sidebar #category .tt_category .link_sub_item .c_cnt {
+font-size: 0.75rem;
+line-height: 1rem
+}
+
+#sidebar #category .tt_category .link_tit {
+margin-bottom: 4px;
+margin-left: 23px !important;
+display: inline-block;
+font-size: 1rem !important;
+line-height: 1.25rem;
+font-weight: 800;
+--tw-text-opacity: 1;
+color: rgb(0 0 0 / var(--tw-text-opacity))
+}
+
+.dark #sidebar #category .tt_category .link_tit {
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#sidebar #category .tt_category ul {
+font-size: 0.875rem;
+line-height: 1.25rem
+}
+
+#sidebar #category .tt_category ul li {
+padding-top: 0px;
+position: relative;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+color: rgb(0 0 0 / 72%);
+}
+
+#sidebar #category .tt_category ul li i {
+position: relative;
+margin-right: 10px;
+cursor: pointer;
+font-size: 0.75rem;
+line-height: 1.25rem;
+text-align: center;
+vertical-align: middle;
+}
+
+/*
+#sidebar #category .tt_category .sub_category_list li:first-child {
+margin-top: 1rem
+}
+*/
+/*
+#sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
+--tw-text-opacity: 1;
+--tw-content: '\f105';
+display: inline-block;
+font-style: normal;
+line-height: 1;
+color: var(--h-color-blur);
+font-weight: 200;
+vertical-align: middle;
+margin-right: 12px;
+font-size: 0.72rem;
+font-family: 'Font Awesome 5 Pro';
+content: '\f105';
+}
+*/
+
+#sidebar #category .tt_category .category_list li .sub_category_list li::before {
+  color: var(--h-color-blur);
+  font-weight: 200;
+  margin-right: 12px;
+  font-size: 0.72rem;
+  font-family: 'Font Awesome 5 Pro';
+  content: '\f105';
+}
+/*
+#sidebar #blogmenu ul {
+display: flex;
+flex-direction: row;
+row-gap: 1rem;
+font-size: 0.875rem;
+line-height: 1.25rem;
+flex-wrap: nowrap;
+justify-content: space-evenly;
+}
+*/
+#sidebar .sidebar-element {
+
+width: 16rem;
+
+padding-left: 1.25rem;
+
+padding-right: 1.6rem
+}
+
+#sidebar .sidebar-element h2 {
+
+margin-bottom: 1.25rem;
+
+font-size: 0.875rem;
+
+line-height: 1.25rem;
+
+font-weight: 700;
+
+--tw-text-opacity: 1;
+
+color: rgb(30 31 33 / var(--tw-text-opacity))
+}
+
+.dark #sidebar .sidebar-element h2 {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#sidebar .sidebar-element i {
+
+--tw-text-opacity: 1;
+color: rgb(0 0 0 / 50%);
+/*color: rgb(153 153 161 / var(--tw-text-opacity))*/
+}
+
+#sidebar .sidebar-element a:not(.link_tit) {
+
+--tw-text-opacity: 1;
+color: rgb(0 0 0 / 72%);
+/*color: rgb(153 153 161 / var(--tw-text-opacity))*/
+}
+
+#sidebar .sidebar-element a:not(.link_tit):hover {
+
+--tw-text-opacity: 1;
+/*color: #3291ff;
+color: rgb(30 31 33 / var(--tw-text-opacity))*/
+}
+
+.dark #sidebar .sidebar-element a:not(.link_tit):hover {
+
+--tw-text-opacity: 1;
+
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+#bottom a,
+#bottom button {
+display: flex;
+height: 2.5rem;
+width: 2.5rem;
+align-items: center;
+justify-content: center;
+border-radius: 9999px;
+--tw-bg-opacity: 1;
+background-color: rgb(244 244 246 / var(--tw-bg-opacity));
+--tw-text-opacity: 1;
+color: rgb(102 102 110 / var(--tw-text-opacity));
+outline-width: 0px
+}
+
+#bottom a:hover,
+#bottom button:hover {
+--tw-bg-opacity: 1;
+background-color: rgb(230 230 233 / var(--tw-bg-opacity))
+}
+
+.dark #bottom a,
+.dark #bottom button {
+--tw-bg-opacity: 1;
+background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+--tw-text-opacity: 1;
+color: rgb(244 244 246 / var(--tw-text-opacity))
+}
+
+.dark #bottom a:hover,
+.dark #bottom button:hover {
+--tw-bg-opacity: 1;
+background-color: rgb(53 54 56 / var(--tw-bg-opacity))
+}
+
+/*페이지 스크롤 커스텀*/
+#hELLO::-webkit-scrollbar {
+  width: 13px;  /* 스크롤바의 너비 */
+}
+
+#hELLO::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #76B2F6; /* 스크롤바의 색상 */
   
-      <!-- 카테고리명 클릭시 이동 방지 -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          document.querySelectorAll('.toggleDropdown').forEach(function (element) {
-              element.addEventListener('click', function (event) {
-                  event.preventDefault();
+  border-radius: 10px;
+}
 
-                  var parentLi = element.closest('.cat-sub-menu');
+#hELLO::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);  /*스크롤바 뒷 배경 색상*/
+}
 
-                  if (parentLi) {
-                      // sm-open 클래스를 토글하여 추가 또는 제거
-                      parentLi.classList.toggle('sm-open');
-                  }
-              });
-          });
-      });
-    </script>
-  </body>
+/*Progress Bar 효과*/
+.progress-bar{
+background: linear-gradient(to top, #008aff, #00ffe7);
+animation: animate23 5s linear infinite;
+}
+@keyframes animate23{
+0%, 100% {
+  filter: hue-rotate(0deg);
+}
 
-</html>
+50% {
+  filter: hue-rotate(360deg);
+}
+}
+
+/*사이드 크기*/
+.side-cat{
+background-color: var(--tw-ring-offset-color);
+overflow-x: hidden;
+overflow-y: scroll;
+height: 100%;
+width: 270px;
+position: absolute;
+padding: 25px 0;
+box-sizing: border-box;
+}
+
+/*사이드 메뉴 css*/
+#sidemenu{
+padding: 0 !important;
+box-sizing: border-box;
+max-width: 250px;
+}
+
+/*블로그 메뉴 카테고리에서 가리기*/
+#sidebar #blogmenu h2{
+display: none;
+}
+
+/*블로그 메뉴*/
+.select-menu-container{
+  border-radius: 25px;
+  height: 50px;
+  box-shadow: 0px 0px 11px -5px var(--h-color-blur);
+  display: flex;
+  justify-content: center;
+  /*overflow: hidden;*/
+  width: 220px;
+  margin: 0px 16.5px 25px 16.5px;
+  padding-left: 0 !important;
+}
+
+.select-menu-container ul{
+  width: 80%;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-self: center;
+  color: #333;
+  height: 70.797px;
+}
+
+.select-menu-container ul li{
+  text-align: center;
+  transition: all 0.3s;
+  margin-top: 20px;
+  width: 33.3%;
+}
+
+.select-menu-container ul li i{
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.select-menu-container ul li p{
+  font-weight: 200;
+  font-size: 0.75rem;
+  /*transform: translateY(40px);*/
+  transition: 0.3s;
+  color: transparent;
+}
+.select-menu-container ul li:hover p{
+  transform: translateY(-3px) !important;
+  color: var(--h-color-blurrier);
+  font-weight: bold;
+}
+
+/*블로그 메뉴 버튼 hover*/
+.select-menu-container ul li:hover
+{
+  transform: translateY(-6px) scale(1.15) !important;
+  cursor: pointer !important;
+}
+
+/*카테고리 구분선*/
+.division-line{
+padding: 0 !important;
+border-bottom: 0 !important;
+border-top: 1px groove rgb(197 197 197 / 50%);
+}
+
+/**/
+.__sidebar-category{
+padding-left: 0 !important;
+padding-right: 0 !important;
+}
+
+/*ROOT 폰트 사이즈 & 무지개 효과*/
+.link_tit{
+font-size: 0.86rem !important;
+}
+
+.link_tit span{
+font-size: 0.86rem !important;
+}
+
+#sidebar #category .tt_category .link_tit{
+-webkit-animation: textAnim 5s ease-out infinite;
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+background-size: 250% 500%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+@keyframes textAnim{
+0% {
+background-position: 0 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0 50%;
+}
+}
+
+/*카테고리 목차*/
+.category_list li.category_doc {
+display: flex;
+align-items: center;
+padding-left: 0.3rem;
+opacity: 0.6 !important;
+font-size: 0.8rem;
+font-weight: 500;
+margin-left: 19px !important;
+margin-right: 15px !important;
+margin-top: 20px !important;
+margin-bottom: 10px !important;
+}
+
+
+/*카테고리 글 수 css*/
+#sidebar #category .tt_category .link_item .c_cnt {
+border: 1px #56a1f6cc solid;
+border-radius: 8px;
+padding: 1px 4px;
+margin-left: 4px;
+color: #56a1f6cc !important;
+bottom: 1px !important;
+position: relative;
+font-size: 10px !important;
+}
+
+/**/
+.devicon{
+-webkit-font-smoothing: antialiased;
+display: inline-block;
+font-style: normal;
+font-variant: normal;
+text-rendering: auto;
+line-height: 1;
+}
+.fa-angle-right:before {
+content: "\f105";
+font-weight: 100;
+}
+
+.fa{
+  font-weight: 900;
+}
+
+/*카테고리 서브 메뉴*/
+.cat-sub-menu{
+padding-top: 0px !important;
+}
+
+.link_item{
+border-radius: 0.5rem;
+margin: 1px 9px !important;
+display: block;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+padding: 10px 10px !important;
+font-size: 0.95rem;
+font-weight: 500;
+text-decoration: none;
+position: relative;
+pointer-events: initial !important;
+}
+
+#sidebar #category .tt_category .sub_category_list li .link_sub_item{
+  width: 90%;
+  display: inline-block;
+}
+
+/*카테고리 아이콘 css*/
+.category-icon{
+text-align: center;
+margin-right: 8px;
+background-color: rgba(39, 16, 80, 0.04);
+width: 30px;
+height: 30px;
+line-height: 30px !important;
+border-radius: 15px;
+}
+
+.category-icon::before{
+font-size: medium;
+}
+
+.link_item:hover i:not(.fa-chevron-right) {
+  color: #3291ff !important;
+}
+
+.tt_category .category_list .sm-open .link_item i:not(.fa-chevron-right)::before{
+color: #3291ff !important;
+}
+
+.fa-chevron-right{
+transition-duration: 0.2s;
+font-size: 0.6rem !important;
+position: absolute !important;
+right: 0;
+line-height: 3.4em !important;
+margin-right: 20px !important;
+color: #66aeff !important;
+}
+
+/*카테고리 hover 효과*/
+#sidebar .link_item:hover i:not(.fa-chevron-right){
+  animation: swing ease-in-out 0.4s 1 alternate;
+} 
+
+.tt_category .category_list li .link_item:hover {
+background-color: rgb(214 231 255 / 34%);
+color: #3291ff !important;
+}
+
+.tt_category .category_list .sm-open .link_item {
+background-color: rgb(214 231 255 / 34%);
+color: #3291ff !important;
+}
+
+.link-both-underline::after {
+position: absolute;
+bottom: 0;
+right: 0;
+left: 0;
+transform: translate3d(-101%,0,0);
+content: '';
+display: block;
+height: 1px;
+background-color: #3291ff;
+}
+
+.link-both-underline:hover::after {
+/* -webkit-animation: underline-both 1s ease; */
+animation: underline-both 1s ease;
+}
+
+@keyframes underline-both {
+  to {
+    transform: translate3d(101%,0,0)
+  }
+}
+
+.tt_category .category_list li .link_item:hover i:not(.fa-chevron-down)::before{
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+@keyframes swing {
+  0% {
+      transform: rotate(0deg);
+  }
+  10% {
+      transform: rotate(10deg);
+  }
+  30% {
+      transform: rotate(0deg);
+  }
+  40% {
+      transform: rotate(-10deg);
+  }
+  50% {
+      transform: rotate(0deg);
+  }
+  60% {
+      transform: rotate(5deg);
+  }
+  70% {
+      transform: rotate(0deg);
+  }
+  80% {
+      transform: rotate(-5deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+
+/* 서브 카테고리 */
+#sidebar #category .tt_category .sub_category_list li{
+  padding: 9px 0px 9px 17px !important;
+  border-radius: 0.5rem;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  transition: all 0.3s ease 0s;
+}
+
+#sidebar #category .tt_category .sub_category_list span{
+  border: 1px #56a1f6cc solid;
+  border-radius: 8px;
+  padding: 1px 4px;
+  margin-left: 4px;
+  color: #56a1f6cc !important;
+  bottom: 1px !important;
+  position: relative;
+  font-size: 10px !important;
+}
+
+#sidebar #category .tt_category .sub_category_list li:hover i{
+  color: #3291ff !important;
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+#sidebar #category .tt_category .sub_category_list li:hover a{
+  color: #3291ff;
+}
+
+#sidebar #category .tt_category .sub_category_list li a:hover i::before{
+  animation: swing ease-in-out 0.5s 1 alternate;
+}
+
+#sidemenu .sub_category_list{
+  border-radius: 0.5rem;
+  margin: 0px 9px !important;
+}
+
+#sidemenu .sub_category_list i{
+  font-size: 0.95rem !important;
+  width: 15px;
+}
+
+
+/*서브 카테고리 아이콘 위치*/
