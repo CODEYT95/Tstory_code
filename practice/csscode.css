@@ -63,6 +63,23 @@ font-family: SUIT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
 /* 4 */
 font-feature-settings: normal;
 /* 5 */
+--h-color: rgba(0, 0, 0, 1);
+--h-color-blur: rgba(0, 0, 0, 0.7);
+--h-color-blurrier: rgba(0, 0, 0, 0.5);
+--h-color-blurriest: rgba(0, 0, 0, 0.1);
+--h-color-background-level-1: #fff;
+--h-color-background-level-2: #f8f8f8;
+--h-color-background-level-3: #e9e9e9;
+--h-color-background-level-4: rgba(255, 255, 255, 0.9);
+--h-button-color: #000;
+--h-button-background: #fff;
+--h-button-color-hover: #fff;
+--h-button-color-hover-background: #000;
+--hero-wave-color1: rgba(255, 255, 255, 0.1);
+--hero-wave-color2: rgba(255, 255, 255, 0.2);
+--hero-wave-color3: rgba(255, 255, 255, 1);
+--mobile-width: 550px;
+--line-height-em: 2.0em;
 }
 
 /*
@@ -4100,7 +4117,7 @@ content: '\f105';
   font-family: 'Font Awesome 5 Pro';
   content: '\f105';
 }
-
+/*
 #sidebar #blogmenu ul {
 display: flex;
 flex-direction: row;
@@ -4110,7 +4127,7 @@ line-height: 1.25rem;
 flex-wrap: nowrap;
 justify-content: space-evenly;
 }
-
+*/
 #sidebar .sidebar-element {
 
 width: 16rem;
@@ -4145,8 +4162,8 @@ color: rgb(244 244 246 / var(--tw-text-opacity))
 #sidebar .sidebar-element i {
 
 --tw-text-opacity: 1;
-
-color: rgb(153 153 161 / var(--tw-text-opacity))
+color: rgb(0 0 0 / 50%);
+/*color: rgb(153 153 161 / var(--tw-text-opacity))*/
 }
 
 #sidebar .sidebar-element a:not(.link_tit) {
@@ -4260,12 +4277,59 @@ max-width: 250px;
 display: none;
 }
 
+/*블로그 메뉴*/
+.select-menu-container{
+  border-radius: 25px;
+  height: 50px;
+  box-shadow: 0px 0px 11px -5px var(--h-color-blur);
+  display: flex;
+  justify-content: center;
+  /*overflow: hidden;*/
+  width: 220px;
+  margin: 0px 16.5px 25px 16.5px;
+  padding-left: 0 !important;
+}
+
+.select-menu-container ul{
+  width: 80%;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-self: center;
+  color: #333;
+  height: 70.797px;
+}
+
+.select-menu-container ul li{
+  text-align: center;
+  transition: all 0.5s;
+  margin-top: 20px;
+  width: 33.3%;
+}
+
+.select-menu-container ul li i{
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.select-menu-container ul li p{
+  font-weight: 200;
+  font-size: 0.75rem;
+  transform: translateY(40px);
+  transition: 0.3s;
+  color: transparent;
+}
+.select-menu-container ul li:hover p{
+  transform: translateY(-3px) !important;
+  color: var(--h-color-blurrier);
+  font-weight: bold;
+}
+
 /*블로그 메뉴 버튼 hover*/
-#sidebar #blogmenu a:hover
+.select-menu-container ul li:hover
 {
---tw-text-opacity: 1;
-color: #70b3ff;
-font-weight: 500;
+  transform: translateY(-5px) scale(1.1) !important;
+  cursor: pointer !important;
 }
 
 /*카테고리 구분선*/
