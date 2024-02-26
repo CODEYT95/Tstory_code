@@ -4315,7 +4315,7 @@ display: none;
 .select-menu-container ul li p{
   font-weight: 200;
   font-size: 0.75rem;
-  transform: translateY(40px);
+  /*transform: translateY(40px);*/
   transition: 0.3s;
   color: transparent;
 }
