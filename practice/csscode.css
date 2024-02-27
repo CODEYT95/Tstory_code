@@ -4503,7 +4503,7 @@ left: 0;
 transform: translate3d(-101%,0,0);
 content: '';
 display: block;
-height: 1px;
+height: 50px;
 background-color: #3291ff;
 }
 
