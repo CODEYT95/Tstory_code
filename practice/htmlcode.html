@@ -48,17 +48,28 @@
     <div class="w-screen h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-h-100 dark:bg-h-800" id="loader" x-show="loading" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
       <div class="rounded-full w-14 h-14 my-14 mx-auto text-base relative border-2 border-solid border-h-500/20 border-l-h-500 dark:border-h-100/20 dark:border-l-h-100 animate-loading"></div>
     </div>
+    <!--
+    ##############################
+    상단 progress bar START
+    ##############################
+    -->
     <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
       <div class="w-screen">
         <div class="progress-bar w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
       </div>
     </div>
+    <!--
+    ##############################
+    상단 progress bar END
+    ##############################
+    -->
+
+    <!--
+    ##############################
+    CUSTOM START
+    ##############################
+    -->
     <s_t3>
-      <!--
-          ##############################
-          사이드 바 START
-          ##############################
-        -->
       <div class="pl-0 break-all <s_if_var_sidebar>xl:pl-64</s_if_var_sidebar>" x-data="{ sidebar: false }">
         <main class="pb-14 lg:pb-18 relative" id="main">
           <s_cover_group>
@@ -547,6 +558,11 @@
             </ul>
           </s_paging>
         </main>
+        <!--
+        ##############################
+        사이드 바 START
+        ##############################
+        -->
         <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'>
           <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
             <s_sidebar>
@@ -984,6 +1000,11 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
             <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
           </template>
         </aside>
+        <!--
+        ##############################
+        사이드 바 END
+        ##############################
+        -->
         <div class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
           <div class="w-9 h-9"><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
           <div class="max-w-[calc(80vw-152px)] h-5">
@@ -997,10 +1018,11 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       </div>
     </s_t3>
     <!--
-          ##############################
-          사이드 바 END
-          ##############################
-        -->
+    ##############################
+    CUSTOM END
+    ##############################
+    -->
+
       <!-- 카테고리명 클릭시 이동 방지 -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
