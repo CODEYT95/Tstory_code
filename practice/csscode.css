@@ -4505,6 +4505,7 @@ content: '';
 display: block;
 height: 50px;
 background-color: #89c0ff2b;
+}
 
 .link-both-underline:hover::after {
 /* -webkit-animation: underline-both 1s ease; */
