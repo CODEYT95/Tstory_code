@@ -4504,8 +4504,7 @@ transform: translate3d(-101%,0,0);
 content: '';
 display: block;
 height: 50px;
-background-color: #3291ff;
-}
+background-color: #89c0ff2b;
 
 .link-both-underline:hover::after {
 /* -webkit-animation: underline-both 1s ease; */
