@@ -4464,6 +4464,7 @@ font-size: medium;
 
 .tt_category .category_list li .link_item:hover,
 .link_item:hover i:not(.fa-chevron-right) {
+  background-color: #3291ff1f;
   color: #3291ff !important;
 }
 
