@@ -4675,6 +4675,14 @@ animation: underline-both 1s ease;
   position: absolute !important;
 }
 
+.align-items-center {
+  align-items: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
 #modal-search-bar .btn-close{
   width: auto !important;
   height: 32px;
