@@ -4699,6 +4699,10 @@ animation: underline-both 1s ease;
   text-transform: none;
   -webkit-appearance: button;
 }
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
 /*다크모드
 .dark .side-cat{
  background-color: #000;
