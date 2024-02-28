@@ -4710,6 +4710,18 @@ animation: underline-both 1s ease;
   font-size: 1.125rem;
   border-radius: 0.575rem;
 }
+
+.form-control {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #232a42;
+  background-color: #fff;
+  background-clip: padding-box;
+  appearance: none;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
 /*다크모드
 .dark .side-cat{
  background-color: #000;
