@@ -895,7 +895,6 @@ CUSTOM START
               </div>
             </div>
           </s_sidebar_element>
-
           <!-- 공지사항
           <s_sidebar_element>
             <div class="sidebar-element">
@@ -996,6 +995,20 @@ CUSTOM START
 hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="#" style="cursor:auto;">정상우</a>.</small></div>
           </div>
         </div>
+
+        <!--
+        <s_sidebar_element>
+          <div class="category">
+            <h3>카테고리</h3>
+            [##_category_##]
+          </div>
+          <div class="category">
+            <h3>카테고리</h3>
+            [##_category_list_##]
+          </div>
+        </s_sidebar_element>
+        -->
+
       </div><template x-teleport="body">
       <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
     </template>
@@ -1028,7 +1041,7 @@ CUSTOM END
 Search Modal START
 ##############################
 -->
-<div id="modal-search-bar" class="modal search box fade" tabindex="-1" aria-labelledby="modal-search-bar" aria-modal="true" role="dialog" style="display: none;">
+<div id="modal-search-bar" class="modal search box fade" tabindex="-1" aria-labelledby="modal-search-bar" aria-modal="true" role="dialog" style="display: block;">
   <div id="search_box" class="modal-dialog modal-dialog-top modal-md">
     <div class="modal-content position-relative border-0">
       <div id="search_modal_form" class="position-relative" style="padding-right: 1.5rem!important; padding-left: 1.5rem!important;">
