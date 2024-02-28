@@ -4721,6 +4721,7 @@ animation: underline-both 1s ease;
   background-clip: padding-box;
   appearance: none;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  font-family: inherit;
 }
 /*다크모드
 .dark .side-cat{
