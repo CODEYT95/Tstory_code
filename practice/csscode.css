@@ -4703,6 +4703,13 @@ animation: underline-both 1s ease;
 .flex-grow-1 {
   flex-grow: 1 !important;
 }
+
+.form-control-lg {
+  min-height: calc(1.5em + 1.57rem + 2px);
+  padding: 0.785rem 1.5rem;
+  font-size: 1.125rem;
+  border-radius: 0.575rem;
+}
 /*다크모드
 .dark .side-cat{
  background-color: #000;
