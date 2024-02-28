@@ -4731,6 +4731,11 @@ animation: underline-both 1s ease;
   content: '';
   bottom: -1px;
 }
+
+.tag-cloud-list span {
+  display: inline-block;
+  margin: 5px 2px;
+}
 /*다크모드
 .dark .side-cat{
  background-color: #000;
