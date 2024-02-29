@@ -4736,6 +4736,18 @@ animation: underline-both 1s ease;
   display: inline-block;
   margin: 5px 2px;
 }
+
+.search-box-tags{
+  border: 1px solid #c2c2c2;
+  border-radius: 50px;
+  padding: 7px 10px 5px;
+  font-size: 0.8em;
+  color: #686868 !important;
+}
+
+.search-box-tags i{
+    padding-right: 4px;
+}
 /*다크모드
 .dark .side-cat{
  background-color: #000;
