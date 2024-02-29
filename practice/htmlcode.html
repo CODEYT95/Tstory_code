@@ -617,7 +617,7 @@ CUSTOM START
             <div class="select-menu-container">
               <ul>
                 <li class="t_menu_home first"><a href="https://codeb.tistory.com/"><i class="fad fa-house" style="--fa-primary-color: #5b88d7; --fa-secondary-color: #545659;"></i><p>홈</p></a></li>
-                <li class="t_menu_tag"><a href="/tag"><i class="fad fa-search" style="--fa-primary-color: #4f4f4f; --fa-secondary-color: #507ace;"></i><p>검색</p></a></li>
+                <li class="t_menu_tag"><i class="fad fa-search" style="--fa-primary-color: #4f4f4f; --fa-secondary-color: #507ace;"></i><p>검색</p></li>
                 <li class="t_menu_guestbook last"><a href="/guestbook"><i class="fad fa-user-edit" style="--fa-primary-color: #77abd7;--fa-secondary-color: #000000;margin-left: 3px;"></i><p>방명록</p></a></li>
               </ul>
             </div>
@@ -1041,7 +1041,7 @@ CUSTOM END
 Search Modal START
 ##############################
 -->
-<div id="modal-search-bar" class="modal search box fade" tabindex="-1" aria-labelledby="modal-search-bar" aria-modal="true" role="dialog" style="display: block;">
+<div id="modal-search-bar" class="modal search box fade" tabindex="-1" aria-labelledby="modal-search-bar" aria-modal="true" role="dialog" style="display: none;">
   <div id="search_box" class="modal-dialog modal-dialog-top modal-md">
     <div class="modal-content position-relative border-0">
       <div id="search_modal_form" class="position-relative" style="padding-right: 1.5rem!important; padding-left: 1.5rem!important;">
@@ -1086,6 +1086,7 @@ Search Modal START
     </div>
   </div>
 </div>
+<div class="modal-bg fade show"></div>
 <!--
 ##############################
 Search Modal END
@@ -1107,6 +1108,34 @@ Search Modal END
               }
           });
       });
+  });
+</script>
+
+<script>
+  var searchMenu = document.querySelector('.t_menu_tag');
+  var modal = document.getElementById('modal-search-bar');
+
+  searchMenu.addEventListener('click', function() {
+    modal.classList.toggle('fade');
+    modal.classList.toggle('show');
+
+    if (modal.classList.contains('fade')) {
+      modal.style.display = 'none';
+    } else {
+      modal.style.display = 'block';
+    }
+  });
+
+  var cancelButton = document.querySelector('.modal-cancel-container button');
+  cancelButton.addEventListener('click', function() {
+    modal.classList.toggle('fade');
+    modal.classList.toggle('show');
+
+    if (modal.classList.contains('fade')) {
+      modal.style.display = 'none';
+    } else {
+      modal.style.display = 'block';
+    }
   });
 </script>
 </body>
