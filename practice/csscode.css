@@ -4629,18 +4629,36 @@ animation: underline-both 1s ease;
   transform: translate(0, -50px);
 }
 
+@media (min-width: 1500px){
+  .modal-dialog {
+    max-width: 65%;
+  }
+}
+@media (min-width: 1200px){
+  .modal-dialog {
+    max-width: 75%;
+  }
+}
 @media (min-width: 576px){
   .modal-dialog {
     max-width: 85%;
   }
 }
+.modal-dialog {
+  max-width: 95%;
+  margin: 1.75rem auto;
+}
 
+@media screen and (min-width: 1500px){
+  #modal-search-bar {
+    padding-left: 250px !important;
+  }
+}
 .modal-dialog {
   max-width: 95%;
   margin: 1.75rem auto;
   position: relative;
   width: auto;
-  margin: 0.5rem;
   pointer-events: none;
 }
 
