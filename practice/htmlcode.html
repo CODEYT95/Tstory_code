@@ -1111,13 +1111,10 @@ Search Modal END
 </script>
 
 <script>
-  // 필요한 요소들을 가져옵니다
   var searchMenu = document.querySelector('.t_menu_tag');
   var modal = document.getElementById('modal-search-bar');
 
-  // 검색 메뉴 아이템에 클릭 이벤트 리스너를 추가합니다
   searchMenu.addEventListener('click', function() {
-    // 모달에서 'fade' 및 'show' 클래스를 토글합니다
     modal.classList.toggle('fade');
     modal.classList.toggle('show');
 
