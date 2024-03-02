@@ -4768,7 +4768,25 @@ animation: underline-both 1s ease;
 }
 
 .search-box-tags i{
-    padding-right: 4px;
+  padding-right: 4px;
+}
+
+.modal-bg.fade{
+  opacity: 0;
+}
+
+.modal-bg.show{
+  opacity: .5;
+}
+
+.modal-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0e111f;
 }
 /*다크모드
 .dark .side-cat{
