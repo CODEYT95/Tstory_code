@@ -1086,7 +1086,6 @@ Search Modal START
     </div>
   </div>
 </div>
-<div class="modal-bg fade show"></div>
 <!--
 ##############################
 Search Modal END
@@ -1112,13 +1111,31 @@ Search Modal END
 </script>
 
 <script>
+  // 필요한 요소들을 가져옵니다
   var searchMenu = document.querySelector('.t_menu_tag');
   var modal = document.getElementById('modal-search-bar');
 
+  // 검색 메뉴 아이템에 클릭 이벤트 리스너를 추가합니다
   searchMenu.addEventListener('click', function() {
+    // 모달에서 'fade' 및 'show' 클래스를 토글합니다
     modal.classList.toggle('fade');
     modal.classList.toggle('show');
 
+    // modal-bg 엘리먼트를 찾습니다
+    var modalBg = document.querySelector('.modal-bg');
+
+    // modal-bg 엘리먼트가 없으면 생성합니다
+    if (!modalBg) {
+      modalBg = document.createElement('div');
+      modalBg.className = 'modal-bg fade show';
+      document.body.appendChild(modalBg);
+    } else {
+      // modal-bg 엘리먼트가 이미 있으면 토글합니다
+      modalBg.classList.toggle('fade');
+      modalBg.classList.toggle('show');
+    }
+
+    // 'fade' 클래스가 있는지 확인하여 display 속성을 변경합니다
     if (modal.classList.contains('fade')) {
       modal.style.display = 'none';
     } else {
@@ -1126,11 +1143,21 @@ Search Modal END
     }
   });
 
+  // 모달 내부의 취소 버튼에 클릭 이벤트 리스너를 추가합니다
   var cancelButton = document.querySelector('.modal-cancel-container button');
   cancelButton.addEventListener('click', function() {
+    // 모달에서 다시 'fade' 및 'show' 클래스를 토글합니다
     modal.classList.toggle('fade');
     modal.classList.toggle('show');
 
+    // modal-bg 엘리먼트를 찾아 토글합니다
+    var modalBg = document.querySelector('.modal-bg');
+    if (modalBg) {
+      modalBg.classList.toggle('fade');
+      modalBg.classList.toggle('show');
+    }
+
+    // 'fade' 클래스가 있는지 확인하여 display 속성을 변경합니다
     if (modal.classList.contains('fade')) {
       modal.style.display = 'none';
     } else {
