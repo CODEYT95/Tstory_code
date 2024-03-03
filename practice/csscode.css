@@ -1921,11 +1921,11 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 .max-2xl\:top-20 {
   top: 5rem;
 }
-
+/*
 .max-2xl\:z-40 {
   z-index: 40;
 }
-
+*/
 .max-2xl\:rounded-xl {
   border-radius: 0.75rem;
 }
@@ -4265,7 +4265,6 @@ width: 270px;
 position: absolute;
 padding: 25px 0;
 box-sizing: border-box;
-z-index:9999;
 }
 
 /*사이드 메뉴 css*/
@@ -4794,3 +4793,7 @@ animation: underline-both 1s ease;
  background-color: #000;
 }
 */
+
+#sidebar{
+  z-index: 9999;
+}
