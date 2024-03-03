@@ -563,7 +563,7 @@ CUSTOM START
     사이드 바 START
     ##############################
     -->
-    <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'>
+    <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"' >
       <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
         <s_sidebar>
           <s_sidebar_element><!-- 프로필-->
@@ -1122,10 +1122,10 @@ Search Modal END
       modalSearchBar.classList.add('fade');
 
       // body 태그에서 "modal-backdrop fade show" 클래스 제거
-      document.body.classList.remove('modal-backdrop', 'fade', 'show');
+      document.body.classList.remove('modal-bg');
 
       // body 태그에서 "modal-backdrop fade show" div 태그 제거
-      const modalBackdrop = document.querySelector('.modal-backdrop');
+      const modalBackdrop = document.querySelector('.modal-bg');
       if (modalBackdrop) {
         modalBackdrop.parentNode.removeChild(modalBackdrop);
       }
@@ -1139,7 +1139,7 @@ Search Modal END
 
       // body 태그에 "modal-backdrop fade show" div 태그 추가
       const modalBackdrop = document.createElement('div');
-      modalBackdrop.classList.add('modal-backdrop', 'fade', 'show');
+      modalBackdrop.classList.add('modal-bg');
       document.body.appendChild(modalBackdrop);
 
       // modalSearchBar display 속성을 block으로 변경
