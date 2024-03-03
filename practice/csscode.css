@@ -4274,6 +4274,10 @@ box-sizing: border-box;
 max-width: 250px;
 }
 
+#sidebar{
+  z-index: 9999;
+}
+
 /*블로그 메뉴 카테고리에서 가리기*/
 #sidebar #blogmenu h2{
 display: none;
@@ -4793,7 +4797,3 @@ animation: underline-both 1s ease;
  background-color: #000;
 }
 */
-
-#sidebar{
-  z-index: 9999;
-}
