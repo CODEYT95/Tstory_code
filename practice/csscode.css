@@ -4783,8 +4783,9 @@ animation: underline-both 1s ease;
   opacity: .5;
 }
 
-.modal-bg{
+.search-modal-bg{
   position: fixed;
+  opacity: .5;
   top: 0;
   left: 0;
   z-index: 10;
