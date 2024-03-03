@@ -4265,6 +4265,7 @@ width: 270px;
 position: absolute;
 padding: 25px 0;
 box-sizing: border-box;
+z-index:9999;
 }
 
 /*사이드 메뉴 css*/
