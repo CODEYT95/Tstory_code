@@ -4274,10 +4274,6 @@ box-sizing: border-box;
 max-width: 250px;
 }
 
-#sidebar{
-  z-index: 9999;
-}
-
 /*블로그 메뉴 카테고리에서 가리기*/
 #sidebar #blogmenu h2{
 display: none;
@@ -4637,24 +4633,24 @@ animation: underline-both 1s ease;
   transform: translate(0, -50px);
 }
 
-@media (min-width: 1500px){
-  .modal-dialog {
-    max-width: 65%;
-  }
-}
-@media (min-width: 1200px){
-  .modal-dialog {
-    max-width: 75%;
-  }
-}
-@media (min-width: 576px){
-  .modal-dialog {
-    max-width: 85%;
-  }
-}
 .modal-dialog {
-  max-width: 95%;
-  margin: 1.75rem auto;
+    max-width: 95%;
+    margin: 1.75rem auto;
+}
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 85%;
+    }
+}
+@media (min-width: 1200px) {
+    .modal-dialog {
+        max-width: 75%;
+    }
+}
+@media (min-width: 1500px) {
+    .modal-dialog {
+        max-width: 65%;
+    }
 }
 
 @media screen and (min-width: 1500px){
@@ -4775,14 +4771,6 @@ animation: underline-both 1s ease;
   padding-right: 4px;
 }
 
-.modal-bg.fade{
-  opacity: 0;
-}
-
-.modal-bg.show{
-  opacity: .5;
-}
-
 .modal-bg{
   position: fixed;
   opacity: .5;
@@ -4798,3 +4786,7 @@ animation: underline-both 1s ease;
  background-color: #000;
 }
 */
+
+#sidebar{
+  z-index: 9999;
+}
