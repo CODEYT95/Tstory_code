@@ -2148,6 +2148,16 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 }
 }
 
+@media (min-width: 1500px) {
+  .xl\:left-0 {
+  left: 0px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 2%);
+}
+.xl\:pl-64 {
+  padding-left: 15.5rem; /* 원본 16 */
+}
+}
+
 @media (min-width: 1400px) {
 
 .xl\:invisible {
@@ -2158,10 +2168,7 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   bottom: 1rem;
 }
 
-.xl\:left-0 {
-  left: 0px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 2%);
-}
+
 
 .xl\:w-c {
   width: calc(100% - 16rem);
@@ -2170,10 +2177,6 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 .xl\:px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-}
-
-.xl\:pl-64 {
-  padding-left: 15.5rem; /* 원본 16 */
 }
 }
 
