@@ -2156,6 +2156,10 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 .xl\:pl-64 {
   padding-left: 15.5rem; /* 원본 16 */
 }
+.xl\:px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
 }
 
 @media (min-width: 1400px) {
@@ -2174,10 +2178,6 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   width: calc(100% - 16rem);
 }
 
-.xl\:px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
 }
 
 @media (min-width: 1820px) {
@@ -4268,11 +4268,17 @@ width: 270px;
 position: absolute;
 padding: 25px 0;
 box-sizing: border-box;
+-ms-overflow-style: none;
+scrollbar-width: none;
 }
 
 /*사이드 메뉴 css*/
 #sidebar.opened .__ {
   left: -1px !important;
+}
+
+.side-cat::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 1500px){
