@@ -4268,6 +4268,16 @@ box-sizing: border-box;
 }
 
 /*사이드 메뉴 css*/
+#sidebar.opened .__ {
+  left: -1px !important;
+}
+
+@media screen and (max-width: 1500px){
+.side-cat {
+  left: -250px;
+}
+}
+
 #sidemenu{
 padding: 0 !important;
 box-sizing: border-box;
