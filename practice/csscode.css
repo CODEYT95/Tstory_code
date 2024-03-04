@@ -4634,9 +4634,13 @@ animation: underline-both 1s ease;
 }
 
 .modal-dialog {
-    max-width: 95%;
-    margin: 1.75rem auto;
+  max-width: 95%;
+  margin: 1.75rem auto;
+  position: relative;
+  width: auto;
+  pointer-events: none;
 }
+
 @media (min-width: 576px) {
     .modal-dialog {
         max-width: 85%;
@@ -4657,13 +4661,6 @@ animation: underline-both 1s ease;
   #modal-search-bar {
     padding-left: 250px !important;
   }
-}
-.modal-dialog {
-  max-width: 95%;
-  margin: 1.75rem auto;
-  position: relative;
-  width: auto;
-  pointer-events: none;
 }
 
 .border-0 {
@@ -4789,4 +4786,8 @@ animation: underline-both 1s ease;
 
 #sidebar{
   z-index: 9999;
+}
+
+.fade {
+  transition: opacity .15s linear;
 }
