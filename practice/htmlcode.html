@@ -1112,6 +1112,7 @@ Search Modal END
 
 <script>
   const menuTag = document.querySelector('.t_menu_tag');
+  const sideBtn = document.querySelector('.open-side');
   const modalSearchBar = document.querySelector('#modal-search-bar');
   const sidebar = document.querySelector('#sidebar');
 
@@ -1148,7 +1149,7 @@ Search Modal END
     }
   });
 
-  menuTag.addEventListener('click', () => {
+  sideBtn.addEventListener('click', () => {
     // 이미 "open" 클래스가 있다면 (사이드바 열려 있다면)
     if (sidebar.classList.contains('open')) {
       // "open" 클래스를 제거하여 사이드바 닫힘
