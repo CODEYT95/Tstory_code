@@ -4262,7 +4262,8 @@ animation: animate23 5s linear infinite;
 }
 /*Top bar*/
 .open-side{
-
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 /*사이드 크기*/
