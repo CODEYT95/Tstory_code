@@ -4813,10 +4813,6 @@ animation: underline-both 1s ease;
 }
 */
 
-#_sidebar{
-  z-index: 9999;
-}
-
 .fade {
   transition: opacity .15s linear;
 }
