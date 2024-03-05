@@ -2160,6 +2160,9 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+.side-cat {
+  left: 256px;
+}
 }
 
 @media (min-width: 1400px) {
@@ -4264,7 +4267,7 @@ background-color: var(--tw-ring-offset-color);
 overflow-x: hidden;
 overflow-y: scroll;
 height: 100%;
-width: 270px;
+width: 250px;
 position: absolute;
 padding: 25px 0;
 box-sizing: border-box;
@@ -4283,7 +4286,7 @@ scrollbar-width: none;
 
 @media screen and (max-width: 1500px){
 .side-cat {
-  left: -250px;
+  left: -270px;
 }
 }
 
