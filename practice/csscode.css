@@ -2161,7 +2161,7 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   padding-right: 1.25rem;
 }
 .side-cat {
-  left: 256px;
+  left: -1px !important;
 }
 }
 
@@ -4268,14 +4268,16 @@ animation: animate23 5s linear infinite;
 
 /*사이드 크기*/
 .side-cat{
-background-color: var(--tw-ring-offset-color);
-overflow-x: hidden;
-overflow-y: scroll;
-height: 100%;
+position: fixed;
+top: 0;
+left: -250px;
 width: 250px;
-position: absolute;
-padding: 25px 0;
-box-sizing: border-box;
+height: 100%;
+overflow: hidden;
+z-index: 9999;
+transition-duration: 0.2s;
+transition-property: left;
+padding: 0 !important;
 -ms-overflow-style: none;
 scrollbar-width: none;
 }
