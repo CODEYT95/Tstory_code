@@ -2160,9 +2160,6 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-.side-cat {
-  left: -1px !important;
-}
 }
 
 @media (min-width: 1400px) {
@@ -4266,22 +4263,6 @@ animation: animate23 5s linear infinite;
   height: 2.25rem;
 }
 
-/*사이드 크기*/
-.side-cat{
-position: fixed;
-top: 0;
-left: -250px;
-width: 250px;
-height: 100%;
-overflow: hidden;
-z-index: 9999;
-transition-duration: 0.2s;
-transition-property: left;
-padding: 0 !important;
--ms-overflow-style: none;
-scrollbar-width: none;
-}
-
 /*사이드 메뉴 css*/
 #_sidebar .__ {
   position: fixed;
@@ -4308,8 +4289,14 @@ scrollbar-width: none;
   display: none;
 }
 
+@media (min-width: 1500px){
+#_sidebar .__ {
+    left: -1px !important;
+}
+}
+
 @media screen and (max-width: 1500px){
-.side-cat {
+#_sidebar .__ {
   left: -270px;
 }
 }
