@@ -563,455 +563,458 @@ CUSTOM START
     사이드 바 START
     ##############################
     -->
-    <aside id="sidebar" class="dark:bg-h-700">
-      <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
-        <s_sidebar>
-          <s_sidebar_element><!-- 프로필-->
-            <div class="sidebar-element">
-              <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
-                <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
+    <aside id="_sidebar" class="dark:bg-h-700">
+      <div class="__">
+        <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box side-cat">
+          <s_sidebar>
+            <s_sidebar_element><!-- 프로필-->
+              <div class="sidebar-element">
+                <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
+                  <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
 
-                <!-- 닉네임
-                <div class="text-h-400 text-sm">[##_blogger_##]</div>
-                -->
+                  <!-- 닉네임
+                  <div class="text-h-400 text-sm">[##_blogger_##]</div>
+                  -->
 
+                </div>
               </div>
-            </div>
-          </s_sidebar_element>
+            </s_sidebar_element>
 
-          <!-- 방문자 수
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div class="overflow-hidden flex justify-between" id="counter">
+            <!-- 방문자 수
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div class="overflow-hidden flex justify-between" id="counter">
+                  <div>
+                    <div class="text-left">
+                      <div class="title">전체</div>
+                      <div class="count">[##_count_total_##]</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-x-2 text-right">
+                    <div>
+                      <div class="title">오늘</div>
+                      <div class="count">[##_count_today_##]</div>
+                    </div>
+                    <div>
+                      <div class="title">어제</div>
+                      <div class="count">[##_count_yesterday_##]</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </s_sidebar_element>
+            -->
+
+            <!-- 블로그 메뉴(원본)
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div id="blogmenu">
+                  <h2>블로그 메뉴</h2>[##_blog_menu_##]
+                </div>
+              </div>
+            </s_sidebar_element>
+            -->
+            <s_sidebar_element>
+              <div class="select-menu-container">
+                <ul>
+                  <li class="t_menu_home first"><a href="https://codeb.tistory.com/"><i class="fad fa-house" style="--fa-primary-color: #5b88d7; --fa-secondary-color: #545659;"></i><p>홈</p></a></li>
+                  <li class="t_menu_tag"><i class="fad fa-search" style="--fa-primary-color: #4f4f4f; --fa-secondary-color: #507ace;"></i><p>검색</p></li>
+                  <li class="t_menu_guestbook last"><a href="/guestbook"><i class="fad fa-user-edit" style="--fa-primary-color: #77abd7;--fa-secondary-color: #000000;margin-left: 3px;"></i><p>방명록</p></a></li>
+                </ul>
+              </div>
+            </s_sidebar_element>
+
+            <!-- 검색
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <s_search>
+                  <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
+                </s_search>
+              </div>
+            </s_sidebar_element>
+            -->
+            <s_sidebar_element>
+              <div class="division-line"></div>
+            </s_sidebar_element>
+
+            <s_sidebar_element><!-- 카테고리-->
+              <div class="sidebar-element __sidebar-category">
+                <div id="category"><!-- 원본 코드 : x-data="category" -->
+                  <nav id="sidemenu" class="category">
+                    <ul class="tt_category">
+                      <li class="">
+                        <a href="/category" class="link_tit"> ROOT <span class="c_cnt">(3)</span> </a>
+                        <ul class="category_list">
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>Programming</span>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }">
+                            <a href="/category/Language" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
+                              <i class="fab fa-codepen category-icon"></i>
+                              Language <span class="c_cnt">2</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class="">
+                                <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain" style="vertical-align:text-top"></i>C <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Language/JAVA" class="link_sub_item"><i class="fa devicon-java-plain" style="vertical-align:text-top"></i>JAVA <span class="c_cnt">1</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Language/JavaScript" class="link_sub_item"><i class="fas devicon-javascript-plain" style="vertical-align:text-top"></i>JavaScript <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Language/TypeScript" class="link_sub_item"><i class="fas devicon-typescript-plain" style="vertical-align:text-top"></i>TypeScript <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Language/Python" class="link_sub_item"><i class="fas devicon-python-plain" style="vertical-align:text-top"></i>Python <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Language/PHP" class="link_sub_item"><i class="fab fa-php" style="vertical-align:bottom"></i>PHP <span class="c_cnt">0</span> </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }">
+                            <a href="/category/Library" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
+                              <i class="far fa-books category-icon"></i>
+                              Library <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/Library/JQuery" class="link_sub_item"><i class="fas devicon-jquery-plain" style="vertical-align:bottom"></i>JQuery <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }">
+                            <a href="/category/Mark Up" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open">
+                              <i class="far fa-code category-icon"></i>
+                              Mark Up <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class="">
+                                <a href="/category/Mark%20UP/HTML" class="link_sub_item"> <i class="fab fa-html5" style="vertical-align:bottom"></i>HTML <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/Mark%20UP/MarkDown" class="link_sub_item"> <i class="fas devicon-markdown-original" style="vertical-align:text-top"></i>MarkDown <span class="c_cnt">0</span> </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }">
+                            <a href="/category/Style%20Sheet" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open">
+                              <i class="far fa-palette category-icon"></i>
+                              Style Sheet <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"><i class="fas devicon-css3-plain" style="vertical-align:bottom"></i>CSS <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"><i class="fas devicon-bootstrap-plain" style="vertical-align:bottom"></i>Bootstrap5 <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/Style%20Sheet/스타일%20요소" class="link_sub_item"><i class="fad fa-brush" style="vertical-align:bottom"></i>스타일 요소 <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>Framework</span>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/Node.js" class="link_item link-both-underline">
+                              <i class="devicon devicon-nodejs-plain category-icon"></i>Node.js <span class="c_cnt">0</span>
+                            </a>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/Spring" class="link_item link-both-underline"><i class="devicon devicon-spring-original category-icon"></i>Spring <span class="c_cnt">0</span> </a>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>DATA</span>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/DBMS" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-database category-icon"></i>
+                              DBMS <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class="">
+                                <a href="/category/DBMS/데이터베이스%20이론" class="link_sub_item"><i class="fad fa-database" style="vertical-align:text-bottom"></i>데이터베이스 이론 <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/DBMS/MySQL" class="link_sub_item"><i class="fas devicon-mysql-original" style="vertical-align:bottom"></i>MySQL <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/DBMS/Oracle" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 24 24">
+                                  <path fill="currentColor" fill-rule="evenodd" d="M7.957359,18.9123664 C4.11670252,18.9123664 1,15.803458 1,11.9617373 C1,8.12000773 4.11670252,5 7.957359,5 L16.0437948,5 C19.8855156,5 23,8.12000773 23,11.9617373 C23,15.803458 19.8855156,18.9123664 16.0437948,18.9123664 L7.957359,18.9123664 L7.957359,18.9123664 Z M15.8639176,16.4585488 C18.352201,16.4585488 20.3674397,14.448858 20.3674397,11.9617373 C20.3674397,9.47460595 18.352201,7.45381934 15.8639176,7.45381934 L8.1360824,7.45381934 C5.64895285,7.45381934 3.63255855,9.47460595 3.63255855,11.9617373 C3.63255855,14.448858 5.64895285,16.4585488 8.1360824,16.4585488 L15.8639176,16.4585488 L15.8639176,16.4585488 Z"/>
+                                </svg></i>Oracle <span class="c_cnt">0</span> </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/FILES" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-file-code category-icon"></i>
+                              FILES <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class="">
+                                <a href="/category/FILES/JSON" class="link_sub_item"><i class="fas devicon-json-plain" style="vertical-align:bottom"></i>JSON <span class="c_cnt">0</span> </a>
+                              </li>
+                              <li class="">
+                                <a href="/category/FILES/XML" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1.1em" height="1.1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="mdi:xml"><path d="M12.89 3l1.96.4L11.11 21l-1.96-.4L12.89 3m6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83L19.59 12M1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83L1.58 12z" fill="currentColor"></path></svg></i>XML <span class="c_cnt">0</span> </a>
+                              </li>
+                            </ul>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>DevOps</span>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/OS" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-computer-classic category-icon"></i>
+                              OS <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/OS/Window" class="link_sub_item"><i class="fas devicon-windows11-original" style="vertical-align:bottom"></i>Window <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/OS/Linux" class="link_sub_item"><i class="fas devicon-linux-plain" style="vertical-align:bottom"></i>Linux <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/Server" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-server category-icon"></i>
+                              Server <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/Server/Apache" class="link_sub_item"><i class="fas devicon-apache-plain" style="vertical-align:middle"></i>Apache <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"><i class="fa devicon-tomcat-line" style="vertical-align:text-top"></i>Tomcat <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu"><a href="/category/GIT" class="link_item link-both-underline">
+                            <i class="devicon devicon-git-plain category-icon"></i>
+                            GIT <span class="c_cnt">0</span>
+                          </a>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>Cloud</span>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/AWS" class="link_item link-both-underline">
+                              <i class="fab fa-aws category-icon"></i>
+                              AWS <span class="c_cnt">0</span>
+                            </a>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>Dev Kit</span>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/IDE" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-window category-icon"></i>
+                              IDE <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 240" preserveAspectRatio="xMinYMin meet"><defs><linearGradient x1="50%" y1="1089.396%" x2="50%" y2="-159.5%" id="a"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="896.537%" x2="49.999%" y2="-352.359%" id="b"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="215.17%" x2="49.999%" y2="-166.715%" id="c"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="86.31%"/></linearGradient></defs><path d="M70.382 153.049H31.26c5.18 17.768 14.792 33.693 28.864 47.768 22.434 22.436 49.41 33.64 80.956 33.64 6.306 0 12.416-.47 18.35-1.365 23.761-3.587 44.565-14.33 62.39-32.275 14.162-14.07 23.842-30 29.062-47.768H70.382zM48.81 99.915H28.373a119.493 119.493 0 0 0-1.488 13.775h228.399c-.233-4.7-.743-9.285-1.497-13.775M26.885 126.482c.231 4.703.738 9.287 1.488 13.775h225.418a118.86 118.86 0 0 0 1.5-13.775M250.887 87.12c-5.215-17.817-14.897-33.817-29.067-47.99-17.778-17.777-38.522-28.443-62.207-32.031a123.318 123.318 0 0 0-18.532-1.386c-31.546 0-58.524 11.143-80.956 33.418C46.048 53.303 36.43 69.303 31.254 87.12" fill="currentColor"/><path d="M20.093 120.09C20.093 59.753 65.407 9.621 124.357.803c-1.462-.053-2.932-.112-4.409-.112C53.796.692.164 54.15.164 120.09c0 65.943 53.63 119.397 119.784 119.397 1.482 0 2.951-.056 4.419-.11-58.96-8.817-104.274-58.95-104.274-119.287z" fill="currentColor"/><g><path d="M155.728 14.226A77.824 77.824 0 0 0 153.364.451H2.642A77.753 77.753 0 0 0 .276 14.226h155.452z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M155.728 27.02H.278a77.611 77.611 0 0 0 2.364 13.776h150.724a77.821 77.821 0 0 0 2.362-13.776z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M78.003 98.636c31.3 0 58.282-18.441 70.706-45.048H7.297c12.425 26.607 39.405 45.048 70.706 45.048z" fill="currentColor" transform="translate(63.083 99.461)"/></g><g fill="#FFF"><path d="M51.84 126.482h203.29c.108-2.035.168-4.084.168-6.147 0-2.232-.081-4.444-.208-6.647H26.885c-.126 2.2-.208 4.415-.208 6.647 0 2.063.06 4.112.168 6.147H51.84zM69.924 87.12H31.252c-1.271 4.166-2.091 8.44-2.879 12.795H253.065a113.52 113.52 0 0 0-3.075-12.795M238.373 140.255H28.371c.766 4.352 1.638 8.623 2.888 12.794H250.738a113.252 113.252 0 0 0 3.023-12.794h-15.388z"/></g></svg></i> Eclipse <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 900.000000 900.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"><path d="M750 4500 l0 -3750 3750 0 3750 0 0 3750 0 3750 -3750 0 -3750 0 0 -3750z m2630 2555 l0 -305 -235 0 -235 0 0 -1007 0 -1008 232 0 233 0 0 -305 0 -305 -798 -3 -797 -2 2 307 3 308 233 0 232 0 0 1008 0 1007 -235 0 -235 0 0 305 0 305 800 0 800 0 0 -305z m2617 -857 l-3 -1163 -27 -124 c-52 -236 -137 -408 -267 -540 -192 -196 -455 -290 -816 -291 -354 -1 -637 115 -893 367 l-104 102 28 33 c15 18 113 131 217 250 l189 217 67 -68 c123 -123 229 -193 346 -226 91 -26 253 -18 328 17 107 49 180 150 216 296 14 59 16 196 19 1180 l4 1112 350 0 350 0 -4 -1162z m-1687 -4183 l0 -235 -1405 0 -1405 0 0 235 0 235 1405 0 1405 0 0 -235z"/></g></svg></i>InteliJ <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"><i class="fas devicon-vscode-plain" style="vertical-align:middle"></i>VS Code <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/Tool" class="link_item link-both-underline">
+                              <i class="far fa-tools category-icon"></i>
+                              Tool <span class="c_cnt">0</span>
+                            </a>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>TEST</span>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/코딩%20테스트" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-keyboard category-icon"></i>
+                              코딩 테스트 <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/코딩%20테스트/Programmers" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1em" height="1em" viewBox="0 0 320.000000 320.000000" preserveAspectRatio="xMidYMid meet">
+
+                                <g transform="translate(0.000000,320.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                                  <path d="M300 3166 c-116 -33 -211 -113 -263 -224 l-32 -67 -3 -1260 c-2 -940 0 -1274 9 -1315 25 -116 105 -222 207 -274 l51 -26 1331 0 1331 0 51 26 c72 36 143 112 181 192 l32 67 3 1260 c2 940 0 1274 -9 1315 -26 124 -109 227 -227 283 l-67 32 -1275 2 c-1000 1 -1285 -1 -1320 -11z m720 -653 c36 -13 83 -34 105 -47 22 -13 78 -43 125 -67 47 -23 166 -87 265 -142 204 -113 362 -193 418 -213 l37 -13 83 75 c101 92 180 134 252 134 52 0 80 -14 196 -95 l42 -30 316 -4 316 -3 -327 -83 c-187 -47 -345 -93 -370 -107 -61 -33 -99 -97 -149 -245 -69 -211 -141 -336 -258 -454 -108 -108 -192 -157 -475 -280 -55 -23 -139 -68 -187 -100 -103 -68 -274 -229 -372 -352 -38 -48 -71 -86 -73 -84 -7 6 48 192 83 282 50 128 179 392 252 515 45 74 60 109 54 119 -5 8 -74 31 -154 52 -160 41 -304 93 -388 141 -98 56 -171 136 -171 186 0 10 -19 32 -45 50 -67 47 -70 103 -7 136 38 19 153 44 245 52 67 6 77 9 71 23 -36 81 -54 153 -54 224 0 50 -7 98 -19 135 -28 81 -35 151 -19 182 30 56 85 59 208 13z"/>
+                                </g>
+                              </svg></i> Programmers <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/코딩%20테스트/백준" class="link_sub_item"><i class="fas" style="vertical-align:text-bottom"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 2000.000000 2000.000000" preserveAspectRatio="xMidYMid meet">
+
+                                <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                                  <path d="M4069 16478 c0 -2 -780 -2912 -1733 -6468 l-1732 -6465 460 -3 c252 -1 461 -1 463 1 2 2 210 775 462 1718 1407 5252 2990 11168 2996 11192 l7 27 -461 0 c-254 0 -461 -1 -462 -2z"/>
+                                  <path d="M7807 12593 c-1323 -1358 -2406 -2472 -2407 -2476 -1 -5 1095 -1133 2435 -2508 l2437 -2499 644 0 c354 0 644 2 644 5 0 2 -1100 1133 -2445 2512 -1345 1379 -2445 2510 -2445 2513 0 4 3196 3287 4462 4583 l330 337 -624 0 -625 0 -2406 -2467z"/>
+                                  <path d="M13627 14743 c1756 -1799 4483 -4599 4483 -4603 0 -3 -1099 -1132 -2442 -2509 -1344 -1378 -2444 -2508 -2446 -2513 -2 -4 286 -8 641 -8 l644 0 2435 2498 c1340 1373 2436 2502 2436 2507 0 6 -1082 1120 -2406 2478 l-2406 2467 -624 0 -624 0 309 -317z"/>
+                                </g>
+                              </svg></i>백준 <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+                          <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
+                            <a href="/category/Error" class="link_item link-both-underline toggleDropdown">
+                              <i class="far fa-exclamation-triangle category-icon"></i>
+                              Error <span class="c_cnt">0</span>
+                              <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
+                            </a>
+                            <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+                              <li class=""><a href="/category/Error/Java에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Java에러 <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/Error/JS에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>JS에러 <span class="c_cnt">0</span> </a></li>
+                              <li class=""><a href="/category/Error/Git에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Git에러 <span class="c_cnt">0</span> </a></li>
+                            </ul>
+                          </li>
+
+                          <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
+                            <i class="far fa-ellipsis-h"></i>
+                            <span>ETC</span>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/ETC" class="link_item link-both-underline">
+                              <i class="fal fa-ellipsis-h-alt category-icon"></i>
+                              ETC <span class="c_cnt">0</span>
+                            </a>
+                          </li>
+                          <li class="cat-sub-menu">
+                            <a href="/category/일상" class="link_item link-both-underline">
+                              <i class="far fa-user-astronaut category-icon"></i>
+                              일상 <span class="c_cnt">0</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </s_sidebar_element>
+            <!-- 공지사항
+            <s_sidebar_element>
+              <div class="sidebar-element">
                 <div>
-                  <div class="text-left">
-                    <div class="title">전체</div>
-                    <div class="count">[##_count_total_##]</div>
-                  </div>
-                </div>
-                <div class="flex gap-x-2 text-right">
-                  <div>
-                    <div class="title">오늘</div>
-                    <div class="count">[##_count_today_##]</div>
-                  </div>
-                  <div>
-                    <div class="title">어제</div>
-                    <div class="count">[##_count_yesterday_##]</div>
-                  </div>
+                  <h2><a class="link_tit" href="/notice">공지사항</a></h2>
+                  <s_rct_notice>
+                    <ul class="flex flex-col gap-y-4 text-sm">
+                      <s_rct_notice_rep>
+                        <li><i class="fa-regular fa-bell text-h-400 mr-2"></i><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></li>
+                      </s_rct_notice_rep>
+                    </ul>
+                  </s_rct_notice>
                 </div>
               </div>
-            </div>
-          </s_sidebar_element>
-          -->
+            </s_sidebar_element>
+            -->
 
-          <!-- 블로그 메뉴(원본)
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div id="blogmenu">
-                <h2>블로그 메뉴</h2>[##_blog_menu_##]
-              </div>
-            </div>
-          </s_sidebar_element>
-          -->
-          <s_sidebar_element>
-            <div class="select-menu-container">
-              <ul>
-                <li class="t_menu_home first"><a href="https://codeb.tistory.com/"><i class="fad fa-house" style="--fa-primary-color: #5b88d7; --fa-secondary-color: #545659;"></i><p>홈</p></a></li>
-                <li class="t_menu_tag"><i class="fad fa-search" style="--fa-primary-color: #4f4f4f; --fa-secondary-color: #507ace;"></i><p>검색</p></li>
-                <li class="t_menu_guestbook last"><a href="/guestbook"><i class="fad fa-user-edit" style="--fa-primary-color: #77abd7;--fa-secondary-color: #000000;margin-left: 3px;"></i><p>방명록</p></a></li>
-              </ul>
-            </div>
-          </s_sidebar_element>
-
-          <!-- 검색
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <s_search>
-                <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
-              </s_search>
-            </div>
-          </s_sidebar_element>
-          -->
-          <s_sidebar_element>
-            <div class="division-line"></div>
-          </s_sidebar_element>
-
-          <s_sidebar_element><!-- 카테고리-->
-            <div class="sidebar-element __sidebar-category">
-              <div id="category"><!-- 원본 코드 : x-data="category" -->
-                <nav id="sidemenu" class="category">
-                  <ul class="tt_category">
-                    <li class="">
-                      <a href="/category" class="link_tit"> ROOT <span class="c_cnt">(3)</span> </a>
-                      <ul class="category_list">
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>Programming</span>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }">
-                          <a href="/category/Language" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
-                            <i class="fab fa-codepen category-icon"></i>
-                            Language <span class="c_cnt">2</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class="">
-                              <a href="/category/Language/C" class="link_sub_item"><i class="fal devicon-c-plain" style="vertical-align:text-top"></i>C <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Language/JAVA" class="link_sub_item"><i class="fa devicon-java-plain" style="vertical-align:text-top"></i>JAVA <span class="c_cnt">1</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Language/JavaScript" class="link_sub_item"><i class="fas devicon-javascript-plain" style="vertical-align:text-top"></i>JavaScript <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Language/TypeScript" class="link_sub_item"><i class="fas devicon-typescript-plain" style="vertical-align:text-top"></i>TypeScript <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Language/Python" class="link_sub_item"><i class="fas devicon-python-plain" style="vertical-align:text-top"></i>Python <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Language/PHP" class="link_sub_item"><i class="fab fa-php" style="vertical-align:bottom"></i>PHP <span class="c_cnt">0</span> </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }">
-                          <a href="/category/Library" class="link_item link-both-underline toggleDropdown" x-on:click="open = !open">
-                            <i class="far fa-books category-icon"></i>
-                            Library <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/Library/JQuery" class="link_sub_item"><i class="fas devicon-jquery-plain" style="vertical-align:bottom"></i>JQuery <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }">
-                          <a href="/category/Mark Up" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open">
-                            <i class="far fa-code category-icon"></i>
-                            Mark Up <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class="">
-                              <a href="/category/Mark%20UP/HTML" class="link_sub_item"> <i class="fab fa-html5" style="vertical-align:bottom"></i>HTML <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/Mark%20UP/MarkDown" class="link_sub_item"> <i class="fas devicon-markdown-original" style="vertical-align:text-top"></i>MarkDown <span class="c_cnt">0</span> </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }">
-                          <a href="/category/Style%20Sheet" class="link_item link-both-underline toggleDropdown" x-on:click="open = ! open">
-                            <i class="far fa-palette category-icon"></i>
-                            Style Sheet <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/Style%20Sheet/CSS" class="link_sub_item"><i class="fas devicon-css3-plain" style="vertical-align:bottom"></i>CSS <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/Style%20Sheet/Bootstrap5" class="link_sub_item"><i class="fas devicon-bootstrap-plain" style="vertical-align:bottom"></i>Bootstrap5 <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/Style%20Sheet/스타일%20요소" class="link_sub_item"><i class="fad fa-brush" style="vertical-align:bottom"></i>스타일 요소 <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>Framework</span>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/Node.js" class="link_item link-both-underline">
-                            <i class="devicon devicon-nodejs-plain category-icon"></i>Node.js <span class="c_cnt">0</span>
-                          </a>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/Spring" class="link_item link-both-underline"><i class="devicon devicon-spring-original category-icon"></i>Spring <span class="c_cnt">0</span> </a>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>DATA</span>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/DBMS" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-database category-icon"></i>
-                            DBMS <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class="">
-                              <a href="/category/DBMS/데이터베이스%20이론" class="link_sub_item"><i class="fad fa-database" style="vertical-align:text-bottom"></i>데이터베이스 이론 <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/DBMS/MySQL" class="link_sub_item"><i class="fas devicon-mysql-original" style="vertical-align:bottom"></i>MySQL <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/DBMS/Oracle" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd" d="M7.957359,18.9123664 C4.11670252,18.9123664 1,15.803458 1,11.9617373 C1,8.12000773 4.11670252,5 7.957359,5 L16.0437948,5 C19.8855156,5 23,8.12000773 23,11.9617373 C23,15.803458 19.8855156,18.9123664 16.0437948,18.9123664 L7.957359,18.9123664 L7.957359,18.9123664 Z M15.8639176,16.4585488 C18.352201,16.4585488 20.3674397,14.448858 20.3674397,11.9617373 C20.3674397,9.47460595 18.352201,7.45381934 15.8639176,7.45381934 L8.1360824,7.45381934 C5.64895285,7.45381934 3.63255855,9.47460595 3.63255855,11.9617373 C3.63255855,14.448858 5.64895285,16.4585488 8.1360824,16.4585488 L15.8639176,16.4585488 L15.8639176,16.4585488 Z"/>
-                              </svg></i>Oracle <span class="c_cnt">0</span> </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/FILES" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-file-code category-icon"></i>
-                            FILES <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class="">
-                              <a href="/category/FILES/JSON" class="link_sub_item"><i class="fas devicon-json-plain" style="vertical-align:bottom"></i>JSON <span class="c_cnt">0</span> </a>
-                            </li>
-                            <li class="">
-                              <a href="/category/FILES/XML" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1.1em" height="1.1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="mdi:xml"><path d="M12.89 3l1.96.4L11.11 21l-1.96-.4L12.89 3m6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83L19.59 12M1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83L1.58 12z" fill="currentColor"></path></svg></i>XML <span class="c_cnt">0</span> </a>
-                            </li>
-                          </ul>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>DevOps</span>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/OS" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-computer-classic category-icon"></i>
-                            OS <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/OS/Window" class="link_sub_item"><i class="fas devicon-windows11-original" style="vertical-align:bottom"></i>Window <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/OS/Linux" class="link_sub_item"><i class="fas devicon-linux-plain" style="vertical-align:bottom"></i>Linux <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/Server" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-server category-icon"></i>
-                            Server <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/Server/Apache" class="link_sub_item"><i class="fas devicon-apache-plain" style="vertical-align:middle"></i>Apache <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/Server/Tomcat" class="link_sub_item"><i class="fa devicon-tomcat-line" style="vertical-align:text-top"></i>Tomcat <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu"><a href="/category/GIT" class="link_item link-both-underline">
-                          <i class="devicon devicon-git-plain category-icon"></i>
-                          GIT <span class="c_cnt">0</span>
-                        </a>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>Cloud</span>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/AWS" class="link_item link-both-underline">
-                            <i class="fab fa-aws category-icon"></i>
-                            AWS <span class="c_cnt">0</span>
-                          </a>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>Dev Kit</span>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/IDE" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-window category-icon"></i>
-                            IDE <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/IDE/Eclipse" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 240" preserveAspectRatio="xMinYMin meet"><defs><linearGradient x1="50%" y1="1089.396%" x2="50%" y2="-159.5%" id="a"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="896.537%" x2="49.999%" y2="-352.359%" id="b"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="87.2%"/></linearGradient><linearGradient x1="49.999%" y1="215.17%" x2="49.999%" y2="-166.715%" id="c"><stop stop-color="#473788" offset="30.33%"/><stop stop-color="#2C2255" offset="86.31%"/></linearGradient></defs><path d="M70.382 153.049H31.26c5.18 17.768 14.792 33.693 28.864 47.768 22.434 22.436 49.41 33.64 80.956 33.64 6.306 0 12.416-.47 18.35-1.365 23.761-3.587 44.565-14.33 62.39-32.275 14.162-14.07 23.842-30 29.062-47.768H70.382zM48.81 99.915H28.373a119.493 119.493 0 0 0-1.488 13.775h228.399c-.233-4.7-.743-9.285-1.497-13.775M26.885 126.482c.231 4.703.738 9.287 1.488 13.775h225.418a118.86 118.86 0 0 0 1.5-13.775M250.887 87.12c-5.215-17.817-14.897-33.817-29.067-47.99-17.778-17.777-38.522-28.443-62.207-32.031a123.318 123.318 0 0 0-18.532-1.386c-31.546 0-58.524 11.143-80.956 33.418C46.048 53.303 36.43 69.303 31.254 87.12" fill="currentColor"/><path d="M20.093 120.09C20.093 59.753 65.407 9.621 124.357.803c-1.462-.053-2.932-.112-4.409-.112C53.796.692.164 54.15.164 120.09c0 65.943 53.63 119.397 119.784 119.397 1.482 0 2.951-.056 4.419-.11-58.96-8.817-104.274-58.95-104.274-119.287z" fill="currentColor"/><g><path d="M155.728 14.226A77.824 77.824 0 0 0 153.364.451H2.642A77.753 77.753 0 0 0 .276 14.226h155.452z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M155.728 27.02H.278a77.611 77.611 0 0 0 2.364 13.776h150.724a77.821 77.821 0 0 0 2.362-13.776z" fill="currentColor" transform="translate(63.083 99.461)"/><path d="M78.003 98.636c31.3 0 58.282-18.441 70.706-45.048H7.297c12.425 26.607 39.405 45.048 70.706 45.048z" fill="currentColor" transform="translate(63.083 99.461)"/></g><g fill="#FFF"><path d="M51.84 126.482h203.29c.108-2.035.168-4.084.168-6.147 0-2.232-.081-4.444-.208-6.647H26.885c-.126 2.2-.208 4.415-.208 6.647 0 2.063.06 4.112.168 6.147H51.84zM69.924 87.12H31.252c-1.271 4.166-2.091 8.44-2.879 12.795H253.065a113.52 113.52 0 0 0-3.075-12.795M238.373 140.255H28.371c.766 4.352 1.638 8.623 2.888 12.794H250.738a113.252 113.252 0 0 0 3.023-12.794h-15.388z"/></g></svg></i> Eclipse <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/IDE/Inteli%20J" class="link_sub_item"><i class="fas" style="vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 900.000000 900.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none"><path d="M750 4500 l0 -3750 3750 0 3750 0 0 3750 0 3750 -3750 0 -3750 0 0 -3750z m2630 2555 l0 -305 -235 0 -235 0 0 -1007 0 -1008 232 0 233 0 0 -305 0 -305 -798 -3 -797 -2 2 307 3 308 233 0 232 0 0 1008 0 1007 -235 0 -235 0 0 305 0 305 800 0 800 0 0 -305z m2617 -857 l-3 -1163 -27 -124 c-52 -236 -137 -408 -267 -540 -192 -196 -455 -290 -816 -291 -354 -1 -637 115 -893 367 l-104 102 28 33 c15 18 113 131 217 250 l189 217 67 -68 c123 -123 229 -193 346 -226 91 -26 253 -18 328 17 107 49 180 150 216 296 14 59 16 196 19 1180 l4 1112 350 0 350 0 -4 -1162z m-1687 -4183 l0 -235 -1405 0 -1405 0 0 235 0 235 1405 0 1405 0 0 -235z"/></g></svg></i>InteliJ <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/IDE/VS%20Code" class="link_sub_item"><i class="fas devicon-vscode-plain" style="vertical-align:middle"></i>VS Code <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/Tool" class="link_item link-both-underline">
-                            <i class="far fa-tools category-icon"></i>
-                            Tool <span class="c_cnt">0</span>
-                          </a>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>TEST</span>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/코딩%20테스트" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-keyboard category-icon"></i>
-                            코딩 테스트 <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/코딩%20테스트/Programmers" class="link_sub_item"><i class="fas" style="vertical-align:sub"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1em" height="1em" viewBox="0 0 320.000000 320.000000" preserveAspectRatio="xMidYMid meet">
-
-                              <g transform="translate(0.000000,320.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                <path d="M300 3166 c-116 -33 -211 -113 -263 -224 l-32 -67 -3 -1260 c-2 -940 0 -1274 9 -1315 25 -116 105 -222 207 -274 l51 -26 1331 0 1331 0 51 26 c72 36 143 112 181 192 l32 67 3 1260 c2 940 0 1274 -9 1315 -26 124 -109 227 -227 283 l-67 32 -1275 2 c-1000 1 -1285 -1 -1320 -11z m720 -653 c36 -13 83 -34 105 -47 22 -13 78 -43 125 -67 47 -23 166 -87 265 -142 204 -113 362 -193 418 -213 l37 -13 83 75 c101 92 180 134 252 134 52 0 80 -14 196 -95 l42 -30 316 -4 316 -3 -327 -83 c-187 -47 -345 -93 -370 -107 -61 -33 -99 -97 -149 -245 -69 -211 -141 -336 -258 -454 -108 -108 -192 -157 -475 -280 -55 -23 -139 -68 -187 -100 -103 -68 -274 -229 -372 -352 -38 -48 -71 -86 -73 -84 -7 6 48 192 83 282 50 128 179 392 252 515 45 74 60 109 54 119 -5 8 -74 31 -154 52 -160 41 -304 93 -388 141 -98 56 -171 136 -171 186 0 10 -19 32 -45 50 -67 47 -70 103 -7 136 38 19 153 44 245 52 67 6 77 9 71 23 -36 81 -54 153 -54 224 0 50 -7 98 -19 135 -28 81 -35 151 -19 182 30 56 85 59 208 13z"/>
-                              </g>
-                            </svg></i> Programmers <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/코딩%20테스트/백준" class="link_sub_item"><i class="fas" style="vertical-align:text-bottom"><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="1.1em" height="1.1em" viewBox="0 0 2000.000000 2000.000000" preserveAspectRatio="xMidYMid meet">
-
-                              <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                <path d="M4069 16478 c0 -2 -780 -2912 -1733 -6468 l-1732 -6465 460 -3 c252 -1 461 -1 463 1 2 2 210 775 462 1718 1407 5252 2990 11168 2996 11192 l7 27 -461 0 c-254 0 -461 -1 -462 -2z"/>
-                                <path d="M7807 12593 c-1323 -1358 -2406 -2472 -2407 -2476 -1 -5 1095 -1133 2435 -2508 l2437 -2499 644 0 c354 0 644 2 644 5 0 2 -1100 1133 -2445 2512 -1345 1379 -2445 2510 -2445 2513 0 4 3196 3287 4462 4583 l330 337 -624 0 -625 0 -2406 -2467z"/>
-                                <path d="M13627 14743 c1756 -1799 4483 -4599 4483 -4603 0 -3 -1099 -1132 -2442 -2509 -1344 -1378 -2444 -2508 -2446 -2513 -2 -4 286 -8 641 -8 l644 0 2435 2498 c1340 1373 2436 2502 2436 2507 0 6 -1082 1120 -2406 2478 l-2406 2467 -624 0 -624 0 309 -317z"/>
-                              </g>
-                            </svg></i>백준 <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-                        <li class="cat-sub-menu" x-data="{ open: false }" x-on:click="open = ! open">
-                          <a href="/category/Error" class="link_item link-both-underline toggleDropdown">
-                            <i class="far fa-exclamation-triangle category-icon"></i>
-                            Error <span class="c_cnt">0</span>
-                            <i class="fas fa-chevron-right" :class="{ 'rotate-90 duration-200': open }"></i>
-                          </a>
-                          <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
-                            <li class=""><a href="/category/Error/Java에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Java에러 <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/Error/JS에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>JS에러 <span class="c_cnt">0</span> </a></li>
-                            <li class=""><a href="/category/Error/Git에러" class="link_sub_item"><i class="fas fa-bug" style="vertical-align:bottom"></i>Git에러 <span class="c_cnt">0</span> </a></li>
-                          </ul>
-                        </li>
-
-                        <li class="nav-item mt-2 sidebar-title text-truncate small category_doc">
-                          <i class="far fa-ellipsis-h"></i>
-                          <span>ETC</span>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/ETC" class="link_item link-both-underline">
-                            <i class="fal fa-ellipsis-h-alt category-icon"></i>
-                            ETC <span class="c_cnt">0</span>
-                          </a>
-                        </li>
-                        <li class="cat-sub-menu">
-                          <a href="/category/일상" class="link_item link-both-underline">
-                            <i class="far fa-user-astronaut category-icon"></i>
-                            일상 <span class="c_cnt">0</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </s_sidebar_element>
-          <!-- 공지사항
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div>
-                <h2><a class="link_tit" href="/notice">공지사항</a></h2>
-                <s_rct_notice>
+            <!-- 인기 글
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div>
+                  <h2>인기 글</h2>
                   <ul class="flex flex-col gap-y-4 text-sm">
-                    <s_rct_notice_rep>
-                      <li><i class="fa-regular fa-bell text-h-400 mr-2"></i><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></li>
-                    </s_rct_notice_rep>
+                    <s_rctps_popular_rep>
+                      <li class="flex justify-between">
+                        <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+                          <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
+                        </div>
+                        <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
+                      </li>
+                    </s_rctps_popular_rep>
                   </ul>
-                </s_rct_notice>
+                </div>
               </div>
-            </div>
-          </s_sidebar_element>
-          -->
+            </s_sidebar_element>
+            -->
 
-          <!-- 인기 글
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div>
-                <h2>인기 글</h2>
-                <ul class="flex flex-col gap-y-4 text-sm">
-                  <s_rctps_popular_rep>
-                    <li class="flex justify-between">
-                      <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
-                        <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
-                      </div>
-                      <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
-                    </li>
-                  </s_rctps_popular_rep>
-                </ul>
+            <!-- 태그
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div>
+                  <h2><a class="link_tit" href="/tag">태그</a></h2>
+                  <ul class="flex flex-col gap-y-4 text-sm">
+                    <s_random_tags>
+                      <li><i class="fa fa-tag mr-2"></i><a class="[##_tag_class_##]" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
+                    </s_random_tags>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </s_sidebar_element>
-          -->
+            </s_sidebar_element>
+            -->
 
-          <!-- 태그
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div>
-                <h2><a class="link_tit" href="/tag">태그</a></h2>
-                <ul class="flex flex-col gap-y-4 text-sm">
-                  <s_random_tags>
-                    <li><i class="fa fa-tag mr-2"></i><a class="[##_tag_class_##]" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
-                  </s_random_tags>
-                </ul>
+            <!-- 최근 댓글
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div>
+                  <h2>최근 댓글</h2>
+                  <ul class="flex flex-col gap-y-4">
+                    <s_rctrp_rep>
+                      <li class="text-h-400">
+                        <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a></div>
+                        <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                          <div>[##_rctrp_rep_name_##]</div>
+                          <div>· [##_rctrp_rep_time_##]</div>
+                        </div>
+                      </li>
+                    </s_rctrp_rep>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </s_sidebar_element>
-          -->
+            </s_sidebar_element>
+            -->
 
-          <!-- 최근 댓글
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div>
-                <h2>최근 댓글</h2>
-                <ul class="flex flex-col gap-y-4">
-                  <s_rctrp_rep>
-                    <li class="text-h-400">
-                      <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a></div>
-                      <div class="mt-1 text-h-400 text-xs flex gap-x-1">
-                        <div>[##_rctrp_rep_name_##]</div>
-                        <div>· [##_rctrp_rep_time_##]</div>
-                      </div>
-                    </li>
-                  </s_rctrp_rep>
-                </ul>
+            <!-- 최근 글
+            <s_sidebar_element>
+              <div class="sidebar-element">
+                <div>
+                  <h2>최근 글</h2>
+                  <ul class="flex flex-col gap-y-4 text-sm">
+                    <s_rctps_rep>
+                      <li class="flex justify-between">
+                        <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+                          <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
+                        </div>
+                        <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
+                      </li>
+                    </s_rctps_rep>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </s_sidebar_element>
-          -->
+            </s_sidebar_element>
+            -->
 
-          <!-- 최근 글
-          <s_sidebar_element>
-            <div class="sidebar-element">
-              <div>
-                <h2>최근 글</h2>
-                <ul class="flex flex-col gap-y-4 text-sm">
-                  <s_rctps_rep>
-                    <li class="flex justify-between">
-                      <div class="text-overflow-hidden text-h-400"><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
-                        <div class="mt-1 text-xs">[##_rctps_rep_simple_date_##]</div>
-                      </div>
-                      <s_rctps_rep_thumbnail><img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="[##_rctps_rep_thumbnail_##]" data-sizes="auto" alt="" width="64" height="44"></s_rctps_rep_thumbnail>
-                    </li>
-                  </s_rctps_rep>
-                </ul>
-              </div>
+          </s_sidebar>
+          <div class="sidebar-element">
+            <div class="text-h-400" id="copyright">
+              <div class="flex justify-between"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
+  hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="#" style="cursor:auto;">정상우</a>.</small></div>
             </div>
-          </s_sidebar_element>
-          -->
-
-        </s_sidebar>
-        <div class="sidebar-element">
-          <div class="text-h-400" id="copyright">
-            <div class="flex justify-between"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
-hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="#" style="cursor:auto;">정상우</a>.</small></div>
           </div>
+
+          <!--
+          <s_sidebar_element>
+            <div class="category">
+              <h3>카테고리</h3>
+              [##_category_##]
+            </div>
+            <div class="category">
+              <h3>카테고리</h3>
+              [##_category_list_##]
+            </div>
+          </s_sidebar_element>
+          -->
+
         </div>
-
-        <!--
-        <s_sidebar_element>
-          <div class="category">
-            <h3>카테고리</h3>
-            [##_category_##]
-          </div>
-          <div class="category">
-            <h3>카테고리</h3>
-            [##_category_list_##]
-          </div>
-        </s_sidebar_element>
-        -->
-
-      </div><template x-teleport="body">
+      </div>
+      <template x-teleport="body">
       <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
-    </template>
+      </template>
     </aside>
     <!--
     ##############################
