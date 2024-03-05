@@ -4260,6 +4260,10 @@ animation: animate23 5s linear infinite;
   filter: hue-rotate(360deg);
 }
 }
+/*Top bar*/
+.open-side{
+
+}
 
 /*사이드 크기*/
 .side-cat{
