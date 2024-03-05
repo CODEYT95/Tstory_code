@@ -1113,6 +1113,7 @@ Search Modal END
 <script>
   const menuTag = document.querySelector('.t_menu_tag');
   const modalSearchBar = document.querySelector('#modal-search-bar');
+  const sidebar = document.querySelector('#sidebar');
 
   menuTag.addEventListener('click', () => {
     // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
@@ -1144,6 +1145,17 @@ Search Modal END
 
       // modalSearchBar display 속성을 block으로 변경
       modalSearchBar.style.display = 'block';
+    }
+  });
+
+  menuTag.addEventListener('click', () => {
+    // 이미 "open" 클래스가 있다면 (사이드바 열려 있다면)
+    if (sidebar.classList.contains('open')) {
+      // "open" 클래스를 제거하여 사이드바 닫힘
+      sidebar.classList.remove('open');
+    } else {
+      // "open" 클래스를 추가하여 사이드바 나타나게 함
+      sidebar.classList.add('open');
     }
   });
 </script>
