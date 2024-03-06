@@ -4239,7 +4239,14 @@ background-color: rgb(53 54 56 / var(--tw-bg-opacity))
   background: rgba(255, 255, 255, 0);  /*스크롤바 뒷 배경 색상*/
 }
 
-/*Progress Bar 효과*/
+/*상단 Progress Bar*/
+.scroll-indicator{
+z-index: 10000;
+width: 100vw;
+top: 0px;
+position:fixed;
+}
+
 .progress-bar{
 background: linear-gradient(to top, #008aff, #00ffe7);
 animation: animate23 5s linear infinite;
