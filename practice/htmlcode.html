@@ -1183,6 +1183,48 @@ Search Modal END
       modalSearchBar.style.display = 'block';
     }
   });
+  modalSearchBar.addEventListener('click', (event) => {
+  // "search_box" 영역 내부 클릭 시 이벤트 전파 중단
+  if (event.target.closest('#search_box')) {
+    return;
+  }
+
+  if (modalSearchBar.classList.contains('show')) {
+      body.style.overflow = '';
+
+
+      // "show" 클래스를 제거하여 모달 검색창 닫힘
+      modalSearchBar.classList.remove('show');
+      modalSearchBar.classList.add('fade');
+
+      // body 태그에서 "modal-backdrop fade show" 클래스 제거
+      document.body.classList.remove('modal-bg','fade');
+
+      // body 태그에서 "modal-backdrop fade show" div 태그 제거
+      const modalBackdrop = document.querySelector('.modal-bg');
+      if (modalBackdrop) {
+        modalBackdrop.parentNode.removeChild(modalBackdrop);
+      }
+
+      // modalSearchBar display 속성을 none으로 변경
+      modalSearchBar.style.display = 'none';
+    } else {
+      body.style.overflow = 'hidden';
+      sidebar.classList.remove('open');
+
+      // "fade" 클래스를 "show"로 변경하여 모달 검색창 나타나게 함
+      modalSearchBar.classList.remove('fade');
+      modalSearchBar.classList.add('show');
+
+      // body 태그에 "modal-backdrop fade show" div 태그 추가
+      const modalBackdrop = document.createElement('div');
+      modalBackdrop.classList.add('modal-bg','fade');
+      document.body.appendChild(modalBackdrop);
+
+      // modalSearchBar display 속성을 block으로 변경
+      modalSearchBar.style.display = 'block';
+    }
+  });
 </script>
 </body>
 
