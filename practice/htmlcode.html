@@ -1137,17 +1137,19 @@ Search Modal END
       });
   });
 </script>
-
+<!-- 태그 모달창 -->
 <script>
   const menuTag = document.querySelector('.t_menu_tag');
   const modalSearchBar = document.querySelector('#modal-search-bar');
   const body = document.querySelector('#tt-body-index');
+  const tagModalBg = document.querySelector('.modal-bg');
+
 
   menuTag.addEventListener('click', () => {
     // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
     if (modalSearchBar.classList.contains('show')) {
-      body.style.overflow = 'hidden';
-      sidebar.classList.remove('open');
+      body.style.overflow = '';
+
 
       // "show" 클래스를 제거하여 모달 검색창 닫힘
       modalSearchBar.classList.remove('show');
@@ -1165,7 +1167,8 @@ Search Modal END
       // modalSearchBar display 속성을 none으로 변경
       modalSearchBar.style.display = 'none';
     } else {
-      body.style.overflow = '';
+      body.style.overflow = 'hidden';
+      sidebar.classList.remove('open');
 
       // "fade" 클래스를 "show"로 변경하여 모달 검색창 나타나게 함
       modalSearchBar.classList.remove('fade');
