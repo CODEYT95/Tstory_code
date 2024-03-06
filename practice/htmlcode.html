@@ -1012,8 +1012,9 @@ CUSTOM START
 
         </div>
       </div>
+      <div id="side-bg" class="overlay"></div>
       <template x-teleport="body">
-      <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="_sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="_sidebar = false"></div>
+        <!--<div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>-->
       </template>
     </aside>
     <!--
@@ -1095,6 +1096,23 @@ Search Modal END
 ##############################
 -->
 
+<!-- 사이드바 on/off -->
+<script>
+  const openSideBtn = document.querySelector('.open-side');
+  const sidebar = document.querySelector('#_sidebar');
+
+  openSideBtn.addEventListener('click', () => {
+    // 이미 "open" 클래스가 있다면 (사이드바 열려 있다면)
+    if (sidebar.classList.contains('open')) {
+      // "open" 클래스를 제거하여 사이드바 닫힘
+      sidebar.classList.remove('open');
+    } else {
+      // "open" 클래스를 추가하여 사이드바 나타나게 함
+      sidebar.classList.add('open');
+    }
+  });
+</script>
+
 <!-- 카테고리명 클릭시 이동 방지 -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1115,9 +1133,7 @@ Search Modal END
 
 <script>
   const menuTag = document.querySelector('.t_menu_tag');
-  const openSideBtn = document.querySelector('.open-side');
   const modalSearchBar = document.querySelector('#modal-search-bar');
-  const sidebar = document.querySelector('#_sidebar');
 
   menuTag.addEventListener('click', () => {
     // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
@@ -1149,17 +1165,6 @@ Search Modal END
 
       // modalSearchBar display 속성을 block으로 변경
       modalSearchBar.style.display = 'block';
-    }
-  });
-
-  openSideBtn.addEventListener('click', () => {
-    // 이미 "open" 클래스가 있다면 (사이드바 열려 있다면)
-    if (sidebar.classList.contains('open')) {
-      // "open" 클래스를 제거하여 사이드바 닫힘
-      sidebar.classList.remove('open');
-    } else {
-      // "open" 클래스를 추가하여 사이드바 나타나게 함
-      sidebar.classList.add('open');
     }
   });
 </script>
