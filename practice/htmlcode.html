@@ -53,7 +53,7 @@
 상단 progress bar START
 ##############################
 -->
-<div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
+<div class="scroll-indicator" x-data="indicator" @scroll.window="indicate">
   <div class="w-screen">
     <div class="progress-bar w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
   </div>
@@ -1100,6 +1100,7 @@ Search Modal END
 <script>
   const openSideBtn = document.querySelector('.open-side');
   const sidebar = document.querySelector('#_sidebar');
+  const sideBg = document.querySelector('#side-bg');
 
   openSideBtn.addEventListener('click', () => {
     // 이미 "open" 클래스가 있다면 (사이드바 열려 있다면)
@@ -1110,6 +1111,12 @@ Search Modal END
       // "open" 클래스를 추가하여 사이드바 나타나게 함
       sidebar.classList.add('open');
     }
+  });
+
+  // "side-bg" 클릭 시 사이드바 닫기
+  sideBg.addEventListener('click', () => {
+    // "open" 클래스를 제거하여 사이드바 닫힘
+    sidebar.classList.remove('open');
   });
 </script>
 
