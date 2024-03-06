@@ -4673,10 +4673,6 @@ animation: underline-both 1s ease;
   transition: opacity .15s linear;
 }
 
-.fade:not(.show) {
-  opacity: 0;
-}
-
 #search_box{
   margin-top: 90px;
 }
