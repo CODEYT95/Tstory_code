@@ -1164,6 +1164,8 @@ Search Modal END
       // modalSearchBar display 속성을 none으로 변경
       modalSearchBar.style.display = 'none';
     } else {
+      body.style.overflow = '';
+
       // "fade" 클래스를 "show"로 변경하여 모달 검색창 나타나게 함
       modalSearchBar.classList.remove('fade');
       modalSearchBar.classList.add('show');
