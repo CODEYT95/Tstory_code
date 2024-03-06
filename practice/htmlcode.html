@@ -1141,10 +1141,13 @@ Search Modal END
 <script>
   const menuTag = document.querySelector('.t_menu_tag');
   const modalSearchBar = document.querySelector('#modal-search-bar');
+  const body = document.querySelector('#tt-body-index');
 
   menuTag.addEventListener('click', () => {
     // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
     if (modalSearchBar.classList.contains('show')) {
+      body.style.overflow = 'hidden';
+
       // "show" 클래스를 제거하여 모달 검색창 닫힘
       modalSearchBar.classList.remove('show');
       modalSearchBar.classList.add('fade');
