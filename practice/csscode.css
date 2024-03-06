@@ -2164,10 +2164,6 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
 
 @media (min-width: 1400px) {
 
-.xl\:invisible {
-  visibility: hidden;
-}
-
 .xl\:bottom-4 {
   bottom: 1rem;
 }
