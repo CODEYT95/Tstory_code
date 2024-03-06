@@ -4291,10 +4291,6 @@ animation: animate23 5s linear infinite;
   background-color: #fff;
 }
 
-#_sidebar.opened .__ {
-  left: -1px !important;
-}
-
 .side-cat::-webkit-scrollbar {
   display: none;
 }
@@ -4310,6 +4306,11 @@ animation: animate23 5s linear infinite;
   left: -270px;
 }
 }
+
+#_sidebar.open .__ {
+  left: -1px !important;
+}
+
 #sidemenu{
 padding: 0 !important;
 box-sizing: border-box;
