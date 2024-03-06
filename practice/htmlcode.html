@@ -1147,6 +1147,7 @@ Search Modal END
     // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
     if (modalSearchBar.classList.contains('show')) {
       body.style.overflow = 'hidden';
+      sidebar.classList.remove('open');
 
       // "show" 클래스를 제거하여 모달 검색창 닫힘
       modalSearchBar.classList.remove('show');
