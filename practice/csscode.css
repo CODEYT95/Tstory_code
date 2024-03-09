@@ -2160,18 +2160,16 @@ color: rgb(244 244 246 / var(--tw-text-opacity));
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+
+.xl\:w-c {
+  width: calc(100% - 15rem);
+}
 }
 
 @media (min-width: 1400px) {
 
 .xl\:bottom-4 {
   bottom: 1rem;
-}
-
-
-
-.xl\:w-c {
-  width: calc(100% - 15rem);
 }
 
 }
@@ -4681,17 +4679,17 @@ animation: underline-both 1s ease;
   transition: opacity .15s linear;
 }
 
-#search_box{
+#tag_box{
   margin-top: 90px;
-}
-
-.modal.show .modal-dialog{
-  transform: none;
 }
 
 .modal.fade .modal-dialog{
   transition: transform .3s ease-out;
   transform: translate(0, -50px);
+}
+
+.modal.show .modal-dialog{
+  transform: none;
 }
 
 .modal-dialog {
@@ -4719,7 +4717,7 @@ animation: underline-both 1s ease;
 }
 
 @media screen and (min-width: 1500px){
-  #modal-search-bar {
+  #modal-tag-box {
     padding-left: 250px !important;
   }
 }
@@ -4763,7 +4761,7 @@ animation: underline-both 1s ease;
     display: flex !important;
 }
 
-#modal-search-bar .btn-close{
+#modal-tag-box .btn-close{
   width: auto !important;
   height: 32px;
   background-image: none;
@@ -4844,7 +4842,3 @@ animation: underline-both 1s ease;
  background-color: #000;
 }
 */
-
-.fade {
-  transition: opacity .15s linear;
-}
