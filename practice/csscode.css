@@ -4845,6 +4845,13 @@ animation: underline-both 1s ease;
 
 /* 사이드바 */
 /****** 카테고리 ******/
+#_sidebar #sidemenu2{
+    padding: 0 !important;
+    margin-top: 1.5rem !important;
+    box-sizing: border-box;
+    max-width: 250px;
+}
+
 #_sidebar #sidemenu2 .tt_category .link_tit{
     color: rgba(0, 0, 0, 0.7) !important;
     font-size: 0.86rem;
