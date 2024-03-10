@@ -4877,3 +4877,31 @@ animation: underline-both 1s ease;
         background-position: 0 50%;
     }
 }
+
+#_sidebar #sidemenu2 ul li{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#_sidebar #sidemenu2 ul li *:not(i, svg, path) {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#sidemenu2 .tt_category .category_list li{
+    margin-top: 0 !important;
+    position: relative;
+    padding-top: 0px;
+}
+
+#sidemenu2 .tt_category .category_list li.cat_doc{
+    display: flex;
+    align-items: center;
+    padding-left: 0.3rem;
+    opacity: 0.6 !important;
+    font-size: 0.765625rem;
+    margin-left: 19px !important;
+    margin-right: 15px !important;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
