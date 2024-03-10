@@ -1227,6 +1227,21 @@ Search Modal END
     }
   });
 </script>
+
+<!-- 사이드바 스크립트 -->
+<script>
+  //글 갯수 (,) 제거 하기
+  const sidemenu2 = document.getElementById('sidemenu2');
+  const cCntSpans = sidemenu2.querySelectorAll('.c_cnt');
+
+  for (const span of cCntSpans) {
+    const text = span.textContent;
+
+    const newText = text.replace(/(\(|\))/g, '');
+
+    span.textContent = newText;
+  }
+</script>
 </body>
 
 </html>
