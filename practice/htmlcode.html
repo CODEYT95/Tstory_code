@@ -1240,7 +1240,8 @@ Search Modal END
 
     //카테고리 class 추가 하기
     const markUpAnchors = sidemenu2.querySelectorAll('.category_list li .link_item');
-    const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', '', '', '' ,''];
+    const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', 'IDE',
+                      '%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'Error'];
 
     for (const anchor of markUpAnchors) {
       const href = anchor.href.trim(); // 공백 제거
@@ -1255,6 +1256,22 @@ Search Modal END
         });
       }
     }
+  const categoryList = sidemenu2.querySelector('.category_list');
+
+  // .category_list의 첫 번째 li 태그를 선택합니다.
+  const firstLi = categoryList.querySelector('li');
+
+  // 새로운 li 태그를 생성합니다.
+  const newLi = document.createElement('li');
+  newLi.classList.add('cat_doc');
+
+  const spanElement = document.createElement('span');
+  spanElement.textContent = 'Programming';
+  newLi.appendChild(spanElement);
+
+  // .category_list의 첫 번째 li 태그 앞에 새로운 li 태그를 삽입합니다.
+  categoryList.insertBefore(newLi, firstLi);
+
 
   });
 </script>
