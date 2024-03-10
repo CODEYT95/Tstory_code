@@ -1256,23 +1256,30 @@ Search Modal END
         });
       }
     }
-  const categoryList = sidemenu2.querySelector('.category_list');
 
-  // .category_list의 첫 번째 li 태그를 선택합니다.
-  const firstLi = categoryList.querySelector('li');
+    //카테고리 분류명 생성
+    const categoryList = sidemenu2.querySelector('.category_list');
 
-  // 새로운 li 태그를 생성합니다.
-  const newLi = document.createElement('li');
-  newLi.classList.add('cat_doc');
+    createCatDocLi('Programming', 0);
+    createCatDocLi('Framework', 4);
+    createCatDocLi('DATA', 6);
+    createCatDocLi('DevOps', 8);
+    createCatDocLi('Clould', 11);
 
-  const spanElement = document.createElement('span');
-  spanElement.textContent = 'Programming';
-  newLi.appendChild(spanElement);
+    function createCatDocLi(text, index) {
+      const newLi = document.createElement('li');
+      newLi.classList.add('cat_doc');
 
-  // .category_list의 첫 번째 li 태그 앞에 새로운 li 태그를 삽입합니다.
-  categoryList.insertBefore(newLi, firstLi);
+      const spanElement = document.createElement('span');
+      spanElement.textContent = text;
+      newLi.appendChild(spanElement);
 
-
+      if (index < categoryList.children.length) {
+        categoryList.insertBefore(newLi, categoryList.children[index]);
+      } else {
+        categoryList.appendChild(newLi);
+      }
+    }
   });
 </script>
 </body>
