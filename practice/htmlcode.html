@@ -1230,12 +1230,33 @@ Search Modal END
 
 <!-- 사이드바 스크립트 -->
 <script>
-  const sidemenu2 = document.getElementById('sidemenu2');
-  const cCntSpans = sidemenu2.querySelectorAll('.c_cnt:not(.link_tit .c_cnt)');
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidemenu2 = document.getElementById('sidemenu2');
+    const cCntSpans = sidemenu2.querySelectorAll('.c_cnt:not(.link_tit .c_cnt)');
 
-  for (const span of cCntSpans) {
-    span.textContent = span.textContent.replace(/(\(|\))/g, '');
-  }
+    for (const span of cCntSpans) {
+      span.textContent = span.textContent.replace(/(\(|\))/g, '');
+    }
+
+    //카테고리 class 추가 하기
+    const markUpAnchors = sidemenu2.querySelectorAll('.category_list li .link_item');
+    const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', '', '', '' ,''];
+
+    for (const anchor of markUpAnchors) {
+      const href = anchor.href.trim(); // 공백 제거
+
+      if (keywords.some(keyword => href.includes(keyword))) {
+        const markUpLi = anchor.parentNode;
+        markUpLi.classList.add('cat-sub-menu');
+
+        //카테고리 클릭 시 이동 방지
+        anchor.addEventListener('click', function (event) {
+          event.preventDefault();
+        });
+      }
+    }
+
+  });
 </script>
 </body>
 
