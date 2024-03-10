@@ -4846,5 +4846,27 @@ animation: underline-both 1s ease;
 /* 사이드바 */
 /****** 카테고리 ******/
 #_sidebar #sidemenu2 .tt_category .link_tit{
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-size: 0.86rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: inline-block;
+    margin-left: 23px !important;
+    -webkit-animation: textAnim 5s ease-out infinite;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 250% 500%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
+@keyframes textAnim{
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
