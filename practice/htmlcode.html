@@ -1287,22 +1287,21 @@ Search Modal END
       }
     }
 
-
-
+    //서브 카테고리 여닫기 애니메이션
     var catSubMenus = document.querySelectorAll('#sidemenu2 .cat-sub-menu');
 
     catSubMenus.forEach(function(catSubMenu) {
       var subCategoryList = catSubMenu.querySelector('.sub_category_list');
-      subCategoryList.style.overflow = 'hidden'; // overflow 속성 추가
-      subCategoryList.style.transition = 'height 0.3s ease-out'; // transition 속성 변경
-      subCategoryList.style.height = '0px'; // 초기 높이 0으로 설정
+      subCategoryList.style.overflow = 'hidden';
+      subCategoryList.style.transition = 'height 0.3s ease-out';
+      subCategoryList.style.height = '0px';
 
       catSubMenu.addEventListener('click', function() {
         var isOpen = catSubMenu.classList.toggle('sub-open');
         if (isOpen) {
-          subCategoryList.style.height = subCategoryList.scrollHeight + "px"; // 열릴 때 높이 설정
+          subCategoryList.style.height = subCategoryList.scrollHeight + "px";
         } else {
-          subCategoryList.style.height = '0px'; // 닫힐 때 높이 0으로 설정
+          subCategoryList.style.height = '0px';
         }
       });
     });
