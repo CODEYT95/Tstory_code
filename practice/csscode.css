@@ -4905,3 +4905,27 @@ animation: underline-both 1s ease;
     margin-top: 20px !important;
     margin-bottom: 10px !important;
 }
+
+#sidemenu2 .tt_category .category_list .cat-sub-menu ul{
+    height: 0px;
+    overflow: hidden;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidemenu2 .tt_category .category_list .cat-sub-menu.sub-open ul{
+    height: auto;
+}
+
+#sidemenu2 .tt_category .category_list .c_cnt{
+    color: #5684f6 !important;
+    border: 1px #5684f6cc solid;
+    border-radius: 8px;
+    padding: 1px 4px;
+    margin-left: 4px;
+    bottom: 1px !important;
+    position: relative;
+    font-size: 10px !important;
+}
