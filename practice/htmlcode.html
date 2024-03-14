@@ -1288,19 +1288,22 @@ Search Modal END
     }
 
 
+
   var catSubMenus = document.querySelectorAll('#sidemenu2 .cat-sub-menu');
 
   catSubMenus.forEach(function(catSubMenu) {
-    // Hide all .sub_category_list elements initially
     var subCategoryList = catSubMenu.querySelector('.sub_category_list');
-    subCategoryList.style.overflow = 'hidden';
-    subCategoryList.style.transition = 'max-height 0.3s ease-out';
-    subCategoryList.style.maxHeight = '0px';
+    subCategoryList.style.overflow = 'hidden'; // overflow 속성 추가
+    subCategoryList.style.transition = 'height 0.3s ease-out'; // transition 속성 변경
+    subCategoryList.style.height = '0px'; // 초기 높이 0으로 설정
 
     catSubMenu.addEventListener('click', function() {
-      catSubMenu.classList.toggle('sub-open');
-      var maxHeight = catSubMenu.classList.contains('sub-open') ? subCategoryList.scrollHeight + "px" : "0px";
-      subCategoryList.style.maxHeight = maxHeight;
+      var isOpen = catSubMenu.classList.toggle('sub-open');
+      if (isOpen) {
+        subCategoryList.style.height = subCategoryList.scrollHeight + "px"; // 열릴 때 높이 설정
+      } else {
+        subCategoryList.style.height = '0px'; // 닫힐 때 높이 0으로 설정
+      }
     });
   });
   });
