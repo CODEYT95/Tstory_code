@@ -637,6 +637,13 @@ CUSTOM START
               <div class="division-line"></div>
             </s_sidebar_element>
 
+
+            <s_sidebar_element>
+              <nav id="sidemenu2" class="category">
+                [##_category_list_##]
+              </nav>
+            </s_sidebar_element>
+
             <s_sidebar_element><!-- 카테고리-->
               <div class="sidebar-element __sidebar-category">
                 <div id="category"><!-- 원본 코드 : x-data="category" -->
@@ -895,11 +902,6 @@ CUSTOM START
                   </nav>
                 </div>
               </div>
-            </s_sidebar_element>
-            <s_sidebar_element>
-              <nav id="sidemenu2" class="category">
-                [##_category_list_##]
-              </nav>
             </s_sidebar_element>
             <!-- 공지사항
             <s_sidebar_element>
@@ -1231,6 +1233,7 @@ Search Modal END
 <!-- 사이드바 스크립트 -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    //카테고리 글 갯수 (,) 제거
     const sidemenu2 = document.getElementById('sidemenu2');
     const cCntSpans = sidemenu2.querySelectorAll('.c_cnt:not(.link_tit .c_cnt)');
 
@@ -1238,13 +1241,13 @@ Search Modal END
       span.textContent = span.textContent.replace(/(\(|\))/g, '');
     }
 
-    //카테고리 class 추가 하기
+    //카테고리 메뉴 class 추가
     const markUpAnchors = sidemenu2.querySelectorAll('.category_list li .link_item');
     const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', 'IDE',
                       '%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'Error'];
 
     for (const anchor of markUpAnchors) {
-      const href = anchor.href.trim(); // 공백 제거
+      const href = anchor.href.trim();
 
       if (keywords.some(keyword => href.includes(keyword))) {
         const markUpLi = anchor.parentNode;
@@ -1283,6 +1286,23 @@ Search Modal END
         categoryList.appendChild(newLi);
       }
     }
+
+
+  var catSubMenus = document.querySelectorAll('#sidemenu2 .cat-sub-menu');
+
+  catSubMenus.forEach(function(catSubMenu) {
+    // Hide all .sub_category_list elements initially
+    var subCategoryList = catSubMenu.querySelector('.sub_category_list');
+    subCategoryList.style.overflow = 'hidden';
+    subCategoryList.style.transition = 'max-height 0.3s ease-out';
+    subCategoryList.style.maxHeight = '0px';
+
+    catSubMenu.addEventListener('click', function() {
+      catSubMenu.classList.toggle('sub-open');
+      var maxHeight = catSubMenu.classList.contains('sub-open') ? subCategoryList.scrollHeight + "px" : "0px";
+      subCategoryList.style.maxHeight = maxHeight;
+    });
+  });
   });
 </script>
 </body>
