@@ -4845,14 +4845,14 @@ animation: underline-both 1s ease;
 
 /* 사이드바 */
 /****** 카테고리 ******/
-#_sidebar #sidemenu2{
+#_sidebar #sidemenu{
     padding: 0 !important;
     margin-top: 1.5rem !important;
     box-sizing: border-box;
     max-width: 250px;
 }
 
-#_sidebar #sidemenu2 .tt_category .link_tit{
+#_sidebar #sidemenu .tt_category .link_tit{
     color: rgba(0, 0, 0, 0.7) !important;
     font-size: 0.86rem;
     font-weight: 600;
@@ -4878,23 +4878,23 @@ animation: underline-both 1s ease;
     }
 }
 
-#_sidebar #sidemenu2 ul li{
+#_sidebar #sidemenu ul li{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-#_sidebar #sidemenu2 ul li *:not(i, svg, path) {
+#_sidebar #sidemenu ul li *:not(i, svg, path) {
     color: rgba(0, 0, 0, 0.7);
 }
 
-#sidemenu2 .tt_category .category_list li{
+#sidemenu .tt_category .category_list li{
     margin-top: 0 !important;
     position: relative;
     padding-top: 0px;
 }
 
-#sidemenu2 .tt_category .category_list li.cat_doc{
+#sidemenu .tt_category .category_list li.cat_doc{
     display: flex;
     align-items: center;
     padding-left: 0.3rem;
@@ -4906,7 +4906,7 @@ animation: underline-both 1s ease;
     margin-bottom: 10px !important;
 }
 
-#sidemenu2 .tt_category .category_list .cat-sub-menu ul{
+#sidemenu .tt_category .category_list .cat-sub-menu ul{
     height: 0px;
     overflow: hidden;
     overflow: hidden;
@@ -4915,11 +4915,11 @@ animation: underline-both 1s ease;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#sidemenu2 .tt_category .category_list .cat-sub-menu.sub-open ul{
+#sidemenu .tt_category .category_list .cat-sub-menu.sub-open ul{
     height: auto;
 }
 
-#sidemenu2 .tt_category .category_list .c_cnt{
+#sidemenu .tt_category .category_list .c_cnt{
     color: #5684f6 !important;
     border: 1px #5684f6cc solid;
     border-radius: 8px;
