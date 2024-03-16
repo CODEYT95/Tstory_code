@@ -1293,7 +1293,7 @@ Search Modal END
     catSubMenus.forEach(function(catSubMenu) {
       var subCategoryList = catSubMenu.querySelector('.sub_category_list');
       subCategoryList.style.overflow = 'hidden';
-      subCategoryList.style.transition = 'height 0.3s ease-out';
+      subCategoryList.style.transition = 'height 0.2s ease-out';
       subCategoryList.style.height = '0px';
 
       catSubMenu.addEventListener('click', function() {
@@ -1305,6 +1305,21 @@ Search Modal END
         }
       });
     });
+
+    // 모든 cat-sub-menu를 가져옵니다.
+var catSubMenus = document.querySelectorAll('#sidemenu2 .category_list .cat-sub-menu');
+
+catSubMenus.forEach(function(catSubMenu) {
+  // 각 cat-sub-menu의 자식 a 태그를 가져옵니다.
+  var anchorTag = catSubMenu.querySelector('.link_item');
+
+  // 새로운 아이콘 요소를 생성합니다.
+  var iconElement = document.createElement('i');
+  iconElement.className = 'fas fa-chevron-down';
+
+  // 생성한 아이콘 요소를 a 태그의 마지막 자식으로 추가합니다.
+  anchorTag.appendChild(iconElement);
+});
   });
 </script>
 </body>
