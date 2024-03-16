@@ -639,7 +639,7 @@ CUSTOM START
 
 
             <s_sidebar_element>
-              <nav id="sidemenu2" class="category">
+              <nav id="sidemenu" class="category">
                 [##_category_list_##]
               </nav>
             </s_sidebar_element>
@@ -1234,15 +1234,15 @@ Search Modal END
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     //카테고리 글 갯수 (,) 제거
-    const sidemenu2 = document.getElementById('sidemenu2');
-    const cCntSpans = sidemenu2.querySelectorAll('.c_cnt:not(.link_tit .c_cnt)');
+    const sidemenu = document.getElementById('sidemenu');
+    const cCntSpans = sidemenu.querySelectorAll('.c_cnt:not(.link_tit .c_cnt)');
 
     for (const span of cCntSpans) {
       span.textContent = span.textContent.replace(/(\(|\))/g, '');
     }
 
     //카테고리 메뉴 class 추가
-    const markUpAnchors = sidemenu2.querySelectorAll('.category_list li .link_item');
+    const markUpAnchors = sidemenu.querySelectorAll('.category_list li .link_item');
     const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', 'IDE',
                       '%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'Error'];
 
@@ -1261,7 +1261,7 @@ Search Modal END
     }
 
     //카테고리 분류명 생성
-    const categoryList = sidemenu2.querySelector('.category_list');
+    const categoryList = sidemenu.querySelector('.category_list');
 
     createCatDocLi('Programming', 0);
     createCatDocLi('Framework', 5);
@@ -1288,7 +1288,7 @@ Search Modal END
     }
 
     //서브 카테고리 여닫기 애니메이션
-    var catSubMenus = document.querySelectorAll('#sidemenu2 .cat-sub-menu');
+    var catSubMenus = document.querySelectorAll('#sidemenu .cat-sub-menu');
 
     catSubMenus.forEach(function(catSubMenu) {
       var subCategoryList = catSubMenu.querySelector('.sub_category_list');
@@ -1307,7 +1307,7 @@ Search Modal END
     });
 
     // 모든 cat-sub-menu를 가져옵니다.
-var catSubMenus = document.querySelectorAll('#sidemenu2 .category_list .cat-sub-menu');
+var catSubMenus = document.querySelectorAll('#sidemenu .category_list .cat-sub-menu');
 
 catSubMenus.forEach(function(catSubMenu) {
   // 각 cat-sub-menu의 자식 a 태그를 가져옵니다.
