@@ -4438,7 +4438,7 @@ background-position: 0 50%;
 }
 }
 
-/*카테고리 목차*/
+/*카테고리 목차
 .category_list li.category_doc {
 display: flex;
 align-items: center;
@@ -4451,9 +4451,9 @@ margin-right: 15px !important;
 margin-top: 20px !important;
 margin-bottom: 10px !important;
 }
+*/
 
-
-/*카테고리 글 수 css*/
+/*카테고리 글 수 css
 #_sidebar #category .tt_category .link_item .c_cnt {
 border: 1px #56a1f6cc solid;
 border-radius: 8px;
@@ -4464,8 +4464,8 @@ bottom: 1px !important;
 position: relative;
 font-size: 10px !important;
 }
-
-/**/
+*/
+/*
 .devicon{
 -webkit-font-smoothing: antialiased;
 display: inline-block;
@@ -4486,8 +4486,8 @@ font-weight: 100;
 .fa-solid{
   font-family: 'Font Awesome 5 pro';
 }
-
-/*카테고리 서브 메뉴*/
+*/
+/*카테고리 서브 메뉴
 .cat-sub-menu{
 padding-top: 0px !important;
 }
@@ -4511,8 +4511,8 @@ pointer-events: initial !important;
   width: 90%;
   display: inline-block;
 }
-
-/*카테고리 아이콘 css*/
+*/
+/*카테고리 아이콘 css
 .category-icon{
 text-align: center;
 margin-right: 8px;
@@ -4546,8 +4546,8 @@ line-height: 3.4em !important;
 margin-right: 20px !important;
 color: #66aeff !important;
 }
-
-/*카테고리 hover 효과*/
+*/
+/*카테고리 hover 효과
 #_sidebar .link_item:hover i:not(.fa-chevron-right){
   animation: swing ease-in-out 0.4s 1 alternate;
 }
@@ -4574,7 +4574,6 @@ background-color: #89c0ff2b;
 }
 
 .link-both-underline:hover::after {
-/* -webkit-animation: underline-both 1s ease; */
 animation: underline-both 1s ease;
 }
 
@@ -4617,8 +4616,8 @@ animation: underline-both 1s ease;
       transform: rotate(0deg);
   }
 }
-
-/* 서브 카테고리 */
+*/
+/* 서브 카테고리
 #_sidebar #category .tt_category .sub_category_list li{
   padding: 9px 0px 9px 17px !important;
   border-radius: 0.5rem;
@@ -4660,7 +4659,7 @@ animation: underline-both 1s ease;
   font-size: 0.95rem !important;
   width: 15px;
 }
-
+*/
 /*태그 및 검색 모달*/
 .modal{
   position: fixed;
