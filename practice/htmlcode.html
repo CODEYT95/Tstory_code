@@ -1261,6 +1261,40 @@ Search Modal END
       }
     }
 
+const keywordsMap = new Map([
+    ['Language', 'far fa-globe'],
+    ['Library', 'far fa-books'],
+    ['Mark%20Up', 'far fa-code'],
+    ['Style%20Sheet', 'far fa-palette'],
+    ['Node.js', 'far devicon-nodejs-plain'],
+    ['Spring', 'far devicon-spring-plain'],
+    ['DBMS', 'fad fa-database'],
+    ['FILES', 'far fa-file-code'],
+    ['OS', 'fab fa-codepen'],
+    ['Server', 'fab fa-codepen'],
+    ['GIT', 'fab fa-codepen'],
+    ['AWS', 'fab fa-codepen'],
+    ['IDE', 'fab fa-codepen'],
+    ['Tool', 'fab fa-codepen'],
+    ['%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'fab fa-codepen'],
+    ['Error', 'fab fa-codepen'],
+    ['ETC', 'fab fa-codepen'],
+    ['%EC%9D%BC%EC%83%81', 'fab fa-codepen']
+]);
+
+for (const anchor of markUpAnchors) {
+    const href = anchor.href.trim();
+
+    keywordsMap.forEach((iconClass, keyword) => {
+        if (href.includes(keyword)) {
+            const iconElement = document.createElement('i');
+            iconElement.className = iconClass;
+            anchor.insertBefore(iconElement, anchor.firstChild);
+        }
+    });
+}
+
+
     //카테고리 분류명 생성
     const categoryList = sidemenu.querySelector('.category_list');
 
