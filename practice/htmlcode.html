@@ -1307,6 +1307,17 @@ Search Modal END
       });
     });
 
+    //카테고리 분류명 icon
+    const catDocItems = categoryList.querySelectorAll('.cat_doc');
+
+    catDocItems.forEach(function(catDocItem) {
+        var iconElement = document.createElement('i');
+        iconElement.className = 'far fa-ellipsis-h';
+
+        catDocItem.insertBefore(iconElement, catDocItem.firstChild);
+    });
+
+    //카테고리 화살표 icon
     catSubMenus.forEach(function(catSubMenu) {
       // 각 cat-sub-menu의 자식 a 태그를 가져옵니다.
       var anchorTag = catSubMenu.querySelector('.link_item');
