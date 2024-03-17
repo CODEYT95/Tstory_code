@@ -1288,7 +1288,7 @@ Search Modal END
     }
 
     //서브 카테고리 여닫기 애니메이션
-    var catSubMenus = document.querySelectorAll('#sidemenu .cat-sub-menu');
+    const catSubMenus = document.querySelectorAll('#sidemenu .category_list .cat-sub-menu');
 
     catSubMenus.forEach(function(catSubMenu) {
       var subCategoryList = catSubMenu.querySelector('.sub_category_list');
@@ -1305,9 +1305,6 @@ Search Modal END
         }
       });
     });
-
-    // 모든 cat-sub-menu를 가져옵니다.
-    var catSubMenus = document.querySelectorAll('#sidemenu .category_list .cat-sub-menu');
 
     catSubMenus.forEach(function(catSubMenu) {
       // 각 cat-sub-menu의 자식 a 태그를 가져옵니다.
