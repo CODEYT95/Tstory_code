@@ -4899,6 +4899,9 @@ animation: underline-both 1s ease;
     font-weight: normal;
 }
 
+#_sidebar #sidemenu ul li *{
+    color: rgba(0, 0, 0, 0.5);
+}
 
 #_sidebar #sidemenu ul li *:not(i, svg, path) {
     color: rgba(0, 0, 0, 0.7);
@@ -4966,7 +4969,8 @@ animation: underline-both 1s ease;
     padding: 10px 10px !important;
 }
 
-#sidemenu .tt_category .category_list li .link_item:hover {
+#sidemenu .tt_category .category_list li .link_item:hover,
+#sidemenu .tt_category .category_list li .link_item:hover i:not(.fa-chevron-right) {
     color: #5684f6 !important;
     background-color: rgb(222 232 255 / 40%);
 }
