@@ -4966,6 +4966,27 @@ animation: underline-both 1s ease;
     padding: 10px 10px !important;
 }
 
+#sidemenu .tt_category .category_list li .link-underline::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform: translate3d(-102%, 0, 0);
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: #789DF8 !important;
+}
+
+#sidemenu .tt_category .category_list li .link-underline:hover::after {
+    animation: link-underline 1s ease;
+}
+@keyframes link-underline{
+    100% {
+        transform: translate3d(101%, 0, 0);
+    }
+}
+
 #sidemenu .link_item i, #sidemenu .link_sub_item i {
     font-size: 1rem;
     text-align: center;
