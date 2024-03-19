@@ -4968,7 +4968,12 @@ animation: underline-both 1s ease;
 
 #sidemenu .tt_category .category_list li .link_item:hover {
     color: #5684f6 !important;
-    background-color: rgb(214 226 255 / 35%)
+    background-color: rgb(222 232 255 / 40%);
+}
+
+#sidemenu .tt_category .category_list li .link_item:hover i:not(.fa-chevron-right)::before{
+    display: inline-block !important;
+    animation: swing ease-in-out 0.5s 1 alternate;
 }
 
 #sidemenu .tt_category .category_list li .link-underline::after {
@@ -4989,6 +4994,37 @@ animation: underline-both 1s ease;
 @keyframes link-underline{
     100% {
         transform: translate3d(101%, 0, 0);
+    }
+}
+
+@keyframes swing{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(7deg);
+    }
+    30% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(-7deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(3deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }
 
