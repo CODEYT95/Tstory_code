@@ -4232,14 +4232,19 @@ overflow-x: hidden;
 
 /*페이지 스크롤 커스텀*/
 #hELLO::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
+
 
 #hELLO::-webkit-scrollbar-thumb {
   height: 30%;
-  background: #393939;
+  background: #C1C1C1;
 
   border-radius: 5px;
+}
+
+#hELLO::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
 }
 
 #hELLO::-webkit-scrollbar-track {
@@ -4248,102 +4253,101 @@ overflow-x: hidden;
 
 /*상단 Progress Bar*/
 .scroll-indicator{
-z-index: 10000;
-width: 100vw;
-top: 0px;
-position:fixed;
+    z-index: 10000;
+    width: 100vw;
+    top: 0px;
+    position:fixed;
 }
 
 .progress-bar{
-background: linear-gradient(to top, #008aff, #00ffe7);
-animation: animate23 5s linear infinite;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animate23 5s linear infinite;
 }
 @keyframes animate23{
-0%, 100% {
-  filter: hue-rotate(0deg);
-}
+   0%, 100% {
+        filter: hue-rotate(0deg);
+    }
 
-50% {
-  filter: hue-rotate(360deg);
-}
+    50% {
+        filter: hue-rotate(360deg);
+    }
 }
 /*Top bar*/
 .open-side{
-  width: 2.25rem;
-  height: 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
 }
 
 /*블로그 메뉴 카테고리에서 가리기*/
 #_sidebar #blogmenu h2{
-display: none;
+    display: none;
 }
 
 /*블로그 메뉴*/
 .select-menu-container{
-  border-radius: 25px;
-  height: 50px;
-  box-shadow: 0px 0px 11px -5px var(--h-color-blur);
-  display: flex;
-  justify-content: center;
-  /*overflow: hidden;*/
-  width: 220px;
-  margin: 0px 16.5px 25px 16.5px;
-  padding-left: 0 !important;
+    border-radius: 25px;
+    height: 50px;
+    box-shadow: 0px 0px 11px -5px var(--h-color-blur);
+    display: flex;
+    justify-content: center;
+    /*overflow: hidden;*/
+    width: 220px;
+    margin: 0px 16.5px 25px 16.5px;
+    padding-left: 0 !important;
 }
 
 .select-menu-container ul{
-  width: 80%;
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-  align-self: center;
-  color: #333;
-  height: 70.797px;
+    width: 80%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-self: center;
+    color: #333;
+    height: 70.797px;
 }
 
 .select-menu-container ul li{
-  text-align: center;
-  transition: all 0.3s;
-  margin-top: 20px;
-  width: 33.3%;
+    text-align: center;
+    transition: all 0.3s;
+    margin-top: 20px;
+    width: 33.3%;
 }
 
 .select-menu-container ul li i{
-  font-size: 17px;
-  margin-top: 5px;
+    font-size: 17px;
+    margin-top: 5px;
 }
 
 .select-menu-container ul li p{
-  font-weight: 200;
-  font-size: 0.75rem;
-  /*transform: translateY(40px);*/
-  transition: 0.3s;
-  color: transparent;
+    font-weight: 200;
+    font-size: 0.75rem;
+    /*transform: translateY(40px);*/
+    transition: 0.3s;
+    color: transparent;
 }
 .select-menu-container ul li:hover p{
-  transform: translateY(-3px) !important;
-  color: var(--h-color-blurrier);
-  font-weight: bold;
+    transform: translateY(-3px) !important;
+    color: var(--h-color-blurrier);
+    font-weight: bold;
 }
 
 /*블로그 메뉴 버튼 hover*/
-.select-menu-container ul li:hover
-{
-  transform: translateY(-6px) scale(1.15) !important;
-  cursor: pointer !important;
+.select-menu-container ul li:hover{
+    transform: translateY(-6px) scale(1.15) !important;
+    cursor: pointer !important;
 }
 
 /*카테고리 구분선*/
 .division-line{
-padding: 0 !important;
-border-bottom: 0 !important;
-border-top: 1px groove rgb(197 197 197 / 50%);
+    padding: 0 !important;
+    border-bottom: 0 !important;
+    border-top: 1px groove rgb(197 197 197 / 50%);
 }
 
 /**/
 .__sidebar-category{
-padding-left: 0 !important;
-padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 /*카테고리 목차
@@ -4951,10 +4955,12 @@ animation: underline-both 1s ease;
 }
 
 #sidemenu .tt_category .category_list li .link_item{
+    position: relative;
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-decoration: none;
     border-radius: 0.5rem;
     margin: 1px 9px !important;
     padding: 10px 10px !important;
