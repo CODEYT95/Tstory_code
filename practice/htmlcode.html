@@ -1261,6 +1261,14 @@ Search Modal END
       }
     }
 
+    if(markUpAnchors){
+      var linkItems = markUpAnchors.querySelectAll('.link_item');
+
+      linkItems.forEach(function(linkItem) {
+        linkItem.classList.add('link-underline');
+      });
+    }
+
     //카테고리 분류 icon
     const keywordsMap = new Map([
         ['Language', 'far fa-globe'],
