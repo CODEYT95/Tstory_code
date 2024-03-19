@@ -4966,6 +4966,11 @@ animation: underline-both 1s ease;
     padding: 10px 10px !important;
 }
 
+#sidemenu .tt_category .category_list li .link_item:hover {
+    color: #f65660 !important;
+    background-color: rgb(255 231 226 / 35%);
+}
+
 #sidemenu .tt_category .category_list li .link-underline::after {
     position: absolute;
     bottom: 0;
