@@ -4967,8 +4967,8 @@ animation: underline-both 1s ease;
 }
 
 #sidemenu .tt_category .category_list li .link_item:hover {
-    color: #f65660 !important;
-    background-color: rgb(255 231 226 / 35%);
+    color: #5684f6 !important;
+    background-color: rgb(214 226 255 / 35%)
 }
 
 #sidemenu .tt_category .category_list li .link-underline::after {
@@ -4980,7 +4980,7 @@ animation: underline-both 1s ease;
     content: '';
     display: block;
     height: 1px;
-    background-color: #789DF8 !important;
+    background-color: #5684f6 !important;
 }
 
 #sidemenu .tt_category .category_list li .link-underline:hover::after {
