@@ -4220,6 +4220,7 @@ color: rgb(244 244 246 / var(--tw-text-opacity))
 --tw-bg-opacity: 1;
 background-color: rgb(53 54 56 / var(--tw-bg-opacity))
 }
+
 /*body*/
 #tt-body-index{
 --tw-text-opacity: 1;
@@ -4231,18 +4232,18 @@ overflow-x: hidden;
 
 /*페이지 스크롤 커스텀*/
 #hELLO::-webkit-scrollbar {
-  width: 13px;  /* 스크롤바의 너비 */
+  width: 10px;
 }
 
 #hELLO::-webkit-scrollbar-thumb {
-  height: 30%; /* 스크롤바의 길이 */
-  background: #76B2F6; /* 스크롤바의 색상 */
+  height: 30%;
+  background: #393939;
 
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 #hELLO::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0);  /*스크롤바 뒷 배경 색상*/
+  background: rgba(255, 255, 255, 0);
 }
 
 /*상단 Progress Bar*/
@@ -4980,12 +4981,16 @@ animation: underline-both 1s ease;
 
 #sidemenu .tt_category .category_list li .link_item .fa-chevron-right {
     transition-duration: 0.2s;
-    font-size: 0.7rem !important;
+    font-size: 0.55rem !important;
     font-weight: 400 !important;
     position: absolute;
     right: 0;
-    line-height: 2em;
+    line-height: 3em;
     margin-top: 2px;
     margin-right: 20px;
-    color: var(--bs-purple) !important;
+    color: #5684f6 !important;
+}
+
+#sidemenu .tt_category .category_list li.sub-open .link_item .fa-chevron-right {
+    transform: rotate(0.25turn);
 }
