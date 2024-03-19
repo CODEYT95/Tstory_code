@@ -1247,28 +1247,21 @@ Search Modal END
     const keywords = ['Language', 'Library', 'Mark%20Up', 'Style%20Sheet', 'DBMS', 'FILES', 'OS', 'Server', 'IDE',
                       '%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'Error'];
 
-    for (const anchor of markUpAnchors) {
+    markUpAnchors.forEach(anchor => {
       const href = anchor.href.trim();
 
       if (keywords.some(keyword => href.includes(keyword))) {
         const markUpLi = anchor.parentNode;
         markUpLi.classList.add('cat-sub-menu');
 
-        //카테고리 클릭 시 이동 방지
-        anchor.addEventListener('click', function (event) {
+        // 카테고리 클릭 시 이동 방지
+        anchor.addEventListener('click', event => {
           event.preventDefault();
         });
       }
-    }
-
-    if (markUpAnchors) {
-      // categoryList 내부의 link_item 클래스명을 가진 모든 <a> 태그를 찾습니다.
-      var linkItems = markUpAnchors.querySelectorAll('.link_item');
-      // 찾은 모든 <a> 태그에 link-underline 클래스명을 추가합니다.
-      linkItems.forEach(function(linkItem) {
-        linkItem.classList.add('link-underline');
-      });
-    }
+      //link_item에 class 추가
+      anchor.classList.add('link-underline');
+    });
 
     //카테고리 분류 icon
     const keywordsMap = new Map([
