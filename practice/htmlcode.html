@@ -1261,9 +1261,10 @@ Search Modal END
       }
     }
 
-    if(markUpAnchors){
-      var linkItems = markUpAnchors.querySelectAll('.link_item');
-
+    if (markUpAnchors) {
+      // categoryList 내부의 link_item 클래스명을 가진 모든 <a> 태그를 찾습니다.
+      var linkItems = markUpAnchors.querySelectorAll('.link_item');
+      // 찾은 모든 <a> 태그에 link-underline 클래스명을 추가합니다.
       linkItems.forEach(function(linkItem) {
         linkItem.classList.add('link-underline');
       });
