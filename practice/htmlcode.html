@@ -1365,6 +1365,41 @@ Search Modal END
       // 생성한 아이콘 요소를 a 태그의 마지막 자식으로 추가합니다.
       anchorTag.appendChild(iconElement);
     });
+
+    const subAnchors = sidemenu.querySelectorAll('.sub_category_list .link_sub_item');
+
+    // 카테고리 icon 추가
+    const subKeywordsMap = new Map([
+      ['C', 'fal devicon-c-plain'],
+      ['JAVA', 'fa devicon-java-plain'],
+      ['JavaScript', 'fal devicon-javascript-plain'],
+      ['TypeScript', 'fal devicon-typescript-plain'],
+      ['Python', 'fal devicon-python-plain'],
+      ['PHP', 'fab fa-php'],
+      ['DBMS', 'fad fa-database'],
+      ['JQuery', 'fal devicon-jquery-plain'],
+      ['OS', 'fa'],
+      ['Server', 'far fa-server'],
+      ['GIT', 'fab fa-git-alt'],
+      ['AWS', 'fab fa-aws'],
+      ['IDE', 'far fa-window'],
+      ['Tool', 'far fa-tools'],
+      ['%EC%BD%94%EB%94%A9%20%ED%85%8C%EC%8A%A4%ED%8A%B8', 'far fa-keyboard'],
+      ['Error', 'far fa-exclamation-triangle'],
+      ['ETC', 'far fa-ellipsis-h-alt'],
+      ['%EC%9D%BC%EC%83%81', 'far fa-camera-retro']
+    ]);
+
+    subAnchors.forEach(anchor => {
+      const href = anchor.href.trim();
+      subKeywordsMap.forEach((iconClass, keyword) => {
+        if (href.includes(keyword)) {
+          const iconElement = document.createElement('i');
+          iconElement.className = iconClass;
+          anchor.insertBefore(iconElement, anchor.firstChild);
+        }
+      });
+    });
   });
 </script>
 </body>
