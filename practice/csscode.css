@@ -4338,16 +4338,24 @@ overflow-x: hidden;
 }
 
 /*카테고리 구분선*/
-.division-line{
+.top-dividing-line{
     padding: 0 !important;
     border-bottom: 0 !important;
     border-top: 1px groove rgb(197 197 197 / 50%);
 }
 
-/**/
-.__sidebar-category{
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+.under-dividing-line{
+    height: 1px;
+    margin-top: 2.5rem !important;
+    opacity: .25 !important;
+}
+
+#_sidebar .copyright{
+    padding: 15px 0;
+    padding-left: 20px;
+    box-sizing: border-box;
+    max-width: 250px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 /*카테고리 목차
@@ -4929,19 +4937,6 @@ animation: underline-both 1s ease;
     margin-right: 0.6rem;
 }
 
-#sidemenu .tt_category .category_list .cat-sub-menu ul{
-    height: 0px;
-    overflow: hidden;
-    overflow: hidden;
-    transition-property: height;
-    transition-duration: 0.25s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#sidemenu .tt_category .category_list .cat-sub-menu.sub-open ul{
-    height: auto;
-}
-
 #sidemenu .tt_category .category_list .c_cnt{
     color: #5684f6 !important;
     border: 1px #5684f6cc solid;
@@ -5065,4 +5060,18 @@ animation: underline-both 1s ease;
 
 #sidemenu .tt_category .category_list li.sub-open .link_item .fa-chevron-right {
     transform: rotate(0.25turn);
+}
+
+#_sidebar .sub_category_list {
+    border-radius: 0.5rem;
+    margin: 0px 9px !important;
+}
+
+#_sidebar .category .tt_category .category_list li .sub_category_list li::before{
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 200;
+    margin-right: 12px;
+    font-size: 0.72rem;
+    font-family: 'Font Awesome 5 Pro';
+    content: '\f105';
 }
