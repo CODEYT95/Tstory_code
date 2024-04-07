@@ -760,7 +760,7 @@ CUSTOM END
     <!-- 태그 클라우드 -->
     <div class="tag-cloud-container">
       <div class="tc-title">
-        <i class="fad fa-user-tag" style="--fa-primary-color:rgb(74 134 183); --fa-secondary-color:rgb(134 134 134);padding-right: 10px;"></i>
+        <i class="fad fa-cloud-download" style="--fa-primary-color: #4c6590; --fa-secondary-color: #259af4; padding-right: 10px;"></i>
         <a href="" class="link-hover-underline inline-block position-relative">태그 클라우드로 이동</a>
       </div>
       <div class="tag-cloud-list">
@@ -807,127 +807,27 @@ CUSTOM END
   });
 </script>
 
-<!-- 카테고리명 클릭시 이동 방지 -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.toggleDropdown').forEach(function (element) {
-          element.addEventListener('click', function (event) {
-
-              var parentLi = element.closest('.cat-sub-menu');
-
-              if (parentLi) {
-                  // sm-open 클래스를 토글하여 추가 또는 제거
-                  parentLi.classList.toggle('sm-open');
-              }
-          });
-      });
-  });
-</script>
-<!-- 태그 모달창
-<script>
-  const menuTag = document.querySelector('.t_menu_tag');
-  const modalTagBox = document.querySelector('#modal-tag-box');
-  const body = document.querySelector('#tt-body-index');
-  const tagModalBg = document.querySelector('.modal-bg');
-
-
-  menuTag.addEventListener('click', () => {
-    // 이미 "show" 클래스가 있다면 (모달 검색창이 열려 있다면)
-    if (modalTagBox.classList.contains('show')) {
-      body.style.overflow = '';
-
-
-      // "show" 클래스를 제거하여 모달 검색창 닫힘
-      modalTagBox.classList.remove('show');
-
-      // body 태그에서 "modal-backdrop fade show" 클래스 제거
-      document.body.classList.remove('modal-bg','fade');
-
-      // body 태그에서 "modal-backdrop fade show" div 태그 제거
-      const modalBackdrop = document.querySelector('.modal-bg');
-      if (modalBackdrop) {
-        modalBackdrop.parentNode.removeChild(modalBackdrop);
-      }
-
-      // modalTagBox display 속성을 none으로 변경
-      modalTagBox.style.display = 'none';
-    } else {
-      body.style.overflow = 'hidden';
-      sidebar.classList.remove('open');
-
-      // "fade" 클래스를 "show"로 변경하여 모달 검색창 나타나게 함
-      modalTagBox.classList.add('show');
-
-      // body 태그에 "modal-backdrop fade show" div 태그 추가
-      const modalBackdrop = document.createElement('div');
-      modalBackdrop.classList.add('modal-bg','fade');
-      document.body.appendChild(modalBackdrop);
-
-      // modalTagBox display 속성을 block으로 변경
-      modalTagBox.style.display = 'block';
-    }
-  });
-  modalTagBox.addEventListener('click', (event) => {
-  // "search_box" 영역 내부 클릭 시 이벤트 전파 중단
-  if (event.target.closest('#search_box')) {
-    return;
-  }
-
-  if (modalTagBox.classList.contains('show')) {
-      body.style.overflow = '';
-
-
-      // "show" 클래스를 제거하여 모달 검색창 닫힘
-      modalTagBox.classList.remove('show');
-
-      // body 태그에서 "modal-backdrop fade show" 클래스 제거
-      document.body.classList.remove('modal-bg','fade');
-
-      // body 태그에서 "modal-backdrop fade show" div 태그 제거
-      const modalBackdrop = document.querySelector('.modal-bg');
-      if (modalBackdrop) {
-        modalBackdrop.parentNode.removeChild(modalBackdrop);
-      }
-
-      // modalTagBox display 속성을 none으로 변경
-      modalTagBox.style.display = 'none';
-    } else {
-      body.style.overflow = 'hidden';
-      sidebar.classList.remove('open');
-
-      // "fade" 클래스를 "show"로 변경하여 모달 검색창 나타나게 함
-      modalTagBox.classList.add('show');
-
-      // body 태그에 "modal-backdrop fade show" div 태그 추가
-      const modalBackdrop = document.createElement('div');
-      modalBackdrop.classList.add('modal-bg','fade');
-      document.body.appendChild(modalBackdrop);
-
-      // modalTagBox display 속성을 block으로 변경
-      modalTagBox.style.display = 'block';
-    }
-  });
-</script>
- -->
-
+<!-- 검색 모달창 -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-  const menuTag = document.querySelector('.t_menu_tag');
-  const searchPop = document.getElementById('search-pop');
-  const closeBtn = searchPop.querySelector('.closeBtn');
-  // 't_menu_tag' 클릭 이벤트
-  menuTag.addEventListener('click', () => {
-    searchPop.classList.add('reveal');
-  });
+    var currentUrl = window.location.href.replace('https://codeb.tistory.com', '');;
+console.log(currentUrl);
+    const menuTag = document.querySelector('.t_menu_tag');
+    const searchPop = document.getElementById('search-pop');
+    const closeBtn = searchPop.querySelector('.closeBtn');
+    // 't_menu_tag' 클릭 이벤트
+    menuTag.addEventListener('click', () => {
+      searchPop.classList.add('reveal');
+    });
 
-  // 'search-pop' 또는 'closeBtn' 클릭 이벤트
-  searchPop.addEventListener('click', (e) => {
-    // 클릭된 요소가 'closeBtn'이거나 'search-pop' 자체인 경우
-    if (e.target === closeBtn || e.target === searchPop) {
-      // reveal 클래스 제거
-      searchPop.classList.remove('reveal');
-    }
-  });
+    // 'search-pop' 또는 'closeBtn' 클릭 이벤트
+    searchPop.addEventListener('click', (e) => {
+      // 클릭된 요소가 'closeBtn'이거나 'search-pop' 자체인 경우
+      if (e.target === closeBtn || e.target === searchPop) {
+        // reveal 클래스 제거
+        searchPop.classList.remove('reveal');
+      }
+    });
   });
 </script>
 
@@ -978,10 +878,12 @@ CUSTOM END
     categoryListItems.forEach(categoryListItem => {
       if (categoryListItem.querySelector('ul')) {
         categoryListItem.classList.add('cat-sub-menu');
-        categoryListItem.addEventListener('click', event => {
-          event.preventDefault();
-        });
       }
+    });
+    document.querySelectorAll('.cat-sub-menu .link_item').forEach(function (element) {
+    element.addEventListener('click', function (event) {
+        event.preventDefault();
+    });
     });
 
     // 카테고리 icon 추가
@@ -1023,19 +925,34 @@ CUSTOM END
     const catSubMenus = document.querySelectorAll('#sidemenu .category_list .cat-sub-menu');
 
     catSubMenus.forEach(function(catSubMenu) {
-      var subCategoryList = catSubMenu.querySelector('.sub_category_list');
-      subCategoryList.style.overflow = 'hidden';
-      subCategoryList.style.transition = 'height 0.25s ease-out';
-      subCategoryList.style.height = '0px';
+        var subCategoryList = catSubMenu.querySelector('.sub_category_list');
+        subCategoryList.style.overflow = 'hidden';
+        subCategoryList.style.transition = 'height 0.25s ease-out';
+        subCategoryList.style.height = '0px';
 
-      catSubMenu.addEventListener('click', function() {
-        var isOpen = catSubMenu.classList.toggle('sub-open');
-        if (isOpen) {
-          subCategoryList.style.height = subCategoryList.scrollHeight + "px";
-        } else {
-          subCategoryList.style.height = '0px';
-        }
-      });
+        // .cat-sub-menu의 click 이벤트 리스너
+        catSubMenu.addEventListener('click', function(event) {
+            // 'sub-open' 클래스가 있는지 확인
+            var isOpen = catSubMenu.classList.contains('sub-open');
+            // 'sub-open' 클래스가 있으면 제거하고, 없으면 추가
+            if (isOpen) {
+                catSubMenu.classList.remove('sub-open');
+                subCategoryList.style.height = '0px';
+            } else {
+                catSubMenu.classList.add('sub-open');
+                subCategoryList.style.height = subCategoryList.scrollHeight + "px";
+            }
+            // 이벤트 전파 중지
+            event.stopPropagation();
+        });
+
+        // .link_sub_item의 click 이벤트 리스너
+        catSubMenu.querySelectorAll('.link_sub_item').forEach(function(linkItem) {
+            linkItem.addEventListener('click', function(event) {
+                // 이벤트 전파 중지
+                event.stopPropagation();
+            });
+        });
     });
 
     //카테고리 분류명 icon
