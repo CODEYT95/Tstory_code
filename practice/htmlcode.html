@@ -316,7 +316,7 @@ CUSTOM START
               <s_rp>
                 <div x-show="shown">
                   <s_rp_input_form>
-                    <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
+                    <div class="">
                       <div class="box-border flex flex-col justify-between h-full gap-y-3"><label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" x-data="{ disabled: /^(?!.*tistory\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }" :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."' :disabled="disabled" name="[##_rp_input_comment_##]"></textarea>
                         <div class="flex items-end justify-end">
                           <s_rp_member>
@@ -725,63 +725,63 @@ CUSTOM END
 -->
 
 <div id="search-pop" class="closeBtn_C">
-  <div class="sp-content">
-    <button class="closeBtn"><span></span></button>
-    <div class="sp-con-search">
-      <form class="mb-0" method="GET" action="/">
-        <div class="box_searchbar">
-          <div class="search">
-            <div class="sb-flex flex align-center">
-              <!-- 검색창 -->
-              <input class="sp-placeholder" id="sp-placeholder" name="search" value="" placeholder="찾아보고자 하는 포스팅을 검색 해보세요" type="text" autocomplete="off" onkeypress="if (event.keyCode == 13) { try {
+           <div class="sp-content">
+           <button class="closeBtn"><span></span></button>
+             <div class="sp-con-search">
+               <form class="mb-0" method="GET" action="/">
+                 <div class="box_searchbar">
+                   <div class="search">
+                     <div class="sb-flex flex align-center">
+                       <!-- 검색창 -->
+                         <input class="sp-placeholder" id="sp-placeholder" name="search" value="" placeholder="찾아보고자 하는 포스팅을 검색 해보세요." type="text" autocomplete="off" onkeypress="if (event.keyCode == 13) { try {
                               window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
                               document.getElementsByName('search')[0].value = '';
                               return false;
                           } catch (e) {} }" data-hotkey="Command+s,/ ">
-              <div class="search_btn">
-                <button name="reset" type="reset" value="Reset" class="clear_btn" data-tippy-placement="left">
-                  <i class="icon_search_clear"></i>
-                </button>
-                <div class="separator" style="display:none;"></div>
-                <button class="sb-i-btn" onclick="try {
+                         <div class="search_btn">
+                           <button name="reset" type="reset" value="Reset" class="clear_btn" data-tippy-placement="left">
+                             <i class="icon_search_clear"></i>
+                           </button>
+                           <div class="separator" style="display:none;"></div>
+                           <button class="sb-i-btn" onclick="try {
                                 window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
                                 document.getElementsByName('search')[0].value = '';
                                 return false;
                             } catch (e) {};filter()" type="button" data-tippy-placement="right">
-                  <i></i>
-                </button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- 태그 클라우드 -->
-    <div class="tag-cloud-container">
-      <div class="tc-title">
-        <i class="fad fa-cloud-download" style="--fa-primary-color: #4c6590; --fa-secondary-color: #259af4; padding-right: 10px;"></i>
-        <a href="" class="link-hover-underline inline-block position-relative">태그 클라우드로 이동</a>
-      </div>
-      <div class="tag-cloud-list">
-        <div class="side-tag-cloud">
-          <s_random_tags>
+                             <i></i>
+                           </button>
+                         </div>
+                       
+                     </div>
+                   </div>
+                 </div>
+               </form>
+             </div>
+             <!-- 태그 클라우드 -->
+             <div class="tag-cloud-container">
+               <div class="tc-title">
+                 <i class="fad fa-cloud-download" style="--fa-primary-color: #4c6590; --fa-secondary-color: #259af4; padding-right: 10px;"></i>
+                 <a href="" class="link-hover-underline inline-block position-relative">태그 클라우드로 이동</a>
+               </div>
+               <div class="tag-cloud-list">
+                <div class="side-tag-cloud">
+                  <s_random_tags>
                     <span>
                       <a href="[##_tag_link_##]" class="[##_tag_class_##] search-box-tags"><i class="fad fa-tags" style="--fa-primary-color: #1470c2; --fa-secondary-color: #1470c2;"></i> [##_tag_name_##]</a>
                     </span>
-          </s_random_tags>
-        </div>
-        <!--태그 리스트 여기-->
-      </div>
-    </div>
-    <div class="sp-info-meta flex align-center">
-
-      <span class="sp-nick">궁금한 내용을 검색해보세요!</span>
-    </div>
-
-
-  </div>
-</div>
+                  </s_random_tags>
+                </div>
+                 <!--태그 리스트 여기-->
+               </div>
+             </div>
+             <div class="sp-info-meta flex align-center">
+               
+               <span class="sp-nick">궁금한 내용을 검색해보세요 :)</span>
+             </div>
+             
+             
+           </div>
+         </div>
 
 <!-- 사이드바 on/off -->
 <script>
@@ -942,8 +942,6 @@ console.log(currentUrl);
                 catSubMenu.classList.add('sub-open');
                 subCategoryList.style.height = subCategoryList.scrollHeight + "px";
             }
-            // 이벤트 전파 중지
-            event.stopPropagation();
         });
 
         // .link_sub_item의 click 이벤트 리스너
