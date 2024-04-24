@@ -262,16 +262,50 @@ CUSTOM START
             <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
               <article class="relative" id="content" x-ref="content">
                 <div x-data="content">
-                  <s_if_var_toc><template x-if="$data.headings.length > 0">
-                    <!-- 게시글 목차 -->
-                    <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
-                      <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
-                        <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
-                          <div class="text-overflow-hidden" x-text="heading.text"></div><i class="fas fa-arrow-right scale-75"></i>
-                        </a></li>
-                      </template></ol>
-                    </div>
-                  </template></s_if_var_toc>
+                  <s_if_var_toc>
+                    <template x-if="$data.headings.length > 0">
+                      <nav class="book-toc dark:bg-h-700 dark:text-h-200" id="TOC">
+                        <h4 class="toc-title dark:border-h-200">
+                          <i class="fal fa-list-ol"></i>
+                          <span class="text-base">목차</span>
+                        </h4>
+                        <ol class="flex flex-col gap-y-3">
+                          <template x-for="heading in $data.headings" :key="heading.id">
+                            <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'>
+                              <a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
+                                <div class="text-overflow-hidden" x-text="heading.text">
+                                </div>
+                                <i class="fas fa-arrow-right scale-75"></i>
+                              </a>
+                            </li>
+                          </template>
+                        </ol>
+                      </nav>
+                    </template>
+                  </s_if_var_toc>
+                  <!-- 게시글 목차
+                  <s_if_var_toc>
+                    <template x-if="$data.headings.length > 0">
+                    <nav class="book-toc dark:bg-h-700 dark:text-h-200" id="TOC">
+                      <h4 class="toc-title dark:border-h-200">
+                        <i class="fal fa-list-ol"></i>
+                        <span class="text-base">목차</span>
+                      </h4>
+                      <ol class="flex flex-col gap-y-3">
+                        <template x-for="heading in $data.headings" :key="heading.id">
+                          <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'>
+                            <a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
+                            <div class="text-overflow-hidden" x-text="heading.text">
+                            </div>
+                              <i class="fas fa-arrow-right scale-75"></i>
+                            </a>
+                          </li>
+                        </template>
+                      </ol>
+                    </nav>
+                  </template>
+                  </s_if_var_toc>
+                   -->
                   <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
                     <div>[##_article_rep_desc_##]</div>
                   </template></div>
